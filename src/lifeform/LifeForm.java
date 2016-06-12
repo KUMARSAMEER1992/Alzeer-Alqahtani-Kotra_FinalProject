@@ -139,7 +139,6 @@ public abstract class LifeForm implements MapItem
 		Damage damage= new Damage(getItemType(),getAttachStrength());
 		if (getCurrentLifePoints() > 0)
 		{
-			
 			lifeForm2.takeHit(damage);
 		}
 	}

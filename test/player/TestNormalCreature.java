@@ -14,7 +14,7 @@ public class TestNormalCreature
 
 	@Test
 	public void test() 
-	{
+	{ 
 		LifeForm entity = new MockLifeForm("Bob", 40, 10);
 		Creature normal= new NormalCreature("p",30);
 		Damage damage= new Damage("NormalCreature",10);
