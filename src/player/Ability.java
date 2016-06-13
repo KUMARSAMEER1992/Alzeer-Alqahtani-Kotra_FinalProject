@@ -1,14 +1,32 @@
 package player;
 
+
+
 public abstract class Ability extends Creature
 
 {
-	public Ability(String name, int points) 
-	{
+	protected Creature creature;
+
+	public Ability(String name, int points) {
 		super(name, points);
+		// TODO Auto-generated constructor stub
+	}
+
+	public Ability(Creature creature)
+	{
+		this.creature=creature;
+	}
+	public Ability()
+	{
 		
 	}
 
-protected Creature creature;
+	
+
+
+
+
+
+
 
 }

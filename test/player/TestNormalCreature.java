@@ -11,16 +11,16 @@ import environment.MapItem;
 
 public class TestNormalCreature 
 {
-
+	
 	@Test
-	public void test() 
-	{ 
-		LifeForm entity = new MockLifeForm("Bob", 40, 10);
-		Creature normal= new NormalCreature("p",30);
-		Damage damage= new Damage("NormalCreature",10);
-		assertTrue(normal instanceof MapItem);
-		entity.attack(normal);
-		assertEquals(20,normal.getCurrentLifePoints());
+	public void testAttack() 
+	{
+		Creature normal1= new NormalCreature("p",30);
+		Creature normal2= new NormalCreature("p",50);
+		assertTrue(normal1 instanceof MapItem);
+		normal1.attack(normal2);
+		assertEquals(45,normal2.getCurrentLifePoints());
+		
 		
 	}
 

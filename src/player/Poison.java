@@ -5,19 +5,13 @@ import lifeform.Damage;
 public class Poison extends Ability
 {
 
-	public Poison(String name, int points) 
+	
+	public Poison(Creature creature) 
 	{
-		super(name, points);
-		baseDamage=2;
-	}
+		super(creature);		
 
-	@Override
-	public Damage calclateDamage() 
-	{
-		Damage damage=new Damage("Poison",this.baseDamage);
-		return damage;
 	}
-
+	
 	
 
 	@Override
@@ -29,8 +23,14 @@ public class Poison extends Ability
 	@Override
 	public void takeHit(Damage damage) 
 	{
-		if(this.currentLifePoints>0)
-			this.currentLifePoints=this.currentLifePoints-damage.getDamagePoints();			
+		creature.takeHit(damage);
+	}
+	@Override
+	public Damage calculateDamage() 
+	{
+		Damage damage=new Damage("POISON",creature.baseDamage);
+	
+		return damage;
 	}
 
 	

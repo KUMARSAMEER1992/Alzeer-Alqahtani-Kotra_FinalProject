@@ -12,28 +12,32 @@ public class NormalCreature extends Creature
 	public NormalCreature(String name, int points) 
 	{
 		super(name, points);
-		baseDamage=1;
+		baseDamage=5;
 	}	
 	
-	@Override
-	public Damage calclateDamage()
-	{
-		Damage damage=new Damage("NormalCreature",this.baseDamage);
-		return damage;
-	}
 	
 	@Override
 	public void takeHit(Damage damage) 
 	{
-		
 		this.damage=damage;
 		if(this.currentLifePoints>0)
-			this.currentLifePoints=this.currentLifePoints-damage.getDamagePoints();
-		
+		  {
+			this.currentLifePoints=(this.currentLifePoints-damage.getDamagePoints());
+		  }
+		if(this.currentLifePoints<0)
+		{
+			this.currentLifePoints=0;
+		}
 	}	
 	public char getChar()
 	{
 		return 'C';
+	}
+
+	@Override
+	public Damage calculateDamage() {
+		Damage damage=new Damage("NORMALCREATURE",this.baseDamage);
+		return damage;
 	}
 
 	

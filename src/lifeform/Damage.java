@@ -14,6 +14,7 @@ public class Damage
 		this.damagePoints = damagePoints;
 	}
 
+
 	public String getDamageType()
 	{
 		return damageType;
@@ -24,6 +25,7 @@ public class Damage
 		this.damageType = damageType;
 	}
 
+
 	public int getDamagePoints()
 	{
 		return damagePoints;
@@ -33,5 +35,6 @@ public class Damage
 	{
 		this.damagePoints = damagePoints;
 	}
+
 
 }

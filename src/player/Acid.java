@@ -5,31 +5,35 @@ import lifeform.Damage;
 public class Acid extends Ability
 {
 
-	public Acid(String name, int points) 
+	public Acid(Creature creature) 
 	{
-		super(name, points);
-		baseDamage=3;
+		super(creature);		
+		this.currentLifePoints=creature.getCurrentLifePoints();	
 	}
 
-	@Override
-	public Damage calclateDamage() 
-	{
-		Damage damage=new Damage("Acid",this.baseDamage);
-		return damage;
-	}
-
+	
 	@Override
 	public char getChar() 
 	{
 		return 'A';
 	}
 
+
 	@Override
 	public void takeHit(Damage damage) 
 	{
-		if(this.currentLifePoints>0)
-			this.currentLifePoints=this.currentLifePoints-damage.getDamagePoints();	
+		creature.takeHit(damage);
 		
 	}
+
+
+	@Override
+	public Damage calculateDamage() 
+	{
+		Damage damage=new Damage("ACID",creature.baseDamage);
+		return damage;
+	}
+
+	
 
 }

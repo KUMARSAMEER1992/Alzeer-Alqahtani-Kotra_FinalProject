@@ -4,19 +4,22 @@ import lifeform.Damage;
 import lifeform.LifeForm;
 
 public abstract class Creature extends LifeForm
-{
-	public int baseDamage;
-	
+{	
+	public Creature()
+	{
+	}
+
 	public Creature(String name, int points) 
 	{
 		super(name, points);
-	
 	}
+	public int baseDamage;
+	
+	
 
-public abstract  Damage calclateDamage();
 public abstract char getChar();
 public String getItemType()
 {
-	return "creature";
+	return "Creature";
 }
 }

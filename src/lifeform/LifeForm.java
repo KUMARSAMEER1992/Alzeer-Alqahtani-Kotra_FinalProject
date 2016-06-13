@@ -64,7 +64,10 @@ public abstract class LifeForm implements MapItem
 		this(name, points);
 		this.attachStrength = (strength >= 0) ? strength : 0;
 	}
-
+	public LifeForm()
+	{
+		
+	}
 	/**
 	 * Returns the name of the LifeForm.
 	 * @return the name of the life form.
@@ -139,6 +142,7 @@ public abstract class LifeForm implements MapItem
 	public void attack(LifeForm lifeForm2)
 	{
 		Damage damage = this.calculateDamage();
+		
 		if (getCurrentLifePoints() > 0)
 		{
 			lifeForm2.takeHit(damage);
