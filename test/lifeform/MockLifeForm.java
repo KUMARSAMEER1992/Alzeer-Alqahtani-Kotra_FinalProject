@@ -37,4 +37,15 @@ public class MockLifeForm extends LifeForm
 		return null;
 	}
 
+	/*
+	 * (non-Javadoc)
+	 * @see lifeform.LifeForm#calculateDamage()
+	 */
+	@Override
+	public Damage calculateDamage()
+	{
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
