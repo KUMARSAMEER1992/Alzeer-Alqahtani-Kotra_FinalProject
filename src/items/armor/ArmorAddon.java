@@ -57,12 +57,17 @@ public abstract class ArmorAddon implements Armor, TimeObserver
 		currentRound++;
 	}
 
-	public boolean checkIsLive()
+	public boolean isLive()
 	{
-		if (currentRound <= maxRounds)
+		if (currentRound < maxRounds)
 			return true;
 		else
 			return false;
 	}
 
+	@Override
+	public String getItemType()
+	{
+		return "ARMOR";
+	}
 }
