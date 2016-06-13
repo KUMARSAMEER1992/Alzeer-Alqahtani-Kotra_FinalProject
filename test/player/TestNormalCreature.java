@@ -1,9 +1,7 @@
 package player;
 
 import static org.junit.Assert.*;
-import lifeform.Damage;
-import lifeform.LifeForm;
-import lifeform.MockLifeForm;
+
 
 import org.junit.Test;
 
@@ -20,7 +18,6 @@ public class TestNormalCreature
 		assertTrue(normal1 instanceof MapItem);
 		normal1.attack(normal2);
 		assertEquals(45,normal2.getCurrentLifePoints());
-		
 		
 	}
 

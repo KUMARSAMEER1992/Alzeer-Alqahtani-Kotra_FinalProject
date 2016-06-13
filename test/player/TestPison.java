@@ -1,9 +1,7 @@
 package player;
 
 import static org.junit.Assert.*;
-import lifeform.Damage;
-import lifeform.LifeForm;
-import lifeform.MockLifeForm;
+
 
 import org.junit.Test;
 
@@ -21,7 +19,6 @@ public class TestPison
 		Ability poison2 = new Poison(normal2);
 		assertTrue(poison1 instanceof MapItem);
 		poison1.attack(poison2);
-		System.out.println(poison2.getCurrentLifePoints());
 		assertEquals(45,poison2.getCurrentLifePoints());	
 	}
 }

@@ -1,7 +1,7 @@
 package player;
 
 import static org.junit.Assert.*;
-import lifeform.Damage;
+
 
 import org.junit.Test;
 
@@ -17,10 +17,9 @@ public class TestAcid
 		Creature normal2= new NormalCreature("p",50);
 		Ability acid1 = new Acid(normal1);
 		Ability acid2 = new Acid(normal2);
-		Damage damage= new Damage("Acid",normal1.baseDamage);
 		assertTrue(acid1 instanceof MapItem);
-		acid1.attack(acid2)
-		assertEquals(25,normal1.getCurrentLifePoints());	
+		acid1.attack(acid2);
+		assertEquals(45,acid2.getCurrentLifePoints());	
 	}
 
 }
