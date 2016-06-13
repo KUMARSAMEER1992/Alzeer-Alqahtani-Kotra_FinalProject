@@ -1,6 +1,7 @@
 package environment;
 
 /**
+ * Interface for MapItems.
  * @author Sameer Kumar Kotra
  */
 public interface MapItem

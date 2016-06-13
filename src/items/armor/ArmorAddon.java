@@ -4,6 +4,8 @@ import exception.ArmorException;
 import time.TimeObserver;
 
 /**
+ * Addon class for Armor.
+ * ArmorAddon is an Armor.
  * @author Sameer Kumar Kotra
  */
 public abstract class ArmorAddon implements Armor, TimeObserver
@@ -19,47 +21,41 @@ public abstract class ArmorAddon implements Armor, TimeObserver
 	private int maxRounds;
 
 	/**
-	 * int to store current round of Armor.
+	 * Creates an ArmorAddon with give armor and Rounds.
+	 * @param armor : Armor to which add on to be added.
+	 * @param maxRounds : Max Number of rounds the Armor can stay.
+	 * @throws ArmorException if we try to add ArmorAddon to a ArmorAddon.
 	 */
-	private int currentRound;
-
 	public ArmorAddon(Armor armor, int maxRounds) throws ArmorException
 	{
-		int counter = 0;
-		Armor temp = armor;
-		currentRound = 0;
-		this.maxRounds = maxRounds;
-		while (true)
-		{
-			if (temp instanceof ArmorAddon)
-			{
-				temp = ((ArmorAddon) temp).armor;
-				counter++;
-			}
-			else
-			{
-				break;
-			}
-		}
-		if (counter < 1)
-		{
-			this.armor = armor;
-		}
-		else
+		if (armor instanceof ArmorAddon)
 		{
 			throw new ArmorException("You can add only 1 addon");
 		}
+		else
+		{
+			this.armor = armor;
+			this.maxRounds = maxRounds;
+		}
 	}
 
+	/**
+	 * When the time is changed the timer notifies this method of the Observer.
+	 * @param time : updated time
+	 */
 	@Override
 	public void updateTime(int time)
 	{
-		currentRound++;
+		maxRounds--;
 	}
 
+	/**
+	 * Returns the Armor state.
+	 * @return true if maxRounds not completed, else false.
+	 */
 	public boolean isLive()
 	{
-		if (currentRound < maxRounds)
+		if (maxRounds > 0)
 			return true;
 		else
 			return false;

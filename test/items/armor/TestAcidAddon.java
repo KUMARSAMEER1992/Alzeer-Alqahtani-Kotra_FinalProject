@@ -10,14 +10,14 @@ import lifeform.Damage;
 /**
  * @author Sameer Kumar Kotra
  */
-public class TestAcidArmor
+public class TestAcidAddon
 {
 
 	@Test
 	public void testAcidArmor() throws ArmorException
 	{
 		Armor armor = new NormalArmor(5);
-		ArmorAddon addon = new AcidArmor(armor);
+		ArmorAddon addon = new AcidAddon(armor);
 		Damage acidDamage = new Damage("ACID", 20);
 
 		acidDamage = addon.reduceDamage(acidDamage);

@@ -1,15 +1,19 @@
-/**
- * @author Sameer Kumar Kotra
- */
 package environment;
 
 /**
+ * This class contains contains details of Environment.
+ * It is a Singleton Class.
  * @author Sameer Kumar Kotra
  */
 public class Environment
 {
-	// TODO
+	/**
+	 * final int to store no of rows of the Environment.
+	 */
 	public final static int ROWS = 100;
+	/**
+	 * final int to store no of columns of the environment.
+	 */
 	public final static int COLS = 100;
 
 	/**
@@ -17,14 +21,15 @@ public class Environment
 	 */
 	private static Environment theWorld;
 
+	/**
+	 * Array of Cell to store multiple Cells.
+	 */
 	private Cell[][] cells;
 
 	/**
 	 * Create an instance of Environment which has the given number of rows and
 	 * Columns to store Cells.
 	 * Constructor is private to create single ton pattern.
-	 * @param row: Number of rows
-	 * @param col :Number of columns.
 	 */
 	private Environment()
 	{
@@ -46,7 +51,6 @@ public class Environment
 	{
 		if (theWorld == null)
 			theWorld = new Environment();
-
 		return theWorld;
 	}
 
@@ -60,12 +64,12 @@ public class Environment
 	}
 
 	/**
-	 * Returns the Life form at cells[row][col].
-	 * @return the LifeForm at specified location.
+	 * Returns the MapItem at cells[row][col].
+	 * @return the MapItem at specified location.
 	 */
 	public MapItem getMapItem(int row, int col)
 	{
-		if (row < ROWS && col < COLS)
+		if (row >= 0 && row < ROWS && col >= 0 && col < COLS)
 		{
 			return cells[row][col].getMapItem();
 		}
@@ -76,16 +80,16 @@ public class Environment
 	}
 
 	/**
-	 * Adds the LifeForm to the Cell at cells[row][col]. Will not add if the row
+	 * Adds the MapItem to the Cell at cells[row][col]. Will not add if the row
 	 * and column are invalid or if LifeForm already in the Cell.
 	 * @param row: Row at which LifieForm to be added.
 	 * @param col: column at which LifieForm to be added.
-	 * @param entity: LifeForm object to be store in the Cell.
+	 * @param item: MapItem object to be store in the Cell.
 	 * @return true if added, false otherwise.
 	 */
 	public boolean addMapItem(int row, int col, MapItem item)
 	{
-		if (row < ROWS && col < COLS)
+		if (row >= 0 && row < ROWS && col >= 0 && col < COLS)
 		{
 			return cells[row][col].addMapItem(item);
 		}
@@ -96,12 +100,12 @@ public class Environment
 	}
 
 	/**
-	 * Removes the LifeForm at the cells[row][col].
-	 * @return LifeForm removed, null if none is present.
+	 * Removes the MapItem at the cells[row][col].
+	 * @return MapItem removed, null if none is present.
 	 */
 	public MapItem removeMapItem(int row, int col)
 	{
-		if (row < ROWS && col < COLS)
+		if (row >= 0 && row < ROWS && col >= 0 && col < COLS)
 		{
 			MapItem temp = cells[row][col].removeMapItem();
 			return temp;
