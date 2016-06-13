@@ -64,10 +64,7 @@ public abstract class LifeForm implements MapItem
 		this(name, points);
 		this.attachStrength = (strength >= 0) ? strength : 0;
 	}
-	public LifeForm()
-	{
-		
-	}
+
 	/**
 	 * Returns the name of the LifeForm.
 	 * @return the name of the life form.

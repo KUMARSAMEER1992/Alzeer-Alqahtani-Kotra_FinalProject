@@ -7,14 +7,11 @@ public abstract class Ability extends Creature
 {
 	protected Creature creature;
 
-	public Ability(String name, int points) 
-	{
-		super(name, points);
-		// TODO Auto-generated constructor stub
-	}
+	
 
 	public Ability(Creature creature)
 	{
+		super(creature.getName(),creature.getCurrentLifePoints());
 		this.creature=creature;
 	}
 	public int  getCurrentLifePoints()
