@@ -1,4 +1,4 @@
-package items;
+package items.potion;
 
 public class AcidAddon extends PotionAddon
 {
@@ -11,7 +11,6 @@ public class AcidAddon extends PotionAddon
 	@Override
 	public char getChar() 
 	{
-		
 		return 'A';
 	}
 

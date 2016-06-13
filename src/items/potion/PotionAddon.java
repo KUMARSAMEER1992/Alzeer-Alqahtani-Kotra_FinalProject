@@ -1,6 +1,6 @@
-package items;
+package items.potion;
 
-public abstract class PotionAddon 
+public abstract class PotionAddon implements Potion
 { 
 	protected Potion potion;
 	

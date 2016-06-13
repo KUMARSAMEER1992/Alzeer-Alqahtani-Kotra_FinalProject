@@ -1,4 +1,4 @@
-package items;
+package items.potion;
 
 public class PotionDetails 
 {
@@ -7,7 +7,7 @@ public class PotionDetails
 	
 	public PotionDetails(String ptype,int points)
 	{
-		 type= type; 
+		 type= ptype; 
 		 healthPoints=points;
 	}
 	public String getType()

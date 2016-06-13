@@ -1,4 +1,4 @@
-package items;
+package items.potion;
 
 public class HealthPortion implements Potion
 {
