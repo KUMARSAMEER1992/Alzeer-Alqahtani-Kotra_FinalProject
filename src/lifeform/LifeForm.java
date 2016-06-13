@@ -134,12 +134,13 @@ public abstract class LifeForm implements MapItem
 		this.locationY = -1;
 	}
 
+	public abstract Damage calculateDamage();
+
 	public void attack(LifeForm lifeForm2)
 	{
-		Damage damage= new Damage(getItemType(),getAttachStrength());
+		Damage damage = this.calculateDamage();
 		if (getCurrentLifePoints() > 0)
 		{
-			
 			lifeForm2.takeHit(damage);
 		}
 	}
