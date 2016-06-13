@@ -2,9 +2,12 @@ package player;
 
 import static org.junit.Assert.*;
 import lifeform.Damage;
+
 import org.junit.After;
 import org.junit.Test;
 
+import weapon.Swords;
+import weapon.Weapon;
 import environment.MapItem;
 
 
@@ -31,18 +34,24 @@ public class TestPlayer
 		Player p=Player.getPlayer();
 		Damage damage= new Damage("Player",10);
 		p.takeHit(damage);
-		assertEquals(40,p.getCurrentLifePoints());
+		assertEquals(40,p.getCurrentLifePoints()); 
 	}
 	@Test
-	public void testattack() 
+	public void testAttack() 
 	{
 		Player p=Player.getPlayer();
 		Creature normal= new NormalCreature("p",30);
 		Damage damage= new Damage("Player",10);
-		p.takeHit(damage);
-		assertEquals(40,p.getCurrentLifePoints());
-		normal.attack(p);
-		//assertEquals(40,p.getCurrentLifePoints());
+		p.attack(normal);
+		assertEquals(25,normal.getCurrentLifePoints());
 	}
+	/*@Test
+	public void calculateDamage()
+	{
+		Player p=Player.getPlayer();
+		Swords swords=new Swords(); 
+		p.pickUp(swords);
+		
+	}*/
 	
 }

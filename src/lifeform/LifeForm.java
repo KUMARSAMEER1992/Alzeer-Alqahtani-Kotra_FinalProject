@@ -140,7 +140,7 @@ public abstract class LifeForm implements MapItem
 	public abstract Damage calculateDamage();
 
 	public void attack(LifeForm lifeForm2)
-	{
+	{ 
 		Damage damage = this.calculateDamage();
 		
 		if (getCurrentLifePoints() > 0)

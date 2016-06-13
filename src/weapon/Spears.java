@@ -1,12 +1,15 @@
 package weapon;
 
+import lifeform.Damage;
+
 public class Spears extends GenericWeapon
 {
 
 	@Override
-	public int calculateDamage() 
+	public Damage calculateDamage() 
 	{
-		return 0;
+		Damage damage=new Damage("PLAYER",getBaseDamge()*2);
+		return damage;
 	}
 
 	@Override

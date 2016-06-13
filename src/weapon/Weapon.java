@@ -1,9 +1,10 @@
 package weapon;
 
+import lifeform.Damage;
 import environment.MapItem;
 
 public interface Weapon extends MapItem
 {
-	public int calculateDamage();
+	public Damage calculateDamage();
 	 
 }

@@ -1,12 +1,14 @@
 package weapon;
 
+import lifeform.Damage;
+
 public class Maces extends GenericWeapon
 {
 
 	@Override
-	public int calculateDamage() 
+	public Damage calculateDamage() 
 	{
-		return 0;
+		return null;
 	}
 
 	@Override

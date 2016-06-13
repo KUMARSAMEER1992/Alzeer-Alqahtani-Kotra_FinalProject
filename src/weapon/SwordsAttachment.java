@@ -1,5 +1,7 @@
 package weapon;
 
+import lifeform.Damage;
+
 public class SwordsAttachment extends Attachments
 {
 
@@ -18,10 +20,10 @@ public class SwordsAttachment extends Attachments
 	}
 
 	@Override
-	public int calculateDamage() 
+	public Damage calculateDamage() 
 	{
 		// TODO Auto-generated method stub
-		return 0;
+		return null;
 	}
 
 	
