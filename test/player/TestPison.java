@@ -1,9 +1,7 @@
 package player;
 
 import static org.junit.Assert.*;
-import lifeform.Damage;
-import lifeform.LifeForm;
-import lifeform.MockLifeForm;
+
 
 import org.junit.Test;
 
