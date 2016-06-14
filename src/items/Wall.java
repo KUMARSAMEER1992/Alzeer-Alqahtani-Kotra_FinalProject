@@ -3,6 +3,8 @@ package items;
 import environment.MapItem;
 
 /**
+ * This class contains details of Wall. Wall can also be a Door;
+ * Wall is a MapItem.
  * @author Sameer Kumar Kotra
  */
 public class Wall implements MapItem
@@ -18,7 +20,8 @@ public class Wall implements MapItem
 	private boolean open;
 
 	/**
-	 * @param isDoor
+	 * Creates a Wall object.
+	 * @param isDoor specifies it is a door or a Wall.
 	 */
 	public Wall(boolean isDoor)
 	{
@@ -26,6 +29,9 @@ public class Wall implements MapItem
 		this.open = false;
 	}
 
+	/**
+	 * @return the character to be displayed on the map.
+	 */
 	@Override
 	public char getChar()
 	{
@@ -35,6 +41,9 @@ public class Wall implements MapItem
 			return '#';
 	}
 
+	/**
+	 * @return the type of the item.
+	 */
 	@Override
 	public String getItemType()
 	{
@@ -42,7 +51,7 @@ public class Wall implements MapItem
 	}
 
 	/**
-	 * @return
+	 * @return true if the Wall is a door else returns false.
 	 */
 	public boolean isDoor()
 	{
@@ -50,19 +59,29 @@ public class Wall implements MapItem
 	}
 
 	/**
-	 * @return
+	 * @return true if the wall is door and is open else returns false.
 	 */
 	public boolean isOpen()
 	{
-		return open;
+		if (isDoor())
+		{
+			return open;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 	/**
-	 * 
+	 * Opens the door is closed.
 	 */
 	public void open()
 	{
-		open = true;
+		if (isDoor())
+		{
+			open = true;
+		}
 	}
 
 }

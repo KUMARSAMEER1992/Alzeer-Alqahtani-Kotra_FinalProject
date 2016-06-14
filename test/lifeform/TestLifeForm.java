@@ -40,18 +40,18 @@ public class TestLifeForm
 	public void trackLocation()
 	{
 		LifeForm entity = new MockLifeForm("Bob", 40, 10);
-		assertEquals(-1, entity.getX());
-		assertEquals(-1, entity.getY());
+		assertEquals(-1, entity.getLocationX());
+		assertEquals(-1, entity.getLocationY());
 
 		entity.setLocationXY(2, 2);
 
-		assertEquals(2, entity.getX());
-		assertEquals(2, entity.getY());
+		assertEquals(2, entity.getLocationX());
+		assertEquals(2, entity.getLocationY());
 
 		entity.removeLocationXY();
 
-		assertEquals(-1, entity.getX());
-		assertEquals(-1, entity.getY());
+		assertEquals(-1, entity.getLocationX());
+		assertEquals(-1, entity.getLocationY());
 	}
 
 }

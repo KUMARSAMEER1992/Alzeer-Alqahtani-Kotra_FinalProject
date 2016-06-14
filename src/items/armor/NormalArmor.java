@@ -3,6 +3,8 @@ package items.armor;
 import lifeform.Damage;
 
 /**
+ * This class contains Details of NormalArmor.
+ * NormalArmor is an Armor.
  * @author Sameer Kumar Kotra
  */
 public class NormalArmor implements Armor
@@ -20,18 +22,29 @@ public class NormalArmor implements Armor
 		this.armorStrength = (armorStrength > 0) ? armorStrength : 0;
 	}
 
+	/**
+	 * @return the character to be displayed on the map.
+	 */
 	@Override
 	public char getChar()
 	{
 		return 'N';
 	}
 
+	/**
+	 * @return the type of the item.
+	 */
 	@Override
 	public String getItemType()
 	{
 		return "ARMOR";
 	}
 
+	/**
+	 * calculates the remaining damage after Armor absorbs the damage.
+	 * @param damage : original damage.
+	 * @return the reduced damage.
+	 */
 	@Override
 	public Damage reduceDamage(Damage damage)
 	{

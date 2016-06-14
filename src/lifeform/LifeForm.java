@@ -3,6 +3,8 @@ package lifeform;
 import environment.MapItem;
 
 /**
+ * This class consists members and functions related to LifeForm.
+ * LifeForm is a MapItem.
  * @author Sameer Kumar Kotra
  */
 public abstract class LifeForm implements MapItem
@@ -23,11 +25,6 @@ public abstract class LifeForm implements MapItem
 	 */
 	protected int attachStrength;
 
-	/**
-	 * Weapon to store the weapon the LifeForm has.
-	 *//*
-		 * private Weapon weapon;
-		 */
 	/**
 	 * int to store X coordinate in Environment.
 	 */
@@ -101,7 +98,7 @@ public abstract class LifeForm implements MapItem
 	/**
 	 * @return the x coordinate in environment.
 	 */
-	public int getX()
+	public int getLocationX()
 	{
 		return this.locationX;
 	}
@@ -109,7 +106,7 @@ public abstract class LifeForm implements MapItem
 	/**
 	 * @return the y coordinate in environment.
 	 */
-	public int getY()
+	public int getLocationY()
 	{
 		return this.locationY;
 	}
@@ -134,12 +131,26 @@ public abstract class LifeForm implements MapItem
 		this.locationY = -1;
 	}
 
+	/**
+	 * @return the damage caused by the LifeForm.
+	 */
 	public abstract Damage calculateDamage();
 
+	/**
+	 * Used to attack a LifeForm.
+	 * lifeForm1.attack(lifeForm2).
+	 * lifeForm1:attacker.
+	 * lifeForm2:attacked.
+	 * @param lifeForm2 : It is attached by the calling LifeForm.
+	 */
 	public void attack(LifeForm lifeForm2)
-	{ 
+	{
 		Damage damage = this.calculateDamage();
+<<<<<<< HEAD
 		 
+=======
+
+>>>>>>> master
 		if (getCurrentLifePoints() > 0)
 		{
 			lifeForm2.takeHit(damage);

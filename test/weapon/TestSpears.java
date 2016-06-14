@@ -14,9 +14,7 @@ public class TestSpears
 	@Test
 	public void test()
 	{
-		Spears spear = new Spears ();
-		assertEquals(7, spear.getBaseDamage());
-		//assertEquals(14, sword.calculateDamage());
+		
 	}
 
 }

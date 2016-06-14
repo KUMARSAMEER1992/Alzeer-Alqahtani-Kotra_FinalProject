@@ -1,3 +1,8 @@
+/**
+ *  Name:Norah Alqahtani
+ *  Course:CSC 561
+ *  Instructor: Dr. Girard
+ */
 package player;
 
 import lifeform.Damage;
@@ -30,7 +35,7 @@ public class Acid extends Ability
 	@Override
 	public Damage calculateDamage() 
 	{
-		Damage damage=new Damage("ACID",creature.baseDamage);
+		Damage damage=new Damage("ACID",(creature.baseDamage*3));
 		return damage;
 	}
 

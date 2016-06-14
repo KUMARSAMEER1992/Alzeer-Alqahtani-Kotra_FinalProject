@@ -19,12 +19,12 @@ public class TestSwords
 	public void test()
 	{
 		Player p=Player.getPlayer();
-		LifeForm f2=new MockLifeForm("fred",60,5);
+		LifeForm lf=new MockLifeForm("fred",60,5);
 		Swords sword = new Swords();
 		p.pickUp(sword);
-		p.attack(f2);
-		System.out.println(f2.getCurrentLifePoints());
-		//assertEquals(50,f2.getCurrentLifePoints());
+		p.attack(lf);
+		
+		//assertEquals(50,lf.getCurrentLifePoints());
 	}
 
 }

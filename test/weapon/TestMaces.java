@@ -14,9 +14,7 @@ public class TestMaces
 	@Test
 	public void test() 
 	{
-		Maces mace = new Maces();
-		assertEquals(5, mace.getBaseDamage());
-		//assertEquals(10, sword.calculateDamage());
+		
 	}
 
 }
