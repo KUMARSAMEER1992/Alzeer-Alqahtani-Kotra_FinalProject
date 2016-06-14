@@ -1,5 +1,7 @@
 package weapon;
+
 import lifeform.Damage;
+
 /**
  * Attachment has common method to all Attachments.
  * @author Dalal Alzeer.
@@ -11,23 +13,24 @@ public class Attachments implements Weapon
 	 */
 	protected Weapon weapon;
 	int attachmentDamage;
+
 	public Attachments(Weapon w)
 	{
-		weapon=w;
-		if (weapon.getWeaponType().compareToIgnoreCase("Maces")==0)
+		weapon = w;
+		if (weapon.getWeaponType().compareToIgnoreCase("Maces") == 0)
 		{
-			attachmentDamage=weapon.getBaseDamage()+5;
+			attachmentDamage = weapon.getBaseDamage() + 5;
 		}
-		else if (weapon.getWeaponType().compareToIgnoreCase("Swords")==0)
+		else if (weapon.getWeaponType().compareToIgnoreCase("Swords") == 0)
 		{
-			attachmentDamage=weapon.getBaseDamage()+15;
+			attachmentDamage = weapon.getBaseDamage() + 15;
 		}
-		else if (weapon.getWeaponType().compareToIgnoreCase("Spears")==0)
+		else if (weapon.getWeaponType().compareToIgnoreCase("Spears") == 0)
 		{
-			attachmentDamage=weapon.getBaseDamage()+10;
+			attachmentDamage = weapon.getBaseDamage() + 10;
 		}
 	}
-	
+
 	/**
 	 * @return the base damage of the weapon.
 	 */
@@ -36,6 +39,7 @@ public class Attachments implements Weapon
 	{
 		return weapon.getBaseDamage();
 	}
+
 	/**
 	 * Calculates the damage.
 	 * @return the damage caused by the weapon.
@@ -43,27 +47,28 @@ public class Attachments implements Weapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("Weapon",attachmentDamage);
+		Damage damage = new Damage("Weapon", attachmentDamage);
 		return damage;
 	}
-	
+
 	@Override
-	public char getChar() {
+	public char getChar()
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
 	@Override
 	public String getItemType()
 	{
-		
-		return "Weapon";
+
+		return WEAPON;
 	}
-	
 
 	@Override
-	public String getWeaponType() 
+	public String getWeaponType()
 	{
-			return weapon.getWeaponType();
+		return weapon.getWeaponType();
 	}
 
 }
