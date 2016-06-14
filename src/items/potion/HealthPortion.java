@@ -15,7 +15,7 @@ public class HealthPortion implements Potion
 	}
 	public String getItemType()
 	{
-		return PORTION;
+		return POTION;
 	}
 
 }
