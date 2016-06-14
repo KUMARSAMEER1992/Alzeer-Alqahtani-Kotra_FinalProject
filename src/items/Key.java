@@ -9,6 +9,8 @@ import environment.MapItem;
  */
 public class Key implements MapItem
 {
+	// TODO
+	public static final String KEY = "KEY";
 	/**
 	 * int to store the number of keys.
 	 */
@@ -38,7 +40,7 @@ public class Key implements MapItem
 	@Override
 	public String getItemType()
 	{
-		return "KEY";
+		return KEY;
 	}
 
 	/**

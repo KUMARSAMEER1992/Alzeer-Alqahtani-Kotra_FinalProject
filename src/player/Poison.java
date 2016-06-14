@@ -10,42 +10,33 @@ import lifeform.Damage;
 public class Poison extends Ability
 {
 
-	
-	public Poison(Creature creature) 
+	public Poison(Creature creature)
 	{
-		super(creature);		
+		super(creature);
 
 	}
-	
-	
 
 	@Override
-	public char getChar() 
+	public char getChar()
 	{
 		return 'P';
 	}
 
 	@Override
-	public void takeHit(Damage damage) 
+	public void takeHit(Damage damage)
 	{
 		creature.takeHit(damage);
 	}
+
 	@Override
-	public Damage calculateDamage() 
+	public Damage calculateDamage()
 	{
-<<<<<<< HEAD
-		Damage damage=new Damage("POISON",(creature.baseDamage*2));
-	
-=======
 		Damage damage;
-		if(currentLifePoints>0)
-			damage=new Damage("POISON",(creature.baseDamage*2));
-		else 
-			damage=new Damage("POISON",0);
->>>>>>> master
+		if (currentLifePoints > 0)
+			damage = new Damage("POISON", (creature.baseDamage * 2));
+		else
+			damage = new Damage("POISON", 0);
 		return damage;
 	}
-
-	
 
 }

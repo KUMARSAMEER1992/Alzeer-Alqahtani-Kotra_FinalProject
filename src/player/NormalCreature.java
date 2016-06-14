@@ -5,58 +5,46 @@
  */
 package player;
 
-
 import lifeform.Damage;
 
-
-
-public class NormalCreature extends Creature 
+public class NormalCreature extends Creature
 {
 	Damage damage;
-	
-	public NormalCreature(String name, int points) 
+
+	public NormalCreature(String name, int points)
 	{
 		super(name, points);
-		baseDamage=5;
-	}	
-	
-	
+		baseDamage = 5;
+	}
+
 	@Override
-	public void takeHit(Damage damage) 
+	public void takeHit(Damage damage)
 	{
-		this.damage=damage;
-		if(this.currentLifePoints>0)
-		  {
-			this.currentLifePoints=(this.currentLifePoints-damage.getDamagePoints());
-		  }
-		if(this.currentLifePoints<0)
+		this.damage = damage;
+		if (this.currentLifePoints > 0)
 		{
-			this.currentLifePoints=0;
+			this.currentLifePoints = (this.currentLifePoints - damage.getDamagePoints());
 		}
-	}	
+		if (this.currentLifePoints < 0)
+		{
+			this.currentLifePoints = 0;
+		}
+	}
+
 	public char getChar()
 	{
 		return 'C';
 	}
 
 	@Override
-	public Damage calculateDamage() 
+	public Damage calculateDamage()
 	{
-<<<<<<< HEAD
-		Damage damage=new Damage("NORMALCREATURE",this.baseDamage);
-=======
 		Damage damage;
-		if(currentLifePoints>0)
-		damage=new Damage("NORMALCREATURE",this.baseDamage);
+		if (currentLifePoints > 0)
+			damage = new Damage("NORMALCREATURE", this.baseDamage);
 		else
-			damage=new Damage("NORMALCREATURE",0);
->>>>>>> master
+			damage = new Damage("NORMALCREATURE", 0);
 		return damage;
 	}
 
-	
-
-	
-	
-	
 }

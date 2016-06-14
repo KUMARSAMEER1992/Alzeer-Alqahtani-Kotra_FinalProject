@@ -10,6 +10,8 @@ import environment.MapItem;
 public class Wall implements MapItem
 {
 
+	// TODO
+	public static final String WALL = "WALL";
 	/**
 	 * boolean to store the door information.
 	 */
@@ -47,7 +49,7 @@ public class Wall implements MapItem
 	@Override
 	public String getItemType()
 	{
-		return "WALL";
+		return WALL;
 	}
 
 	/**

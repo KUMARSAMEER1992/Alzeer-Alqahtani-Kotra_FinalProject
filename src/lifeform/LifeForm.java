@@ -9,6 +9,7 @@ import environment.MapItem;
  */
 public abstract class LifeForm implements MapItem
 {
+
 	/**
 	 * String to store the name of the LifeForm.
 	 */
@@ -146,15 +147,6 @@ public abstract class LifeForm implements MapItem
 	public void attack(LifeForm lifeForm2)
 	{
 		Damage damage = this.calculateDamage();
-<<<<<<< HEAD
-<<<<<<< HEAD
-		 
-=======
-
->>>>>>> master
-=======
-
->>>>>>> master
 		if (getCurrentLifePoints() > 0)
 		{
 			lifeForm2.takeHit(damage);
