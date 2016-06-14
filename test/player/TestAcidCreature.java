@@ -12,7 +12,7 @@ import org.junit.Test;
 
 import environment.MapItem;
 
-public class TestAcid 
+public class TestAcidCreature
 {
 	@Test
 	public void testInitialization()
