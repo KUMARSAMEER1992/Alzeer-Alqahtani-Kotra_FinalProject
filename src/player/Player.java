@@ -1,5 +1,6 @@
 package player;
 
+import environment.StringConstants;
 import items.armor.Armor;
 import lifeform.Damage;
 import lifeform.LifeForm;
@@ -71,12 +72,12 @@ public class Player extends LifeForm
 
 		if (weapon == null)
 		{
-			Damage damage = new Damage("Player", super.getAttachStrength());
+			Damage damage = new Damage(StringConstants.PLAYER, super.getAttachStrength());
 			return damage;
 		}
 		else
 		{
-			return new Damage("Player", weapon.getBaseDamage());
+			return new Damage(StringConstants.PLAYER, weapon.getBaseDamage());
 		}
 	}
 

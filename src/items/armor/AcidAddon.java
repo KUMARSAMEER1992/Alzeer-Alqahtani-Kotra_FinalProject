@@ -1,8 +1,6 @@
-/**
- * @author Sameer Kumar Kotra
- */
 package items.armor;
 
+import environment.StringConstants;
 import exception.ArmorException;
 import lifeform.Damage;
 
@@ -33,7 +31,7 @@ public class AcidAddon extends ArmorAddon
 	@Override
 	public Damage reduceDamage(Damage damage)
 	{
-		if (damage.getDamageType().equals("ACID"))
+		if (damage.getDamageType().equals(StringConstants.ACID))
 		{
 			damage.setDamagePoints(0);
 			return damage;

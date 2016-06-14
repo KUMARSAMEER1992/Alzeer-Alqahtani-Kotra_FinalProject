@@ -2,9 +2,7 @@ package items.potion;
 
 public class PotionDetails
 {
-	public static final String HEALTH = "HEALTH";
-	public static final String POISON = "POISON";
-	public static final String ACID = "ACID";
+
 	private String type;
 	private int healthPoints;
 

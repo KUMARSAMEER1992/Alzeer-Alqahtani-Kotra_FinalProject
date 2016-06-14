@@ -1,6 +1,7 @@
 package items;
 
 import environment.MapItem;
+import environment.StringConstants;
 
 /**
  * This class contains details of Wall. Wall can also be a Door;
@@ -10,8 +11,6 @@ import environment.MapItem;
 public class Wall implements MapItem
 {
 
-	// TODO
-	public static final String WALL = "WALL";
 	/**
 	 * boolean to store the door information.
 	 */
@@ -49,7 +48,7 @@ public class Wall implements MapItem
 	@Override
 	public String getItemType()
 	{
-		return WALL;
+		return StringConstants.WALL;
 	}
 
 	/**

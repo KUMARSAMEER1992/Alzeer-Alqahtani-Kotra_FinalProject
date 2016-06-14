@@ -5,42 +5,39 @@
  */
 package player;
 
+import environment.StringConstants;
 import lifeform.Damage;
 
 public class PoisonCreature extends Ability
 {
 
-	
-	public PoisonCreature(Creature creature) 
+	public PoisonCreature(Creature creature)
 	{
-		super(creature);		
+		super(creature);
 
 	}
-	
-	
 
 	@Override
-	public char getChar() 
+	public char getChar()
 	{
 		return 'P';
 	}
 
 	@Override
-	public void takeHit(Damage damage) 
+	public void takeHit(Damage damage)
 	{
 		creature.takeHit(damage);
 	}
+
 	@Override
-	public Damage calculateDamage() 
+	public Damage calculateDamage()
 	{
 		Damage damage;
-		if(currentLifePoints>0)
-			damage=new Damage("POISON",(creature.baseDamage*2));
-		else 
-			damage=new Damage("POISON",0);
+		if (currentLifePoints > 0)
+			damage = new Damage(StringConstants.POISON, (creature.baseDamage * 2));
+		else
+			damage = new Damage(StringConstants.POISON, 0);
 		return damage;
 	}
-
-	
 
 }

@@ -3,6 +3,7 @@
  */
 package items.armor;
 
+import environment.StringConstants;
 import exception.ArmorException;
 import lifeform.Damage;
 
@@ -33,7 +34,7 @@ public class PosionAddon extends ArmorAddon
 	@Override
 	public Damage reduceDamage(Damage damage)
 	{
-		if (damage.getDamageType().equals("POISON"))
+		if (damage.getDamageType().equals(StringConstants.POISON))
 		{
 			damage.setDamagePoints(0);
 			return damage;

@@ -5,6 +5,7 @@
  */
 package player;
 
+import environment.StringConstants;
 import lifeform.Damage;
 
 public class NormalCreature extends Creature
@@ -41,9 +42,9 @@ public class NormalCreature extends Creature
 	{
 		Damage damage;
 		if (currentLifePoints > 0)
-			damage = new Damage("NORMALCREATURE", this.baseDamage);
+			damage = new Damage(StringConstants.NORMALCREATURE, this.baseDamage);
 		else
-			damage = new Damage("NORMALCREATURE", 0);
+			damage = new Damage(StringConstants.NORMALCREATURE, 0);
 		return damage;
 	}
 
