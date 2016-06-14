@@ -147,7 +147,11 @@ public abstract class LifeForm implements MapItem
 	{
 		Damage damage = this.calculateDamage();
 <<<<<<< HEAD
+<<<<<<< HEAD
 		 
+=======
+
+>>>>>>> master
 =======
 
 >>>>>>> master
