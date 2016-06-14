@@ -27,7 +27,7 @@ public class Maces extends GenericWeapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("PLAYER",baseDamage);
+		Damage damage=new Damage("Weapon",baseDamage);
 		return damage;
 	}
 

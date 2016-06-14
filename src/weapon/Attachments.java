@@ -43,7 +43,7 @@ public class Attachments implements Weapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("W",attachmentDamage);
+		Damage damage=new Damage("Weapon",attachmentDamage);
 		return damage;
 	}
 	

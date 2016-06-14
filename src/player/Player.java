@@ -12,10 +12,13 @@ public class Player extends LifeForm
 	private Weapon weapon;
 	private Armor armor;
 	private Damage damage;
+	int keyNum;
+	
 	
 	private Player(String name, int points, int Strength)
 	{
 		super(name,points,Strength);
+		keyNum=0;
 		
 	}
 	public static Player getPlayer()
@@ -72,6 +75,7 @@ public class Player extends LifeForm
 			return new Damage("Player",weapon.getBaseDamage());
 		}
 	}
+	
 	public void pickUp(Weapon weapon)
 	{
 		if (this.weapon == null)
@@ -82,16 +86,42 @@ public class Player extends LifeForm
 
 	public void drop()
 	{
-		
 			this.weapon = null;
-		
+	}
+	
+	public void increaseCurrentLifePoints(int lf)
+	{
+		if (currentLifePoints>0)
+			currentLifePoints=currentLifePoints+lf;
 	}
 	
 	public Weapon getWeapon()
 	{
 		return weapon;
 	}
+	
+	public void icreaseKey()
+	{
+		keyNum++;
+	}
+	public boolean decreaseKey()
+	{
+		if(keyNum>0)
+		{
+			keyNum--;
+			return true;
+		}
+		else return false;
+	}
+	
+	public void setArmor(Armor r)
+	{
+		armor=r;
+	}
 
-
+	public Armor getArmor()
+	{
+		return armor;
+	}
 
 }

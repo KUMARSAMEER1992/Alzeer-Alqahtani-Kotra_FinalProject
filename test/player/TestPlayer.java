@@ -38,19 +38,17 @@ public class TestPlayer
 		p.attack(normal);
 		assertEquals(25,normal.getCurrentLifePoints());
 		//test with weapon
-		Player p2=Player.getPlayer();
 		Creature normal2= new NormalCreature("p",80);
 		Swords swords=new Swords();
-		p2.pickUp(swords);
-		p2.attack(normal2);
-		//System.out.print(normal2.getCurrentLifePoints());
+		p.pickUp(swords);
+		p.attack(normal2);
 		assertEquals(70,normal2.getCurrentLifePoints());
 		p.drop();
 		//with attachments
 		Attachments a=new Attachments(swords);
-		p2.pickUp(a);
-		p2.attack(normal2);
-		//assertEquals(70,normal2.getCurrentLifePoints());
+		p.pickUp(a);
+		p.attack(normal2);
+		//assertEquals(,normal2.getCurrentLifePoints());
 		
 	}
 	
