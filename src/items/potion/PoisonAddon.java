@@ -2,17 +2,16 @@ package items.potion;
 
 public class PoisonAddon extends PotionAddon
 {
-	public PotionDetails getDetails() 
+	public PotionDetails getDetails()
 	{
-		PotionDetails pd=new PotionDetails("Poison", 20);
+		PotionDetails pd = new PotionDetails(PotionDetails.POISON, 20);
 		return pd;
 	}
+
 	@Override
-	public char getChar() 
+	public char getChar()
 	{
 		return 'O';
 	}
-
-
 
 }

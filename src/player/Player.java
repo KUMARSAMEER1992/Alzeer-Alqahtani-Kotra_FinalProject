@@ -88,9 +88,11 @@ public class Player extends LifeForm
 		}
 	}
 
-	public void drop()
+	public Weapon dropWeapon()
 	{
+		Weapon temp = weapon;
 		this.weapon = null;
+		return temp;
 	}
 
 	public void increaseCurrentLifePoints(int lf)
