@@ -2,7 +2,7 @@ package items.potion;
 
 public class HealthPortion implements Potion
 {
-
+	
 	@Override
 	public PotionDetails getDetails() 
 	{
@@ -15,7 +15,7 @@ public class HealthPortion implements Potion
 	}
 	public String getItemType()
 	{
-		return "Potion";
+		return PORTION;
 	}
 
 }

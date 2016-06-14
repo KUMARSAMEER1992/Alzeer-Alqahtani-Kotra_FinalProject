@@ -7,6 +7,6 @@ public abstract class PotionAddon implements Potion
 	public abstract char getChar();
 	public  String getItemType()
 	{
-		return "Potion";
+		return PORTION;
 	}
 }
