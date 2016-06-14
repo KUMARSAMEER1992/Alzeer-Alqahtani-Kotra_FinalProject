@@ -35,8 +35,13 @@ public class Acid extends Ability
 	@Override
 	public Damage calculateDamage() 
 	{
-		Damage damage=new Damage("ACID",(creature.baseDamage*3));
+		Damage damage;
+		if(currentLifePoints>0)
+			damage=new Damage("ACID",(creature.baseDamage*3));
+		else 
+			damage=new Damage("ACID",0);
 		return damage;
+		
 	}
 
 	

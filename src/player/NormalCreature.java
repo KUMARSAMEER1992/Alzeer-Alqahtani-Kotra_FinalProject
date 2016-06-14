@@ -42,7 +42,11 @@ public class NormalCreature extends Creature
 	@Override
 	public Damage calculateDamage() 
 	{
-		Damage damage=new Damage("NORMALCREATURE",this.baseDamage);
+		Damage damage;
+		if(currentLifePoints>0)
+		damage=new Damage("NORMALCREATURE",this.baseDamage);
+		else
+			damage=new Damage("NORMALCREATURE",0);
 		return damage;
 	}
 

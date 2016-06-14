@@ -33,8 +33,11 @@ public class Poison extends Ability
 	@Override
 	public Damage calculateDamage() 
 	{
-		Damage damage=new Damage("POISON",(creature.baseDamage*2));
-	
+		Damage damage;
+		if(currentLifePoints>0)
+			damage=new Damage("POISON",(creature.baseDamage*2));
+		else 
+			damage=new Damage("POISON",0);
 		return damage;
 	}
 
