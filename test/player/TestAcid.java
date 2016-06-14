@@ -18,7 +18,7 @@ public class TestAcid
 	public void testInitialization()
 	{
 		Creature normal1= new NormalCreature("p",30);
-		Ability acid1 = new Acid(normal1);
+		Ability acid1 = new AcidCreature(normal1);
 		assertTrue(acid1 instanceof MapItem);
 		assertEquals("p",acid1.getName());
 		assertEquals(30,acid1.getCurrentLifePoints());
@@ -28,8 +28,8 @@ public class TestAcid
 	{
 		Creature normal1= new NormalCreature("p",30);
 		Creature normal2= new NormalCreature("p",50);
-		Ability acid1 = new Acid(normal1);
-		Ability acid2 = new Acid(normal2);
+		Ability acid1 = new AcidCreature(normal1);
+		Ability acid2 = new AcidCreature(normal2);
 		assertTrue(acid1 instanceof MapItem);
 		acid1.attack(acid2);
 		assertEquals(35,acid2.getCurrentLifePoints());	

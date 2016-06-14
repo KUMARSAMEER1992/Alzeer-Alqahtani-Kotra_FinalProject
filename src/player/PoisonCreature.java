@@ -7,41 +7,38 @@ package player;
 
 import lifeform.Damage;
 
-public class Acid extends Ability
+public class PoisonCreature extends Ability
 {
 
-	public Acid(Creature creature) 
+	
+	public PoisonCreature(Creature creature) 
 	{
 		super(creature);		
-		this.currentLifePoints=creature.getCurrentLifePoints();	
-	}
 
+	}
 	
+	
+
 	@Override
 	public char getChar() 
 	{
-		return 'A';
+		return 'P';
 	}
-
 
 	@Override
 	public void takeHit(Damage damage) 
 	{
 		creature.takeHit(damage);
-		
 	}
-
-
 	@Override
 	public Damage calculateDamage() 
 	{
 		Damage damage;
 		if(currentLifePoints>0)
-			damage=new Damage("ACID",(creature.baseDamage*3));
+			damage=new Damage("POISON",(creature.baseDamage*2));
 		else 
-			damage=new Damage("ACID",0);
+			damage=new Damage("POISON",0);
 		return damage;
-		
 	}
 
 	
