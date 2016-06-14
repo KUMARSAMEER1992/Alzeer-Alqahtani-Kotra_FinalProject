@@ -12,19 +12,16 @@ public class Player extends LifeForm
 	private Weapon weapon;
 	private Armor armor;
 	private Damage damage;
-	static int Strength;
-
 	
-	private Player(String name, int points)
+	private Player(String name, int points, int Strength)
 	{
-		super(name,points);
+		super(name,points,Strength);
 		
 	}
 	public static Player getPlayer()
 	{
 		if (player == null)
-			player = new Player("bob",50);
-			Strength=5;
+			player = new Player("bob",50,5);
 
 		return player;
 	}
@@ -40,27 +37,22 @@ public class Player extends LifeForm
 	@Override
 	public void takeHit(Damage damage)
 	{
-			int newDamage;
+			this.damage=damage;
 			if(armor!=null)
 			{
 				damage=armor.reduceDamage(damage);
 			}
 			if (damage.getDamagePoints() > 0)
-			{
-				newDamage=damage.getDamagePoints();
-				if (newDamage > 0)
-				{
-					currentLifePoints=currentLifePoints-newDamage;
+			{ 
+			
+				currentLifePoints=currentLifePoints-damage.getDamagePoints();
 					if(currentLifePoints < 0) 
 						currentLifePoints=0;
-				}
+				
 			}
 		
 	}
-	public int getAttachStrength()
-	{
-		return Strength;
-	}
+
 	
 	static void resetInstance()
 	{
@@ -69,14 +61,15 @@ public class Player extends LifeForm
 	@Override
 	public Damage calculateDamage() 
 	{
+		
 		if (weapon == null)
 		{
-			Damage damage=new Damage("Player",getAttachStrength());
+			Damage damage=new Damage("Player",super.getAttachStrength());
 			return damage;
 		}
 		else 
 		{
-			return weapon.calculateDamage();
+			return new Damage("Player",weapon.getBaseDamage());
 		}
 	}
 	public void pickUp(Weapon weapon)
@@ -87,6 +80,12 @@ public class Player extends LifeForm
 		}
 	}
 
+	public void drop()
+	{
+		
+			this.weapon = null;
+		
+	}
 	
 	public Weapon getWeapon()
 	{

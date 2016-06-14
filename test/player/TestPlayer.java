@@ -1,13 +1,12 @@
 package player;
 
 import static org.junit.Assert.*;
-import lifeform.Damage;
 
 import org.junit.After;
 import org.junit.Test;
 
+import weapon.Attachments;
 import weapon.Swords;
-import weapon.Weapon;
 import environment.MapItem;
 
 
@@ -19,6 +18,8 @@ public class TestPlayer
 	{
 		Player p1 = Player.getPlayer();
 		assertTrue(p1 instanceof MapItem); 
+		Player p2 = Player.getPlayer();
+		assertTrue(p1==p2);
 	}
 	/**
 	 * Reset the instance after each Test.
@@ -28,30 +29,30 @@ public class TestPlayer
 	{
 		Player.resetInstance();
 	}
-	@Test
-	public void testTakeHit() 
-	{
-		Player p=Player.getPlayer();
-		Damage damage= new Damage("Player",10);
-		p.takeHit(damage);
-		assertEquals(40,p.getCurrentLifePoints()); 
-	}
+	
 	@Test
 	public void testAttack() 
-	{
+	{	//test without weapon
 		Player p=Player.getPlayer();
 		Creature normal= new NormalCreature("p",30);
-		Damage damage= new Damage("Player",10);
 		p.attack(normal);
 		assertEquals(25,normal.getCurrentLifePoints());
-	}
-	/*@Test
-	public void calculateDamage()
-	{
-		Player p=Player.getPlayer();
-		Swords swords=new Swords(); 
-		p.pickUp(swords);
+		//test with weapon
+		Player p2=Player.getPlayer();
+		Creature normal2= new NormalCreature("p",80);
+		Swords swords=new Swords();
+		p2.pickUp(swords);
+		p2.attack(normal2);
+		//System.out.print(normal2.getCurrentLifePoints());
+		assertEquals(70,normal2.getCurrentLifePoints());
+		p.drop();
+		//with attachments
+		Attachments a=new Attachments(swords);
+		p2.pickUp(a);
+		p2.attack(normal2);
+		//assertEquals(70,normal2.getCurrentLifePoints());
 		
-	}*/
+	}
+	
 	
 }

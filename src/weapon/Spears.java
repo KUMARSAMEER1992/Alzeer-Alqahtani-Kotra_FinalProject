@@ -1,27 +1,47 @@
 package weapon;
-
 import lifeform.Damage;
-
+/**
+ * The class contains Spear methods.
+ * @author Dalal Alzeer
+ */
 public class Spears extends GenericWeapon
 {
-
-	@Override
-	public Damage calculateDamage() 
+	int basedamage;
+	/**
+	 * Creates Spears with default base damage value.
+	 */
+	public Spears()
 	{
-		Damage damage=new Damage("PLAYER",getBaseDamge()*2);
+		basedamage=7;
+	}
+	@Override
+	public int getBaseDamage()
+	{
+		return basedamage;
+	}
+	/**
+	 * Calculates the damage done by Spears.
+	 * @return the damage caused by the weapon.
+	 */
+	@Override
+	public Damage calculateDamage()
+	{
+		Damage damage=new Damage("PLAYER",baseDamage);
 		return damage;
 	}
 
-	@Override
-	public int getBaseDamge() 
-	{
-		return 15;
-	}
-
-	@Override
+	/**
+	 * @return the weapon type
+	 */
 	public char getChar() 
 	{
 		return 'R';
+	}
+	@Override
+	public String getWeaponType() 
+	{
+		
+		return "Spears";
 	}
 
 }
