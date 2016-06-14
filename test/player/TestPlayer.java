@@ -1,7 +1,5 @@
 package player;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.Test;
@@ -9,10 +7,17 @@ import org.junit.Test;
 import environment.MapItem;
 import weapon.Attachments;
 import weapon.Swords;
+import environment.MapItem;
+/**
+ * The test cases for Player class.
+ * @author Dalal Alzeer
+ */
 
-public class TestPlayer
+public class TestPlayer 
 {
-
+	/**
+	 * test initialization
+	 */
 	@Test
 	public void test()
 	{
@@ -30,27 +35,28 @@ public class TestPlayer
 	{
 		Player.resetInstance();
 	}
-
+	/**
+	 * test attack 
+	 */
 	@Test
-	public void testAttack()
-	{ // test without weapon
-		Player p = Player.getPlayer();
-		Creature normal = new NormalCreature("p", 30);
+	public void testAttack() 
+	{	//test attack using strength
+		Player p=Player.getPlayer();
+		Creature normal= new NormalCreature("p",30);
 		p.attack(normal);
-		assertEquals(25, normal.getCurrentLifePoints());
-		// test with weapon
-		Creature normal2 = new NormalCreature("p", 80);
-		Swords swords = new Swords();
+		assertEquals(25,normal.getCurrentLifePoints());
+		//test using weapon
+		Creature normal2= new NormalCreature("p",80);
+		Swords swords=new Swords();
 		p.pickUp(swords);
 		p.attack(normal2);
-		assertEquals(70, normal2.getCurrentLifePoints());
-		p.dropWeapon();
-		// with attachments
-		Attachments a = new Attachments(swords);
+		assertEquals(70,normal2.getCurrentLifePoints());
+		p.drop();
+		//with using weapon&attachments
+		Attachments a=new Attachments(swords);
 		p.pickUp(a);
 		p.attack(normal2);
-		// assertEquals(,normal2.getCurrentLifePoints());
-
+		assertEquals(45,normal2.getCurrentLifePoints());
 	}
 
 }

@@ -5,6 +5,8 @@ import lifeform.MockLifeForm;
 
 import org.junit.Test;
 
+import player.Creature;
+import player.NormalCreature;
 import player.Player;
 /**
  * The test cases for Swords class.
@@ -18,13 +20,14 @@ public class TestSwords
 	@Test
 	public void test()
 	{
+		//Test initialization
 		Player p=Player.getPlayer();
-		LifeForm lf=new MockLifeForm("fred",60,5);
+		Creature normal= new NormalCreature("p",30);
 		Swords sword = new Swords();
+		//Test damage
 		p.pickUp(sword);
-		p.attack(lf);
-		
-		//assertEquals(50,lf.getCurrentLifePoints());
+		p.attack(normal);
+		assertEquals(20,normal.getCurrentLifePoints());
 	}
 
 }

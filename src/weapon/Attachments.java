@@ -27,7 +27,7 @@ public class Attachments implements Weapon
 		}
 		else if (weapon.getWeaponType().compareToIgnoreCase("Spears") == 0)
 		{
-			attachmentDamage = weapon.getBaseDamage() + 10;
+			attachmentDamage=weapon.getBaseDamage()+10; 
 		}
 	}
 
@@ -37,7 +37,7 @@ public class Attachments implements Weapon
 	@Override
 	public int getBaseDamage()
 	{
-		return weapon.getBaseDamage();
+		return attachmentDamage;
 	}
 
 	/**
