@@ -14,7 +14,7 @@ public class TurnSouth implements Command
 	public void execute() 
 	{
 		Environment env=Environment.getWorldInstance();
-		env.movePlayer(1);
+		env.movePlayer(2);
 		//env.informDisplay();
 	}
 
