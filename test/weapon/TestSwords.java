@@ -15,7 +15,7 @@ import player.Player;
 public class TestSwords 
 {
 	/**
-	 * Test initialization&damage of Swords.
+	 * Test initialization and damage of Sword.
 	 */
 	@Test
 	public void test()
@@ -24,6 +24,7 @@ public class TestSwords
 		Player p=Player.getPlayer();
 		Creature normal= new NormalCreature("p",30);
 		Swords sword = new Swords();
+		assertEquals(10,sword.getBaseDamage());
 		//Test damage
 		p.pickUp(sword);
 		p.attack(normal);

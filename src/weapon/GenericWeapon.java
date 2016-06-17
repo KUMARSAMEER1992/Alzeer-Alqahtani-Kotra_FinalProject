@@ -1,5 +1,4 @@
 package weapon;
-
 /**
  * Generic weapon contains methods to all weapons.
  * @author Dalal Alzeer
@@ -9,7 +8,7 @@ public abstract class GenericWeapon implements Weapon
 	/**
 	 * int to store base damage of the weapon.
 	 */
-	protected int baseDamage;
+	public int baseDamage;
 
 	/**
 	 * @return the base damage of the weapon.
@@ -27,7 +26,9 @@ public abstract class GenericWeapon implements Weapon
 	{
 		return WEAPON;
 	}
-
+	/**
+	 * @return weapon type
+	 */
 	public abstract String getWeaponType();
 
 }

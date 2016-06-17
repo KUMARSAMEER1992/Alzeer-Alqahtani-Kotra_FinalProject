@@ -13,7 +13,7 @@ import player.Player;
 public class TestSpears 
 {
 	/**
-	 * Test initialization&damage of Spears.
+	 * initialization and damage of Spears.
 	 */
 	@Test
 	public void test()
@@ -22,6 +22,7 @@ public class TestSpears
 		Player p=Player.getPlayer();
 		Creature normal= new NormalCreature("p",30);
 		Spears spear = new Spears();
+		assertEquals(7,spear.getBaseDamage());
 		//Test damage
 		p.pickUp(spear);
 		p.attack(normal);

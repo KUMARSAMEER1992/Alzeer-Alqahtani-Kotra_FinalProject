@@ -10,8 +10,11 @@ import environment.MapItem;
  * The test cases for AcidAddon class.
  * @author Dalal Alzeer
  */
-public class TestAcidAddon
-{
+public class TestAcidAddon 
+{	
+	/**
+	 * test Initialization
+	 */
 	@Test
 	public void testInitialization()
 	{
