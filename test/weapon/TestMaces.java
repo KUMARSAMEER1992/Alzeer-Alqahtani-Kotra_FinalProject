@@ -13,7 +13,7 @@ import player.Player;
 public class TestMaces 
 {
 	/**
-	 * Test initialization&damage of Maces.
+	 * Test initialization and damage of Mace.
 	 */
 	@Test
 	public void test() 
@@ -22,6 +22,7 @@ public class TestMaces
 		Player p=Player.getPlayer();
 		Creature normal= new NormalCreature("p",30);
 		Maces mace = new Maces();
+		assertEquals(5,mace.getBaseDamage());
 		//test damage
 		p.pickUp(mace);
 		p.attack(normal);

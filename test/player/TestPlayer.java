@@ -1,4 +1,7 @@
 package player;
+import static org.junit.Assert.*;
+import items.armor.Armor;
+import items.armor.NormalArmor;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -8,6 +11,7 @@ import org.junit.Test;
 
 import environment.MapItem;
 import weapon.Attachments;
+import weapon.Spears;
 import weapon.Swords;
 
 /**
@@ -58,13 +62,50 @@ public class TestPlayer
 		Swords swords = new Swords();
 		p.pickUp(swords);
 		p.attack(normal2);
-		assertEquals(70, normal2.getCurrentLifePoints());
+		assertEquals(70,normal2.getCurrentLifePoints());
 		p.dropWeapon();
-		// with using weapon&attachments
-		Attachments a = new Attachments(swords);
+		//with using weapon&attachments
+		Attachments a=new Attachments(swords);
 		p.pickUp(a);
 		p.attack(normal2);
 		assertEquals(45, normal2.getCurrentLifePoints());
 	}
-
+	/**
+	 * test player can pickup&drop a weapon
+	 */
+	@Test
+	public void testPickup_dropWeapon()
+	{
+		Player p=Player.getPlayer();
+		Swords swords=new Swords();
+		p.pickUp(swords);
+		assertEquals(swords,p.getWeapon());
+		p.dropWeapon();
+		assertNull(p.getWeapon());
+	}
+	/**
+	 * test player cannot pickup a weapon if he has one
+	 */
+	@Test
+	public void testCannotPickup()
+	{
+		Player p=Player.getPlayer();
+		Swords swords=new Swords();
+		Spears spear=new Spears();
+		p.pickUp(swords);
+		assertEquals(swords,p.getWeapon());
+		p.pickUp(spear);
+		assertEquals(swords,p.getWeapon());
+	}
+	/**
+	 * test set&get armor
+	 */
+	@Test
+	public void testSet_GetArmor()
+	{
+		Player p=Player.getPlayer();
+		Armor armor = new NormalArmor(5);
+		p.setArmor(armor);
+		assertEquals(armor,p.getArmor());
+	}
 }

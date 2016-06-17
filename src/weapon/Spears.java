@@ -6,41 +6,45 @@ import lifeform.Damage;
  */
 public class Spears extends GenericWeapon
 {
-	int basedamage;
 	/**
-	 * Creates Spears with default base damage value.
+	 * Creates Spear with default base damage value.
 	 */
 	public Spears()
 	{
-		basedamage=7;
+		this.baseDamage=7;
 	}
+	/**
+	 * @return spear base damage
+	 */
 	@Override
 	public int getBaseDamage()
 	{
-		return basedamage;
+		return this.baseDamage;
 	}
 	/**
-	 * Calculates the damage done by Spears.
-	 * @return the damage caused by the weapon.
+	 * Calculates the damage done by Spear.
+	 * @return the damage caused by spear.
 	 */
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("Weapon",baseDamage);
+		Damage damage=new Damage("WEAPON",baseDamage);
 		return damage;
 	}
 
 	/**
-	 * @return the weapon type
+	 * @return the character that displayed in the map
 	 */
 	public char getChar() 
 	{
 		return 'R';
 	}
+	/**
+	 * @return weapon type
+	 */
 	@Override
 	public String getWeaponType() 
 	{
-		
 		return "Spears";
 	}
 

@@ -6,38 +6,42 @@ import lifeform.Damage;
  */
 public class Maces extends GenericWeapon
 {
-	int basedamage;
 	/**
-	 * Creates Maces with default base damage value.
+	 * Creates Mace with default base damage value.
 	 */
 	public Maces()
 	{
-		basedamage=5;
+		this.baseDamage=5;
 	}
-	
+	/**
+	 * @return Mace base damage
+	 */
 	@Override
 	public int getBaseDamage()
 	{
-		return basedamage;
+		return baseDamage;
 	}
 	/**
-	 * Calculates the damage done by Maces.
-	 * @return the damage caused by the weapon.
+	 * Calculates the damage done by Mace.
+	 * @return the damage caused by Mace.
 	 */
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("Weapon",baseDamage);
+		Damage damage=new Damage("WEAPON",baseDamage);
 		return damage;
 	}
 
 	/**
-	 * @return the weapon type
+	 * @return the character that displayed in the map
 	 */
 	public char getChar() 
 	{
 		return 'M';
 	}
+	/**
+	 * @return weapon type
+	 */
 	@Override
 	public String getWeaponType() 
 	{

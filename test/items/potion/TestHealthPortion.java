@@ -11,7 +11,7 @@ import environment.MapItem;
 public class TestHealthPortion 
 {
 	/**
-	 * test Health Portion Initialization 
+	 * test Initialization
 	 */
 	@Test
 	public void testInitialization() 

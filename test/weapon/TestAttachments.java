@@ -7,26 +7,39 @@ import org.junit.Test;
  * The test cases for Attachments class.
  * @author Dalal Alzeer
  */
-public class TestAttachments {
-	
+public class TestAttachments 
+{
 	/**
-	 * The test cases for each attachment.
+	 * test Mace attachment.
 	 */
-	
 	@Test
-	public void test() 
+	public void testMace() 
 	{
-		//Test Maces
+		//Test mace attachment after calculate base damage of mace
 		Maces mace = new Maces();
 		Attachments a=new Attachments(mace);
 		assertEquals(10,a.attachmentDamage);
-		//Test Swords
-		Swords s=new Swords();
-		Attachments a1=new Attachments(s);
+	}
+	/**
+	 * test Sword attachment.
+	 */
+	@Test
+	public void testSword() 
+	{
+		//Test Sword attachment after calculate base damage of Sword
+		Swords sword=new Swords();
+		Attachments a1=new Attachments(sword);
 		assertEquals(25,a1.attachmentDamage);
-		//Test Spears
-		Spears sp=new Spears();
-		Attachments a2=new Attachments(sp);
+	}
+	/**
+	 * test Spear attachment.
+	 */
+	@Test
+	public void testSpear() 
+	{
+		//Test Spear attachment after calculate base damage of Spear
+		Spears spear=new Spears();
+		Attachments a2=new Attachments(spear);
 		assertEquals(17,a2.attachmentDamage);
 	}
 	
