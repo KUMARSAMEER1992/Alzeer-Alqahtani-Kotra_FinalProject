@@ -37,6 +37,10 @@ public class TestEnvironment
 		TestPlayer.resetPlayer();
 	}
 
+	public static void resetEnvvironment()
+	{
+		Environment.resetInstance();
+	}
 	@Before
 	public void init()
 	{

@@ -10,8 +10,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 
 import player.Player;
-
 import environment.Environment;
+import environment.TestEnvironment;
 
 
 /**
@@ -33,5 +33,7 @@ public class TestTurnEast
         turnEast.execute();
 		assertEquals(player,env.getMapItem(5,6));
 		Player.resetInstance();
+		TestEnvironment.resetEnvvironment();
+
 	}
 }
