@@ -1,6 +1,7 @@
 package player;
 
 import environment.StringConstants;
+import items.Key;
 import items.armor.Armor;
 import lifeform.Damage;
 import lifeform.LifeForm;
@@ -76,7 +77,7 @@ public class Player extends LifeForm
 	/**
 	 * reset instance after each test
 	 */
-	static void resetInstance()
+	public static void resetInstance()
 	{
 		player = null;
 	}
@@ -169,6 +170,13 @@ public class Player extends LifeForm
 	public Armor getArmor()
 	{
 		return armor;
+	}
+	/**
+	 * @return keyNum
+	 */
+	public int getKey()
+	{
+		return keyNum;
 	}
 
 }
