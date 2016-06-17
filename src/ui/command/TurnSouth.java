@@ -1,12 +1,21 @@
 package ui.command;
 
+import environment.Environment;
+import player.Player;
+
 public class TurnSouth implements Command 
 {
-
-	@Override
-	public void execute() {
-		// TODO Auto-generated method stub
-		
+	Player player;
+	public TurnSouth(Player player)
+	{
+	this.player=player;
 	}
-	
+	@Override
+	public void execute() 
+	{
+		Environment env=Environment.getWorldInstance();
+		env.movePlayer(1);
+		//env.informDisplay();
+	}
+
 }

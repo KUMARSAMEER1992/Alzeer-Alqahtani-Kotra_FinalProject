@@ -1,7 +1,6 @@
 package ui.command;
 
 import environment.Environment;
-import lifeform.LifeForm;
 import player.Player;
 
 public class TurnNorth implements Command 
@@ -15,9 +14,8 @@ public class TurnNorth implements Command
 	public void execute() 
 	{
 		Environment env=Environment.getWorldInstance();
-
-
-		
+		env.movePlayer(0);
+		//env.informDisplay();
 	}
 
 }
