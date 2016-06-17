@@ -2,7 +2,6 @@ package ui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Font;
 import java.awt.GridLayout;
 
@@ -10,27 +9,28 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
 import javax.swing.border.LineBorder;
 
 import environment.Environment;
+import environment.MapItem;
+import player.Player;
 
 /**
  * @author Sameer Kumar Kotra
  */
 public class GameDisplay
 {
-	public final static String EMPTY = "#";
+	public final static String EMPTY = ".";
 	private JFrame frame;
-	private JPanel legendPanel;
+	private JPanel infoPanel;
 	private JPanel mapPanel;
+	private JPanel mapArea;
 	private JLabel[][] lables;
+	private JLabel[] playerDetails;
 	private int rows;
 	private int cols;
-	private JScrollPane scrollPane;
-	private JPanel mapArea;
-	private JPanel panel;
-	private JTextArea textArea;
+	private JPanel legendPanel;
+	private JPanel playerInfoPanel;
 
 	/**
 	 * Launch the application.
@@ -47,15 +47,17 @@ public class GameDisplay
 	{
 		rows = Environment.ROWS;
 		cols = Environment.COLS;
-		/// rows = 50;
-		/// cols = 50;
+		playerDetails = new JLabel[4];
+		for (int i = 0; i < 4; i++)
+		{
+			playerDetails[i] = new JLabel(EMPTY);
+		}
 		lables = new JLabel[rows][cols];
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < cols; j++)
 			{
 				lables[i][j] = new JLabel(EMPTY);
-				lables[i][j].setBorder(new LineBorder(new Color(0, 0, 0), 1, true));
 			}
 		}
 		initialize();
@@ -68,11 +70,11 @@ public class GameDisplay
 	private void initialize()
 	{
 		frame = new JFrame();
-		frame.setBounds(100, 100, 800, 600);
+		frame.setBounds(0, 0, 950, 715);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 
-		buildLegendPanel();
+		buildInfoPanel();
 		buildMapPanel();
 	}
 
@@ -90,46 +92,62 @@ public class GameDisplay
 		JLabel lblMap = new JLabel("Map");
 		lblMap.setFont(new Font("Tahoma", Font.BOLD, 15));
 		mapName.add(lblMap);
-
-		scrollPane = new JScrollPane();
+		JScrollPane scrollPane = new JScrollPane();
 		mapPanel.add(scrollPane, BorderLayout.CENTER);
 
-		panel = new JPanel();
-		scrollPane.setViewportView(panel);
+		mapArea = new JPanel();
+		// mapPanel.add(mapArea, BorderLayout.CENTER);
+		scrollPane.setViewportView(mapArea);
 
-		textArea = new JTextArea();
-		textArea.setColumns(50);
-		textArea.setRows(90);
-		panel.add(textArea);
+		mapArea.setLayout(new GridLayout(rows, cols, 0, 0));
 
-		String temp;
 		for (int i = 0; i < rows; i++)
 		{
-			temp = "" + i;
 			for (int j = 0; j < cols; j++)
 			{
-				int k = (int) (Math.random() * 1000);
-				if (k % 2 == 0)
-					temp += ".";
-				else
-					temp += "A";
+				mapArea.add(lables[i][j]);
 			}
-			if (i != 99)
-				temp += "\n";
-			textArea.setText(textArea.getText() + temp);
 		}
-		/*
-		 * mapArea = new JPanel();
-		 * scrollPane.setViewportView(mapArea);
-		 * mapArea.setLayout(new GridLayout(rows, cols, 0, 0));
-		 * for (int i = 0; i < rows; i++)
-		 * {
-		 * for (int j = 0; j < cols; j++)
-		 * {
-		 * mapArea.add(lables[i][j]);
-		 * }
-		 * }
-		 */
+	}
+
+	private void buildInfoPanel()
+	{
+		infoPanel = new JPanel();
+		infoPanel.setName("Legend");
+		frame.getContentPane().add(infoPanel, BorderLayout.EAST);
+		infoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		infoPanel.setLayout(new BorderLayout(0, 0));
+
+		buildLegendPanel();
+		builbPlayerDetails();
+	}
+
+	/**
+	 * 
+	 */
+	private void builbPlayerDetails()
+	{
+		// TODO Auto-generated method stub
+
+		playerInfoPanel = new JPanel();
+		playerInfoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		infoPanel.add(playerInfoPanel, BorderLayout.CENTER);
+		playerInfoPanel.setLayout(new GridLayout(9, 0, 0, 0));
+		JLabel lblNewLabel = new JLabel("Info");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		playerInfoPanel.add(lblNewLabel);
+
+		playerInfoPanel.add(new JLabel(" LifePoints "));
+		playerInfoPanel.add(playerDetails[0]);
+
+		playerInfoPanel.add(new JLabel(" Armor "));
+		playerInfoPanel.add(playerDetails[1]);
+
+		playerInfoPanel.add(new JLabel(" Weapon "));
+		playerInfoPanel.add(playerDetails[2]);
+
+		playerInfoPanel.add(new JLabel(" Keys "));
+		playerInfoPanel.add(playerDetails[3]);
 	}
 
 	/**
@@ -138,24 +156,58 @@ public class GameDisplay
 	private void buildLegendPanel()
 	{
 		legendPanel = new JPanel();
-		frame.getContentPane().add(legendPanel, BorderLayout.EAST);
 		legendPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
-		legendPanel.setLayout(new GridLayout(10, 1, 2, 2));
+		infoPanel.add(legendPanel, BorderLayout.EAST);
+		legendPanel.setLayout(new GridLayout(15, 0, 0, 0));
 
-		JLabel legendLabel = new JLabel("   Legend");
-		legendLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
-		legendLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
-		legendPanel.add(legendLabel);
-		legendPanel.add(new JLabel("  H - Human"));
-		legendPanel.add(new JLabel("  A - Alien"));
-		legendPanel.add(new JLabel("  N - North"));
-		legendPanel.add(new JLabel("  E - East"));
-		legendPanel.add(new JLabel("  S - South"));
-		legendPanel.add(new JLabel("  W - West"));
-		legendPanel.add(new JLabel("  PI - Pistol"));
-		legendPanel.add(new JLabel("  Pl - Plasma Gun  "));
-		legendPanel.add(new JLabel("  CH - Chain Gun"));
+		JLabel lblNewLabel = new JLabel("Legend");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		legendPanel.add(lblNewLabel);
 
+		legendPanel.add(new JLabel(" P:player"));
+		legendPanel.add(new JLabel(" I:PoisonAddon"));
+		legendPanel.add(new JLabel(" H:HealthPotion"));
+		legendPanel.add(new JLabel(" J:AcidAddon"));
+		legendPanel.add(new JLabel(" S:Sword"));
+		legendPanel.add(new JLabel(" R:Spear"));
+		legendPanel.add(new JLabel(" M:Mace"));
+		legendPanel.add(new JLabel(" T:Attachment"));
+		legendPanel.add(new JLabel(" K:Key"));
+		legendPanel.add(new JLabel(" A:NormalArmor"));
+		legendPanel.add(new JLabel(" C:AcidArmor"));
+		legendPanel.add(new JLabel(" O:PoisionArmor"));
+		legendPanel.add(new JLabel(" E:PoisionCreature"));
+		legendPanel.add(new JLabel(" D:AcidCreature"));
+
+	}
+
+	/**
+	 * 
+	 */
+	public void update()
+	{
+		Environment environment = Environment.getWorldInstance();
+		Player player = Player.getPlayer();
+		for (int i = 0; i < rows; i++)
+		{
+			for (int j = 0; j < cols; j++)
+			{
+				lables[i][j].setText(getdisplayString(environment.getMapItem(i, j)));
+			}
+		}
+		playerDetails[0].setText(" " + player.getCurrentLifePoints());
+		playerDetails[1].setText(" " + getdisplayString(player.getArmor()));
+		playerDetails[2].setText(" " + getdisplayString(player.getWeapon()));
+		// playerDetails[3].setText(player.getKeys()+"");
+
+	}
+
+	private String getdisplayString(MapItem item)
+	{
+		if (item == null)
+			return EMPTY;
+		else
+			return "" + item.getChar();
 	}
 
 }

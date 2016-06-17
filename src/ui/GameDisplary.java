@@ -17,7 +17,7 @@ import environment.Environment;
 /**
  * @author Sameer Kumar Kotra
  */
-public class GameDisplay2
+public class GameDisplary
 {
 	public final static String EMPTY = "#";
 	private JFrame frame;
@@ -33,26 +33,22 @@ public class GameDisplay2
 	 */
 	public static void main(String[] args)
 	{
-		GameDisplay2 window = new GameDisplay2();
+		GameDisplary window = new GameDisplary();
 	}
 
 	/**
 	 * Create the application.
 	 */
-	public GameDisplay2()
+	public GameDisplary()
 	{
 		rows = Environment.ROWS;
 		cols = Environment.COLS;
-		rows = 40;
-		cols = 100;
 		lables = new JLabel[rows][cols];
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < cols; j++)
 			{
 				lables[i][j] = new JLabel(EMPTY);
-				// lables[i][j].setBorder(new LineBorder(new Color(0, 0, 0), 1,
-				// true));
 			}
 		}
 		initialize();

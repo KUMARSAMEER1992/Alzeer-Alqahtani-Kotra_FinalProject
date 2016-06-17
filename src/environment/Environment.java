@@ -10,6 +10,7 @@ import items.potion.Potion;
 import items.potion.PotionDetails;
 import lifeform.LifeForm;
 import player.Player;
+import ui.GameDisplay;
 import weapon.Weapon;
 
 /**
@@ -22,7 +23,7 @@ public class Environment
 	/**
 	 * final int to store no of rows of the Environment.
 	 */
-	public final static int ROWS = 100;
+	public final static int ROWS = 40;
 	/**
 	 * final int to store no of columns of the environment.
 	 */
@@ -37,6 +38,9 @@ public class Environment
 	 * Array of Cell to store multiple Cells.
 	 */
 	private Cell[][] cells;
+
+	// TODO
+	private GameDisplay display;
 
 	/**
 	 * Create an instance of Environment which has the given number of rows and
@@ -442,5 +446,12 @@ public class Environment
 		addMapItem(xNew, yNew, player);
 	}
 
-	
+	// TODO
+	private void informDisplay()
+	{
+		if (display != null)
+		{
+			display.update();
+		}
+	}
 }
