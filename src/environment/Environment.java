@@ -441,4 +441,6 @@ public class Environment
 		MapItem player = cells[xOld][yOld].removeMapItem();
 		addMapItem(xNew, yNew, player);
 	}
+
+	
 }
