@@ -14,7 +14,7 @@ import items.Wall;
 import items.armor.ArmorAcidAddon;
 import items.armor.ArmorPosionAddon;
 import items.potion.AcidAddon;
-import items.potion.HealthPortion;
+import items.potion.HealthPotion;
 import items.potion.PoisonAddon;
 import items.potion.Potion;
 import lifeform.LifeForm;
@@ -159,7 +159,7 @@ public class TestEnvironment
 	@Test
 	public void testMoveToHealthPotion()
 	{
-		Potion potion = new HealthPortion();
+		Potion potion = new HealthPotion();
 
 		assertEquals(50, player.getCurrentLifePoints());
 
@@ -174,7 +174,7 @@ public class TestEnvironment
 	@Test
 	public void testMoveToAcidPotion()
 	{
-		Potion potion = new HealthPortion();
+		Potion potion = new HealthPotion();
 		potion = new AcidAddon(potion);
 
 		assertEquals(50, player.getCurrentLifePoints());
@@ -190,7 +190,7 @@ public class TestEnvironment
 	@Test
 	public void testMoveToPosionPotion()
 	{
-		Potion potion = new HealthPortion();
+		Potion potion = new HealthPotion();
 		potion = new PoisonAddon(potion);
 
 		assertEquals(50, player.getCurrentLifePoints());

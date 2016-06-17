@@ -31,7 +31,7 @@ public class PoisonAddon extends PotionAddon
 	@Override
 	public char getChar()
 	{
-		return 'O';
+		return 'I';
 	}
 
 }

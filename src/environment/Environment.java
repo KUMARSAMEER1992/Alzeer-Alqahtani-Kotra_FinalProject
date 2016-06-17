@@ -270,7 +270,7 @@ public class Environment
 	 */
 	private boolean isWeapon(int row, int col)
 	{
-		if (cells[row][col].getMapItem().getItemType().equals(Weapon.WEAPON))
+		if (cells[row][col].getMapItem().getItemType().equals(StringConstants.WEAPON))
 		{
 			return true;
 		}

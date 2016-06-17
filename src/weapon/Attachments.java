@@ -1,4 +1,5 @@
 package weapon;
+import environment.StringConstants;
 import lifeform.Damage;
 
 /**
@@ -61,7 +62,7 @@ public class Attachments implements Weapon
 	@Override
 	public char getChar()
 	{
-		return 'A';
+		return 'T';
 	}
 	/**
 	 * return item type
@@ -69,7 +70,7 @@ public class Attachments implements Weapon
 	@Override
 	public String getItemType()
 	{
-		return WEAPON;
+		return StringConstants.WEAPON;
 	}
 	/**
 	 * return weapon type

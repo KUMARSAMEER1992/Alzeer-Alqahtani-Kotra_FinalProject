@@ -31,7 +31,7 @@ public class AcidAddon extends PotionAddon
 	@Override
 	public char getChar()
 	{
-		return 'A';
+		return 'J';
 	}
 
 }

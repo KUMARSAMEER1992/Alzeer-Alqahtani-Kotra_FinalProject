@@ -8,7 +8,7 @@ import environment.MapItem;
  * The test cases for HealthPortion class.
  * @author Dalal Alzeer
  */
-public class TestHealthPortion 
+public class TestHealthPotion 
 {
 	/**
 	 * test Initialization
@@ -16,7 +16,7 @@ public class TestHealthPortion
 	@Test
 	public void testInitialization() 
 	{
-		HealthPortion hp=new HealthPortion();
+		HealthPotion hp=new HealthPotion();
 		assertTrue(hp instanceof MapItem);
 	}
 

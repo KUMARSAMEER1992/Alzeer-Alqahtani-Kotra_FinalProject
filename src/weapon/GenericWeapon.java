@@ -1,4 +1,7 @@
 package weapon;
+
+import environment.StringConstants;
+
 /**
  * Generic weapon contains methods to all weapons.
  * @author Dalal Alzeer
@@ -24,7 +27,7 @@ public abstract class GenericWeapon implements Weapon
 	 */
 	public String getItemType()
 	{
-		return WEAPON;
+		return StringConstants.WEAPON;
 	}
 	/**
 	 * @return weapon type

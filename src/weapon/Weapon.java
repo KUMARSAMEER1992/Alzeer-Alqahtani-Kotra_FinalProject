@@ -8,8 +8,7 @@ import lifeform.Damage;
  */
 public interface Weapon extends MapItem
 {
-	public static final String WEAPON = "WEAPON";
-
+	
 	/**
 	 * Calculates the damage done by a weapon.
 	 * @return the damage.

@@ -6,7 +6,7 @@ import environment.StringConstants;
  * This class contains Health Potion's details 
  * @author Dalal Alzeer
  */
-public class HealthPortion implements Potion
+public class HealthPotion implements Potion
 {
 	/**
 	 *@return Health Potion's details  
