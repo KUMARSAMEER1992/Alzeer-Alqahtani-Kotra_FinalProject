@@ -1,45 +1,49 @@
 package weapon;
 import lifeform.Damage;
 /**
- * The class contains Sword methods.
+ * This class contains Sword methods.
  * @author Dalal Alzeer
  */
 public class Swords extends GenericWeapon
 {
-	int basedamage;
 	/**
-	 * Creates Swords with default base damage value.
+	 * Creates Sword with default base damage value.
 	 */
 	public Swords()
 	{
-		basedamage=10;
+		this.baseDamage=10;
 	}
+	/**
+	 * @return Sword base damage
+	 */
 	@Override
 	public int getBaseDamage()
 	{
-		return basedamage;
+		return this.baseDamage;
 	}
 	/**
 	 * Calculates the damage done by Sword.
-	 * @return the damage caused by the weapon.
+	 * @return the damage caused by Sword.
 	 */
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("Weapon",baseDamage);
+		Damage damage=new Damage("WEAPON",baseDamage);
 		return damage;
 	}
 	/**
-	 * @return the weapon type
+	 * @return the character that displayed in the map
 	 */
 	public char getChar() 
 	{
 		return 'S';
 	}
+	/**
+	 * @return weapon type
+	 */
 	@Override
 	public String getWeaponType() 
 	{
-		
 		return "Swords";
 	}
 	

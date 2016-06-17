@@ -1,5 +1,4 @@
 package weapon;
-
 import lifeform.Damage;
 
 /**
@@ -12,8 +11,14 @@ public class Attachments implements Weapon
 	 * Weapon to store the Weapon.
 	 */
 	protected Weapon weapon;
+	/**
+	 * int to store attachment damage
+	 */
 	int attachmentDamage;
-
+	/**
+	 * create Attachment instance
+	 * @param w
+	 */
 	public Attachments(Weapon w)
 	{
 		weapon = w;
@@ -32,7 +37,7 @@ public class Attachments implements Weapon
 	}
 
 	/**
-	 * @return the base damage of the weapon.
+	 * @return the attachment damage.
 	 */
 	@Override
 	public int getBaseDamage()
@@ -47,24 +52,28 @@ public class Attachments implements Weapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage = new Damage("Weapon", attachmentDamage);
+		Damage damage = new Damage("WEAPON", attachmentDamage);
 		return damage;
 	}
-
+	/**
+	 * @return the character that displayed in the map
+	 */
 	@Override
 	public char getChar()
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return 'A';
 	}
-
+	/**
+	 * return item type
+	 */
 	@Override
 	public String getItemType()
 	{
-
 		return WEAPON;
 	}
-
+	/**
+	 * return weapon type
+	 */
 	@Override
 	public String getWeaponType()
 	{
