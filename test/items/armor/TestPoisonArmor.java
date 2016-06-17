@@ -17,7 +17,7 @@ public class TestPoisonArmor
 	public void testAcidArmor() throws ArmorException
 	{
 		Armor armor = new NormalArmor(5);
-		ArmorAddon addon = new PosionAddon(armor);
+		ArmorAddon addon = new ArmorPosionAddon(armor);
 
 		Damage poisonDamage = new Damage("POISON", 20);
 		poisonDamage = addon.reduceDamage(poisonDamage);

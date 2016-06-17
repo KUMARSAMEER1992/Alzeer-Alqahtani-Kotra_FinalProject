@@ -1,6 +1,6 @@
 package items.potion;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -12,7 +12,7 @@ public class TestPoisonAddon
 	@Test
 	public void testInitialization()
 	{
-		PoisonAddon pa=new PoisonAddon();
+		PoisonAddon pa = new PoisonAddon(null);
 		assertTrue(pa instanceof MapItem);
 	}
 

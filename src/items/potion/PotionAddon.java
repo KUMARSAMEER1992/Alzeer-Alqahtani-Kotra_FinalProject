@@ -8,6 +8,11 @@ public abstract class PotionAddon implements Potion
 
 	public abstract char getChar();
 
+	public PotionAddon(Potion potion)
+	{
+		this.potion = potion;
+	}
+
 	public String getItemType()
 	{
 		return StringConstants.POTION;

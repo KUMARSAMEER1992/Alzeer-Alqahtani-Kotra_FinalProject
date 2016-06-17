@@ -38,6 +38,11 @@ public class TestPlayer
 		Player.resetInstance();
 	}
 
+	public static void resetPlayer()
+	{
+		Player.resetInstance();
+	}
+
 	/**
 	 * test attack
 	 */

@@ -1,3 +1,6 @@
+/**
+ * @author Sameer Kumar Kotra
+ */
 package items.armor;
 
 import environment.StringConstants;
@@ -5,22 +8,22 @@ import exception.ArmorException;
 import lifeform.Damage;
 
 /**
- * AcidAddon for Armor.
- * AcidArmor is an ArmorAddon.
+ * PosionAddon for Armor.
+ * PosionAddon is an ArmorAddon.
  * @author Sameer Kumar Kotra
  */
-public class AcidAddon extends ArmorAddon
+public class ArmorPosionAddon extends ArmorAddon
 {
 
 	/**
-	 * Creates an AcidAddon with give armor.
-	 * Has max Rounds 10.
+	 * Creates an PosionAddon with give armor.
+	 * Has max Rounds 15.
 	 * @param armor : Armor to which add on to be added.
 	 * @throws ArmorException if we try to add ArmorAddon to a ArmorAddon.
 	 */
-	public AcidAddon(Armor armor) throws ArmorException
+	public ArmorPosionAddon(Armor armor) throws ArmorException
 	{
-		super(armor, 10);
+		super(armor, 15);
 	}
 
 	/**
@@ -31,7 +34,7 @@ public class AcidAddon extends ArmorAddon
 	@Override
 	public Damage reduceDamage(Damage damage)
 	{
-		if (damage.getDamageType().equals(StringConstants.ACID))
+		if (damage.getDamageType().equals(StringConstants.POISON))
 		{
 			damage.setDamagePoints(0);
 			return damage;
@@ -45,9 +48,10 @@ public class AcidAddon extends ArmorAddon
 	/**
 	 * @return the character to be displayed on the map.
 	 */
+	@Override
 	public char getChar()
 	{
-		return 'B';
+		return 'C';
 	}
 
 }
