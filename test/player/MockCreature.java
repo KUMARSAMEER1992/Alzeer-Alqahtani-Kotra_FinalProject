@@ -21,19 +21,22 @@ public class MockCreature extends Creature
 	}
 
 	@Override
-	public char getChar() {
+	public char getChar() 
+	{
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
 	@Override
-	public void takeHit(Damage damage) {
+	public void takeHit(Damage damage) 
+	{
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Damage calculateDamage() {
+	public Damage calculateDamage() 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}

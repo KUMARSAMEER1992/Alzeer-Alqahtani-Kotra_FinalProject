@@ -23,7 +23,6 @@ public class TestCreature
 		assertTrue(creature instanceof MapItem);
 		assertEquals(30, creature.getCurrentLifePoints());
 		assertEquals("CREATURE",creature.getItemType());
-		
 	}
 
 }

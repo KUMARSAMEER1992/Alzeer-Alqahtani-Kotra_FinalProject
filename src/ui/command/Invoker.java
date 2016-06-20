@@ -17,9 +17,8 @@ import javax.swing.JPanel;
  */
 public class Invoker extends Frame implements ActionListener 
 {
-	protected JButton btnNorth, btnSouth, btnEast, btnWest,btnSave,btnReload;
+	protected JButton btnNorth, btnSouth, btnEast, btnWest;
 	Command turnNorth,turnSouth,turnEast,turnWest;
-	Command save,reload;
 	/**
 	 * constructor to create GUI
 	 */
@@ -111,6 +110,5 @@ public class Invoker extends Frame implements ActionListener
 	public void setTurnWest(Command turnWest) 
 	{
 		this.turnWest = turnWest;
-	}
-	
+	}	
 }
