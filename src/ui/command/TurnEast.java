@@ -15,7 +15,7 @@ public class TurnEast implements Command
 	{
 		Environment env=Environment.getWorldInstance();
 		env.movePlayer(1);
-		//env.informDisplay();
+		env.informDisplay();
 	}
 
 }

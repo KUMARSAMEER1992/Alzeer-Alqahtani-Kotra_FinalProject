@@ -15,7 +15,7 @@ public class TurnNorth implements Command
 	{
 		Environment env=Environment.getWorldInstance();
 		env.movePlayer(0);
-		//env.informDisplay();
+		env.informDisplay();
 	}
 
 }

@@ -15,7 +15,7 @@ public class TurnWest implements Command
 	{
 		Environment env=Environment.getWorldInstance();
 		env.movePlayer(3);
-		//env.informDisplay();
+		env.informDisplay();
 	}
 
 }

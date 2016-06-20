@@ -447,7 +447,7 @@ public class Environment
 	}
 
 	// TODO
-	private void informDisplay()
+	public void informDisplay()
 	{
 		if (display != null)
 		{
