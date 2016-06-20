@@ -1,24 +1,24 @@
+/**
+ *  Name:Norah Alqahtani
+ *  Course:CSC 561
+ *  Instructor: Dr. Girard
+ */
 package player;
-
-import static org.junit.Assert.*;
 import lifeform.Damage;
 
-import org.junit.Test;
-
+/**
+ * MockCreature to test Creature
+ */
 public class MockCreature extends Creature 
 {
-
+	/**
+	 * create MockCammand
+	 */
 	public MockCreature(String name, int points) 
 	{
 		super(name, points);
-		// TODO Auto-generated constructor stub
 	}
 
-	@Test
-	public void test() 
-	{
-		fail("Not yet implemented");
-	}
 
 	@Override
 	public char getChar() 

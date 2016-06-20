@@ -1,14 +1,23 @@
+/**
+ *  Name:Norah Alqahtani
+ *  Course:CSC 561
+ *  Instructor: Dr. Girard
+ */
 package player;
 
 import lifeform.Damage;
-
+/**
+ * MockCommand to test Ability
+ */
 public class MockAbility extends Ability
 {
-
+	/**
+	 * create MockAbility 
+	 */
 	public MockAbility(Creature creature) 
 	{
 		super(creature);
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	@Override

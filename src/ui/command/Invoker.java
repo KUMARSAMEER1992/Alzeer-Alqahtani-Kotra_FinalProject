@@ -32,7 +32,6 @@ public class Invoker extends Frame implements ActionListener
 	private void createGui() 
 	{
 		setLayout(new BorderLayout());
-		//turns
 	    JPanel panal=new JPanel();
 	    panal.setLayout(new BorderLayout(3,3));
 	    btnNorth = new JButton("NORTH");
@@ -48,7 +47,6 @@ public class Invoker extends Frame implements ActionListener
 	    btnWest.addActionListener(this);
 	    panal.add(btnWest, BorderLayout.WEST);
 	    add("North",panal);
-	    
 	    setTitle("Remote"); 
 	    setSize(280, 150);            
 	    pack();
