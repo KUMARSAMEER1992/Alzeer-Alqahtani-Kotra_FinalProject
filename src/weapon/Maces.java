@@ -11,7 +11,7 @@ public class Maces extends GenericWeapon
 	 */
 	public Maces()
 	{
-		this.baseDamage=5;
+		super(5);
 	}
 	/**
 	 * @return Mace base damage
@@ -19,7 +19,7 @@ public class Maces extends GenericWeapon
 	@Override
 	public int getBaseDamage()
 	{
-		return baseDamage;
+		return this.baseDamage;
 	}
 	/**
 	 * Calculates the damage done by Mace.
@@ -28,7 +28,7 @@ public class Maces extends GenericWeapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("WEAPON",baseDamage);
+		Damage damage=new Damage("WEAPON",this.baseDamage);
 		return damage;
 	}
 

@@ -11,13 +11,20 @@ import environment.MapItem;
 public class TestHealthPotion 
 {
 	/**
-	 * test Initialization
+	 * test Initialization, check healthpoints, and the type
 	 */
 	@Test
 	public void testInitialization() 
 	{
 		HealthPotion hp=new HealthPotion();
 		assertTrue(hp instanceof MapItem);
+		//test the default healthPoint value
+		assertEquals(10,hp.healthPoints);
+		//test item type
+		assertEquals("POTION",hp.getItemType());
+		
+		
+		
 	}
 
 }

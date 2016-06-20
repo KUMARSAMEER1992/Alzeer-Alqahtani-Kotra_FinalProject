@@ -12,6 +12,7 @@ public class Attachments implements Weapon
 	 * Weapon to store the Weapon.
 	 */
 	protected Weapon weapon;
+	int attachmentNum;
 	/**
 	 * int to store attachment damage
 	 */

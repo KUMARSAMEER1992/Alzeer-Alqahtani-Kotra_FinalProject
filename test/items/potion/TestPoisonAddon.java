@@ -18,6 +18,8 @@ public class TestPoisonAddon
 	{
 		PoisonAddon pa = new PoisonAddon(null);
 		assertTrue(pa instanceof MapItem);
+		//test item type
+		assertEquals("POTION",pa.getItemType());
 	}
 
 }

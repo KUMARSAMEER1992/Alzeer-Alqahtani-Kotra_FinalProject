@@ -36,7 +36,7 @@ public class Player extends LifeForm
 	public static Player getPlayer()
 	{
 		if (player == null)
-			player = new Player("bob", 50, 5);
+			player = new Player("bob",100, 10);
 
 		return player;
 	}
@@ -54,7 +54,7 @@ public class Player extends LifeForm
 	@Override
 	public String getItemType()
 	{
-		return "PLAYER";
+		return StringConstants.PLAYER;
 	}
 	/**
 	 * Reduces the damage from current life points.

@@ -12,14 +12,22 @@ public abstract class GenericWeapon implements Weapon
 	 * int to store base damage of the weapon.
 	 */
 	public int baseDamage;
-
+	
+	/**
+	 * create GenericWeapon with given base damage value
+	 * @param baseDamage
+	 */
+	public GenericWeapon(int baseDamage )
+	{
+		this.baseDamage=baseDamage;
+	}
 	/**
 	 * @return the base damage of the weapon.
 	 */
 	@Override
 	public int getBaseDamage()
 	{
-		return baseDamage;
+		return this.baseDamage;
 	}
 
 	/**

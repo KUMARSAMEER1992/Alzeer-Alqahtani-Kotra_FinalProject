@@ -3,9 +3,6 @@ import static org.junit.Assert.*;
 import items.armor.Armor;
 import items.armor.NormalArmor;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.After;
 import org.junit.Test;
 
@@ -41,7 +38,9 @@ public class TestPlayer
 	{
 		Player.resetInstance();
 	}
-
+	/**
+	 * Reset player method to use for other tests.
+	 */
 	public static void resetPlayer()
 	{
 		Player.resetInstance();
@@ -52,11 +51,16 @@ public class TestPlayer
 	 */
 	@Test
 	public void testAttack()
-	{ // test attack using strength
+	{ 	
+		// test attack using strength
 		Player p = Player.getPlayer();
 		Creature normal = new NormalCreature("p", 30);
+		//test player attacks creature.Reduce lifePoint by 10 (30 to 20)
 		p.attack(normal);
-		assertEquals(25, normal.getCurrentLifePoints());
+		assertEquals(20, normal.getCurrentLifePoints());
+		//test creature attacks player.Reduce lifePoint by 5 (100 to 95)
+		normal.attack(p);
+		assertEquals(95, p.getCurrentLifePoints());
 		// test using weapon
 		Creature normal2 = new NormalCreature("p", 80);
 		Swords swords = new Swords();
@@ -64,7 +68,7 @@ public class TestPlayer
 		p.attack(normal2);
 		assertEquals(70,normal2.getCurrentLifePoints());
 		p.dropWeapon();
-		//with using weapon&attachments
+		//with using weapon&attachment
 		Attachments a=new Attachments(swords);
 		p.pickUp(a);
 		p.attack(normal2);
@@ -107,5 +111,42 @@ public class TestPlayer
 		Armor armor = new NormalArmor(5);
 		p.setArmor(armor);
 		assertEquals(armor,p.getArmor());
+	}
+	/**
+	 * test increase lifePoints
+	 */
+	@Test
+	public void increaseLifePoints()
+	{
+		Player p=Player.getPlayer();
+		assertEquals(100,p.getCurrentLifePoints());
+		p.increaseCurrentLifePoints(10);
+		assertEquals(110,p.getCurrentLifePoints());
+		
+	}
+	/**
+	 * test increase/decrease key
+	 */
+	@Test
+	public void key()
+	{
+		Player p=Player.getPlayer();
+		assertEquals(0,p.getKey());
+		//increase key
+		p.increaseKey(1);
+		assertEquals(1,p.getKey());
+		//decrease key
+		p.decreaseKey();
+		assertEquals(0,p.getKey());
+	}
+	/**
+	 * test getChar/getItemType
+	 */
+	@Test
+	public void testGetChar_GetItemType() 
+	{
+		Player p=Player.getPlayer();
+		assertEquals('P',p.getChar());
+		assertEquals("PLAYER",p.getItemType());
 	}
 }

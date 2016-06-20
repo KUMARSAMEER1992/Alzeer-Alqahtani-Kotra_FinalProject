@@ -11,10 +11,8 @@ public abstract class PotionAddon implements Potion
 	protected Potion potion;
 
 	/**
-	 * @return the character that displayed in the map
+	 * create potionAddon instance
 	 */
-	public abstract char getChar();
-
 	public PotionAddon(Potion potion)
 	{
 		this.potion=potion;
@@ -26,4 +24,8 @@ public abstract class PotionAddon implements Potion
 	{
 		return StringConstants.POTION;
 	}
+	/**
+	 * @return the character that displayed in the map
+	 */
+	public abstract char getChar();
 }

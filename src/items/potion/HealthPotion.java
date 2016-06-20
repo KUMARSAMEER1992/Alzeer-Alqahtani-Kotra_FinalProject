@@ -8,13 +8,22 @@ import environment.StringConstants;
  */
 public class HealthPotion implements Potion
 {
+	
+	protected int healthPoints;
+	/**
+	 * HealthPotion instance with default value
+	 */
+	public HealthPotion() 
+	{
+		healthPoints=10;
+	}
 	/**
 	 *@return Health Potion's details  
 	 */
 	@Override
 	public PotionDetails getDetails()
 	{
-		PotionDetails pd = new PotionDetails(StringConstants.HEALTH, 10);
+		PotionDetails pd = new PotionDetails(StringConstants.HEALTH, healthPoints);
 		return pd;
 	}
 	/**

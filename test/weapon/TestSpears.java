@@ -1,5 +1,6 @@
 package weapon;
 import static org.junit.Assert.*;
+import lifeform.Damage;
 
 import org.junit.Test;
 
@@ -27,6 +28,25 @@ public class TestSpears
 		p.pickUp(spear);
 		p.attack(normal);
 		assertEquals(23,normal.getCurrentLifePoints());
+	}
+	/**
+	 * test calculateDamage
+	 */
+	@Test
+	public void testCalculateDamage() 
+	{
+		Damage damage=new Damage("WEAPON",7);
+		assertEquals(7,damage.getDamagePoints());
+	}
+	/**
+	 * test getChar/getWeaponType
+	 */
+	@Test
+	public void testGetChar_GetWeaponType() 
+	{
+		Spears spear = new Spears();
+		assertEquals('R',spear.getChar());
+		assertEquals("Spears",spear.getWeaponType());
 	}
 
 }

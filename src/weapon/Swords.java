@@ -11,7 +11,7 @@ public class Swords extends GenericWeapon
 	 */
 	public Swords()
 	{
-		this.baseDamage=10;
+		super(10);
 	}
 	/**
 	 * @return Sword base damage
@@ -28,7 +28,7 @@ public class Swords extends GenericWeapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("WEAPON",baseDamage);
+		Damage damage=new Damage("WEAPON",this.baseDamage);
 		return damage;
 	}
 	/**

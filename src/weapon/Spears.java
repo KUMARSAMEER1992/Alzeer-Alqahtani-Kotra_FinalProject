@@ -11,7 +11,7 @@ public class Spears extends GenericWeapon
 	 */
 	public Spears()
 	{
-		this.baseDamage=7;
+		super(7);
 	}
 	/**
 	 * @return spear base damage
@@ -28,7 +28,7 @@ public class Spears extends GenericWeapon
 	@Override
 	public Damage calculateDamage()
 	{
-		Damage damage=new Damage("WEAPON",baseDamage);
+		Damage damage=new Damage("WEAPON",this.baseDamage);
 		return damage;
 	}
 

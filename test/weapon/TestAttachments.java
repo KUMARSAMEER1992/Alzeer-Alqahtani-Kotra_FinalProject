@@ -42,6 +42,6 @@ public class TestAttachments
 		Attachments a2=new Attachments(spear);
 		assertEquals(17,a2.attachmentDamage);
 	}
-	
+
 
 }

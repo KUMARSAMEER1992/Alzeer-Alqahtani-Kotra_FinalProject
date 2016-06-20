@@ -1,5 +1,6 @@
 package weapon;
 import static org.junit.Assert.*;
+import lifeform.Damage;
 
 import org.junit.Test;
 
@@ -28,5 +29,25 @@ public class TestMaces
 		p.attack(normal);
 		assertEquals(25,normal.getCurrentLifePoints());
 	}
+	/**
+	 * test calculateDamage
+	 */
+	@Test
+	public void testCalculateDamage() 
+	{
+		Damage damage=new Damage("WEAPON",5);
+		assertEquals(5,damage.getDamagePoints());
+	}
+	/**
+	 * test getChar/getWeaponType
+	 */
+	@Test
+	public void testGetChar_GetWeaponType() 
+	{
+		Maces mace = new Maces();
+		assertEquals('M',mace.getChar());
+		assertEquals("Maces",mace.getWeaponType());
+	}
+	
 
 }

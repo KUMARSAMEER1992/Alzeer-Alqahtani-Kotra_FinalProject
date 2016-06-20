@@ -14,8 +14,8 @@ public class TestPotionDetails
 	@Test
 	public void test() 
 	{
-		PotionDetails pd=new PotionDetails("Helth",10);
-		assertEquals("Helth",pd.getType());
+		PotionDetails pd=new PotionDetails("Health",10);
+		assertEquals("Health",pd.getType());
 		assertEquals(10,pd.getHealthPoints());
 	}
 

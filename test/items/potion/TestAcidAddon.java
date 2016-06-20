@@ -21,5 +21,5 @@ public class TestAcidAddon
 		AcidAddon a = new AcidAddon(null);
 		assertTrue(a instanceof MapItem);
 	}
-
+	
 }
