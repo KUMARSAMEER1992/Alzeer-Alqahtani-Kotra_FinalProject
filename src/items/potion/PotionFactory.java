@@ -24,7 +24,6 @@ public class PotionFactory
 				{
 				potion = new PoisonAddon(potion);	
 				}
-		
 		return potion;
 				
 	}
