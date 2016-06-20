@@ -28,7 +28,6 @@ public class TestTurnNorth
 		Player player = Player.getPlayer();
 		Environment env = Environment.getWorldInstance();
 		Command turnNorth = new TurnNorth(player);
-		// LifeForm turn to south
 		env.addMapItem(5, 5, player);
 		turnNorth.execute();
 		assertEquals(player, env.getMapItem(4, 5));

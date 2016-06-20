@@ -19,7 +19,7 @@ public class TestCreature
 	@Test
 	public void testInitialization() 
 	{
-		Creature creature= new MockCreature("p",30);
+		Creature creature= new MockCreature("spider",30);
 		assertTrue(creature instanceof MapItem);
 		assertEquals(30, creature.getCurrentLifePoints());
 		assertEquals("CREATURE",creature.getItemType());

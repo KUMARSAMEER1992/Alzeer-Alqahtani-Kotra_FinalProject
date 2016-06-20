@@ -14,20 +14,27 @@ import environment.MapItem;
 
 public class TestPoisonCreature
 {
+	/**
+	 * Test Initialization of the PoisonCreature.
+	 */
 	@Test
 	public void testInitialization()
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Ability poison1 = new PoisonCreature(normal1);
-		assertTrue(poison1 instanceof MapItem);
-		assertEquals("p",poison1.getName());
-		assertEquals(30,poison1.getCurrentLifePoints());
+		Creature normal= new NormalCreature("bug",70);
+		Ability poison = new PoisonCreature(normal);
+		assertTrue(poison instanceof MapItem);
+		assertEquals("bug",poison.getName());
+		assertEquals(70,poison.getCurrentLifePoints());
+		assertEquals('P',poison.getChar());
 	}
+	/**
+	 * Test attack for PoisonCreature.
+	 */
 	@Test
-	public void testTakeHit() 
+	public void testAttack() 
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Creature normal2= new NormalCreature("p",50);
+		Creature normal1= new NormalCreature("spider",30);
+		Creature normal2= new NormalCreature("bug",50);
 		Ability poison1 = new PoisonCreature(normal1);
 		Ability poison2 = new PoisonCreature(normal2);
 		assertTrue(poison1 instanceof MapItem);

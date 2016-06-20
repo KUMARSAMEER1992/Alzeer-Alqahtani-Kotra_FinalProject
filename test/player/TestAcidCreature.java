@@ -14,20 +14,27 @@ import environment.MapItem;
 
 public class TestAcidCreature
 {
+	/**
+	 * Test Initialization of the AcidCreature.
+	 */
 	@Test
 	public void testInitialization()
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Ability acid1 = new AcidCreature(normal1);
-		assertTrue(acid1 instanceof MapItem);
-		assertEquals("p",acid1.getName());
-		assertEquals(30,acid1.getCurrentLifePoints());
+		Creature normal= new NormalCreature("spider",50);
+		Ability acid = new AcidCreature(normal);
+		assertTrue(acid instanceof MapItem);
+		assertEquals("spider",acid.getName());
+		assertEquals(50,acid.getCurrentLifePoints());
+		assertEquals('A',acid.getChar());
 	}
+	/**
+	 * Test attack for AcidCreature.
+	 */
 	@Test
-	public void test() 
+	public void testAttack() 
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Creature normal2= new NormalCreature("p",50);
+		Creature normal1= new NormalCreature("spider",30);
+		Creature normal2= new NormalCreature("bug",50);
 		Ability acid1 = new AcidCreature(normal1);
 		Ability acid2 = new AcidCreature(normal2);
 		assertTrue(acid1 instanceof MapItem);

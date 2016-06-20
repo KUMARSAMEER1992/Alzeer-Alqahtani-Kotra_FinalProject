@@ -14,13 +14,13 @@ import environment.MapItem;
 public class TestAbility 
 {
 	/**
-	 * Test Initialization of the LifeForm.
+	 * Test Initialization of the Ability.
 	 */
 	@Test
 	public void testInitialization() 
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Ability ability = new MockAbility(normal1);
+		Creature normal= new NormalCreature("spider",30);
+		Ability ability = new MockAbility(normal);
 		assertTrue(ability instanceof MapItem);
 		assertEquals(30, ability.getCurrentLifePoints());
 		

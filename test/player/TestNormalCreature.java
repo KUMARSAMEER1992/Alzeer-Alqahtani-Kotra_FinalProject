@@ -14,15 +14,21 @@ import environment.MapItem;
 
 public class TestNormalCreature 
 {
+	/**
+	 * Test Initialization of the NormalCreature.
+	 */
 	@Test
 	public void testInitialization()
 	{
-		Creature normal1= new NormalCreature("p",30);
-		assertTrue(normal1 instanceof MapItem);
-		assertEquals("p",normal1.getName());
-		assertEquals(30,normal1.getCurrentLifePoints());
+		Creature normal= new NormalCreature("Spider",30);
+		assertTrue(normal instanceof MapItem);
+		assertEquals("Spider",normal.getName());
+		assertEquals(30,normal.getCurrentLifePoints());
+		assertEquals('N',normal.getChar());
 	}
-	
+	/**
+	 * Test attack for NormalCreature.
+	 */
 	@Test
 	public void testAttack() 
 	{

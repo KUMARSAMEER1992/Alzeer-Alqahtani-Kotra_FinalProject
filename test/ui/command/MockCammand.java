@@ -27,6 +27,4 @@ public class MockCammand implements Command
 	{
 		testValue=1;
 	}
-	
-
 }
