@@ -1,5 +1,6 @@
 package items.potion;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
@@ -20,6 +21,8 @@ public class TestAcidAddon
 	{
 		AcidAddon a = new AcidAddon(null);
 		assertTrue(a instanceof MapItem);
+		//test item type
+		assertEquals("POTION",a.getItemType());
 	}
 	
 }
