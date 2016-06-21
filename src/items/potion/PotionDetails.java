@@ -9,7 +9,7 @@ public class PotionDetails
 	private String type;
 	private int healthPoints;
 	/**
-	 * create an instance
+	 * create an instance to store potion type and points.
 	 * @param ptype
 	 * @param points
 	 */

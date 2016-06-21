@@ -35,7 +35,9 @@ public class TestMaces
 	@Test
 	public void testCalculateDamage() 
 	{
-		Damage damage=new Damage("WEAPON",5);
+		Maces mace = new Maces();
+		Damage damage=new Damage("WEAPON",10);
+		damage=mace.calculateDamage();
 		assertEquals(5,damage.getDamagePoints());
 	}
 	/**

@@ -1,5 +1,6 @@
 package weapon;
 import static org.junit.Assert.*;
+import lifeform.Damage;
 
 import org.junit.After;
 import org.junit.Test;
@@ -29,7 +30,7 @@ public class TestAttachments
 		//Test Sword attachment after calculate base damage of Sword
 		Swords sword=new Swords();
 		Attachments a1=new Attachments(sword);
-		assertEquals(25,a1.attachmentDamage);
+		assertEquals(25,a1.getBaseDamage());
 	}
 	/**
 	 * test Spear attachment.
@@ -40,8 +41,35 @@ public class TestAttachments
 		//Test Spear attachment after calculate base damage of Spear
 		Spears spear=new Spears();
 		Attachments a2=new Attachments(spear);
-		assertEquals(17,a2.attachmentDamage);
+		assertEquals(17,a2.getBaseDamage());
 	}
-
-
+	/**
+	 * test calculate damage
+	 */
+	@Test
+	public void testcalculateDamage() 
+	{
+		Spears spear=new Spears();
+		Damage damage = new Damage("WEAPON", 5);
+		Attachments attachment=new Attachments(spear);
+		damage=attachment.calculateDamage();
+		assertEquals(17,attachment.getBaseDamage());
+	}
+	/**
+	 * test getChar,getWeaponType and getItemType
+	 */
+	@Test
+	public void test() 
+	{
+		Spears spear=new Spears();
+		Attachments attachment=new Attachments(spear);
+		//character that displayed in the map
+		assertEquals('T',attachment.getChar());
+		//getWeaponType
+		assertEquals("Spears",attachment.getWeaponType());
+		//getItemType
+		assertEquals("WEAPON",attachment.getItemType());
+		
+	}
+	
 }

@@ -45,7 +45,6 @@ public class Maces extends GenericWeapon
 	@Override
 	public String getWeaponType() 
 	{
-		
 		return "Maces";
 	}
 

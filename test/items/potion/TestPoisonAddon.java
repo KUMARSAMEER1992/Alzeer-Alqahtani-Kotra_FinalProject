@@ -11,15 +11,26 @@ import environment.MapItem;
 public class TestPoisonAddon
 {
 	/**
-	 * test Initialization 
+	 * test Initialization.
+	 * test get potion type, health point
+	 * test character displayed in the map
 	 */
 	@Test
 	public void testInitialization()
 	{
-		PoisonAddon pa = new PoisonAddon(null);
-		assertTrue(pa instanceof MapItem);
-		//test item type
-		assertEquals("POTION",pa.getItemType());
+		HealthPotion hp=new HealthPotion();
+		PoisonAddon poisonaddon = new PoisonAddon(hp);
+		assertTrue(poisonaddon instanceof MapItem);
+		
+		PotionDetails pd=new PotionDetails("POTION",30);
+		pd=poisonaddon.getDetails();
+		//get potion's type
+		assertEquals("POISON", pd.getType());
+		//get health point
+		assertEquals(20, pd.getHealthPoints());
+		//character displayed in GUI
+		assertEquals('I',poisonaddon.getChar());
+		
 	}
 
 }

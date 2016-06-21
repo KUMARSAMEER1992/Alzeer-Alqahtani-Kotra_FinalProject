@@ -35,7 +35,9 @@ public class TestSpears
 	@Test
 	public void testCalculateDamage() 
 	{
-		Damage damage=new Damage("WEAPON",7);
+		Spears spear = new Spears();
+		Damage damage=new Damage("WEAPON",5);
+		damage=spear.calculateDamage();
 		assertEquals(7,damage.getDamagePoints());
 	}
 	/**

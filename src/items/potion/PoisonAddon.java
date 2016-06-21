@@ -1,5 +1,4 @@
 package items.potion;
-
 import environment.StringConstants;
 
 /**
@@ -15,8 +14,6 @@ public class PoisonAddon extends PotionAddon
 	{
 		super(potion);
 	}
-
-	
 	/**
 	 *@return Poison Addon's details  
 	 */

@@ -1,5 +1,4 @@
 package items.potion;
-
 import environment.StringConstants;
 
 /**

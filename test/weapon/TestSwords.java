@@ -37,7 +37,9 @@ public class TestSwords
 	@Test
 	public void testCalculateDamage() 
 	{
-		Damage damage=new Damage("WEAPON",10);
+		Swords sword = new Swords();
+		Damage damage=new Damage("WEAPON",0);
+		damage=sword.calculateDamage();
 		assertEquals(10,damage.getDamagePoints());
 	}
 	/**
