@@ -41,14 +41,13 @@ public class TestSpears
 		assertEquals(7,damage.getDamagePoints());
 	}
 	/**
-	 * test getChar/getWeaponType
+	 * test getChar
 	 */
 	@Test
 	public void testGetChar_GetWeaponType() 
 	{
 		Spears spear = new Spears();
 		assertEquals('R',spear.getChar());
-		assertEquals("Spears",spear.getWeaponType());
 	}
 
 }

@@ -18,9 +18,6 @@ public interface Weapon extends MapItem
 	 * @return the base damage of the weapon.
 	 */
 	public int getBaseDamage();
-	/**
-	 * @return the weapon type
-	 */
-	public String getWeaponType();
+	
 
 }

@@ -3,7 +3,6 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import environment.MapItem;
 /**
  * Test for PotionFactory class
  * @author Dalal Alzeer

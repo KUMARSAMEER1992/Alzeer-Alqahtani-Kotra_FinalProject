@@ -6,65 +6,36 @@ import lifeform.Damage;
  * Attachment has common method to all Attachments.
  * @author Dalal Alzeer.
  */
-public class Attachments implements Weapon
+public abstract class Attachments implements Weapon
 {
 	/**
 	 * Weapon to store the Weapon.
 	 */
 	protected Weapon weapon;
-	int attachmentNum;
 	/**
 	 * int to store attachment damage
 	 */
 	int attachmentDamage;
-	/**
-	 * create Attachment instance
-	 * @param w
-	 */
-	public Attachments(Weapon w)
-	{
-		weapon = w;
-		if (weapon.getWeaponType().compareToIgnoreCase("Maces") == 0)
-		{
-			attachmentDamage = weapon.getBaseDamage() + 5;
-		}
-		else if (weapon.getWeaponType().compareToIgnoreCase("Swords") == 0)
-		{
-			attachmentDamage = weapon.getBaseDamage() + 15;
-		}
-		else if (weapon.getWeaponType().compareToIgnoreCase("Spears") == 0)
-		{
-			attachmentDamage=weapon.getBaseDamage()+10; 
-		}
-	}
 
 	/**
 	 * @return the attachment damage.
 	 */
 	@Override
-	public int getBaseDamage()
-	{
-		return attachmentDamage;
-	}
-
+	public abstract int getBaseDamage();
+	
 	/**
 	 * Calculates the damage.
 	 * @return the damage caused by the weapon.
 	 */
 	@Override
-	public Damage calculateDamage()
-	{
-		Damage damage = new Damage("WEAPON", attachmentDamage);
-		return damage;
-	}
+	public abstract  Damage calculateDamage();
+	
 	/**
 	 * @return the character that displayed in the map
 	 */
 	@Override
-	public char getChar()
-	{
-		return 'T';
-	}
+	public abstract char getChar();
+	
 	/**
 	 * return item type
 	 */
@@ -73,13 +44,6 @@ public class Attachments implements Weapon
 	{
 		return StringConstants.WEAPON;
 	}
-	/**
-	 * return weapon type
-	 */
-	@Override
-	public String getWeaponType()
-	{
-		return weapon.getWeaponType();
-	}
+	
 
 }

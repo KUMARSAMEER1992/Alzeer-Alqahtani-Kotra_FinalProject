@@ -11,7 +11,7 @@ public abstract class GenericWeapon implements Weapon
 	/**
 	 * int to store base damage of the weapon.
 	 */
-	public int baseDamage;
+	protected int baseDamage;
 	
 	/**
 	 * create GenericWeapon with given base damage value
@@ -37,9 +37,6 @@ public abstract class GenericWeapon implements Weapon
 	{
 		return StringConstants.WEAPON;
 	}
-	/**
-	 * @return weapon type
-	 */
-	public abstract String getWeaponType();
+	
 
 }

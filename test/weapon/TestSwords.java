@@ -1,8 +1,7 @@
 package weapon;
 import static org.junit.Assert.*;
 import lifeform.Damage;
-import lifeform.LifeForm;
-import lifeform.MockLifeForm;
+
 
 import org.junit.Test;
 
@@ -43,14 +42,13 @@ public class TestSwords
 		assertEquals(10,damage.getDamagePoints());
 	}
 	/**
-	 * test getChar/getWeaponType
+	 * test getChar
 	 */
 	@Test
 	public void testGetChar_GetWeaponType() 
 	{
 		Swords sword = new Swords();
 		assertEquals('S',sword.getChar());
-		assertEquals("Swords",sword.getWeaponType());
 	}
 
 

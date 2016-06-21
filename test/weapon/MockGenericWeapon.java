@@ -7,7 +7,7 @@ import lifeform.Damage;
 public class MockGenericWeapon extends GenericWeapon
 {	
 	/**
-	 * Create the MockGenericWeapon with Base damage value.
+	 * Create MockGenericWeapon with Base damage value.
 	 * @param baseDamage : Base damage of weapon.
 	 */
 	public MockGenericWeapon(int baseDamage)
@@ -32,13 +32,6 @@ public class MockGenericWeapon extends GenericWeapon
 	{
 		return 'W';
 	}
-	/**
-	 * return Sword as default value
-	 */
-	@Override
-	public String getWeaponType() 
-	{
-		return "Sword";
-	}
+	
 	
 }

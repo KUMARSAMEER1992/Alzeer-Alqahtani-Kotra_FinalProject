@@ -38,14 +38,7 @@ public class Swords extends GenericWeapon
 	{
 		return 'S';
 	}
-	/**
-	 * @return weapon type
-	 */
-	@Override
-	public String getWeaponType() 
-	{
-		return "Swords";
-	}
+	
 	
 
 }

@@ -39,14 +39,7 @@ public class Maces extends GenericWeapon
 	{
 		return 'M';
 	}
-	/**
-	 * @return weapon type
-	 */
-	@Override
-	public String getWeaponType() 
-	{
-		return "Maces";
-	}
+	
 
 
 }

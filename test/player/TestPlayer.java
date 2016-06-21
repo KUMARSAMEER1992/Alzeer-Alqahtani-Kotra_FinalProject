@@ -10,6 +10,7 @@ import environment.MapItem;
 import weapon.Attachments;
 import weapon.Spears;
 import weapon.Swords;
+import weapon.WeakAttachment;
 
 /**
  * The test cases for Player class.
@@ -69,10 +70,10 @@ public class TestPlayer
 		assertEquals(70,normal2.getCurrentLifePoints());
 		p.dropWeapon();
 		//with using weapon&attachment
-		Attachments a=new Attachments(swords);
+		Attachments a=new WeakAttachment(swords);
 		p.pickUp(a);
 		p.attack(normal2);
-		assertEquals(45, normal2.getCurrentLifePoints());
+		assertEquals(55, normal2.getCurrentLifePoints());
 	}
 	/**
 	 * test player can pickup&drop a weapon

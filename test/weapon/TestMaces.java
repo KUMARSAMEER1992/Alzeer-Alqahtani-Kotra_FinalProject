@@ -41,14 +41,13 @@ public class TestMaces
 		assertEquals(5,damage.getDamagePoints());
 	}
 	/**
-	 * test getChar/getWeaponType
+	 * test getChar
 	 */
 	@Test
 	public void testGetChar_GetWeaponType() 
 	{
 		Maces mace = new Maces();
 		assertEquals('M',mace.getChar());
-		assertEquals("Maces",mace.getWeaponType());
 	}
 	
 

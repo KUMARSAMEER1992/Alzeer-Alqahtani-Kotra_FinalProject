@@ -1,7 +1,7 @@
 package weapon;
 import lifeform.Damage;
 /**
- * The class contains Spear methods.
+ * This class contains Spear methods.
  * @author Dalal Alzeer
  */
 public class Spears extends GenericWeapon
@@ -39,13 +39,6 @@ public class Spears extends GenericWeapon
 	{
 		return 'R';
 	}
-	/**
-	 * @return weapon type
-	 */
-	@Override
-	public String getWeaponType() 
-	{
-		return "Spears";
-	}
+	
 
 }
