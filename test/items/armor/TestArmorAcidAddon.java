@@ -8,11 +8,16 @@ import exception.ArmorException;
 import lifeform.Damage;
 
 /**
+ * Test cases for AcidAddon
  * @author Sameer Kumar Kotra
  */
-public class TestAcidAddon
+public class TestArmorAcidAddon
 {
 
+	/**
+	 * test Acid Armor Add on.
+	 * @throws ArmorException
+	 */
 	@Test
 	public void testAcidArmor() throws ArmorException
 	{

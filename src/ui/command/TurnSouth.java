@@ -22,15 +22,15 @@ public class TurnSouth implements Command
 	 */
 	public TurnSouth(Player player)
 	{
-	this.player=player;
+		this.player = player;
 	}
 	/**
 	 * To change direction of Player to South.
 	 */
 	@Override
-	public void execute() 
+	public void execute()
 	{
-		Environment env=Environment.getWorldInstance();
+		Environment env = Environment.getWorldInstance();
 		env.movePlayer(2);
 		env.informDisplay();
 	}

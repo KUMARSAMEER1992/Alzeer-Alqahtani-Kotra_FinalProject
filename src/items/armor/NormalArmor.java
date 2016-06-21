@@ -28,7 +28,7 @@ public class NormalArmor implements Armor
 	@Override
 	public char getChar()
 	{
-		return 'N';
+		return 'A';
 	}
 
 	/**

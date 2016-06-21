@@ -8,11 +8,16 @@ import exception.ArmorException;
 import lifeform.Damage;
 
 /**
+ * Test cases Poison add on for the Armor.
  * @author Sameer Kumar Kotra
  */
-public class TestPoisonArmor
+public class TestArmorPoisonArmor
 {
 
+	/**
+	 * test Initialization and damage of poison addon.
+	 * @throws ArmorException
+	 */
 	@Test
 	public void testAcidArmor() throws ArmorException
 	{

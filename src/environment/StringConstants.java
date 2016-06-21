@@ -1,6 +1,7 @@
 package environment;
 
 /**
+ * This class has all the String constants used in the program.
  * @author Sameer Kumar Kotra
  */
 public class StringConstants

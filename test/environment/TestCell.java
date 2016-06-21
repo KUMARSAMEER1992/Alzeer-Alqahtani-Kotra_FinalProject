@@ -10,11 +10,15 @@ import org.junit.Test;
 import items.Key;
 
 /**
+ * The test cases for the Cell class
  * @author Sameer Kumar Kotra
  */
 public class TestCell
 {
 
+	/**
+	 * test adding and removing of the item to the Cell.
+	 */
 	@Test
 	public void test()
 	{

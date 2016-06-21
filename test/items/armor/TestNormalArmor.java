@@ -9,11 +9,15 @@ import environment.MapItem;
 import lifeform.Damage;
 
 /**
+ * Test cases for Normal Armor
  * @author Sameer Kumar Kotra
  */
 public class TestNormalArmor
 {
 
+	/**
+	 * tets Initialization.
+	 */
 	@Test
 	public void testInitialization()
 	{
@@ -21,6 +25,9 @@ public class TestNormalArmor
 		assertTrue(armor instanceof MapItem);
 	}
 
+	/**
+	 * test Normal Armor.
+	 */
 	@Test
 	public void testArmor()
 	{

@@ -22,15 +22,15 @@ public class TurnNorth implements Command
 	 */
 	public TurnNorth(Player player)
 	{
-	this.player=player;
+		this.player = player;
 	}
 	/**
 	 * To change direction of Player to North.
 	 */
 	@Override
-	public void execute() 
+	public void execute()
 	{
-		Environment env=Environment.getWorldInstance();
+		Environment env = Environment.getWorldInstance();
 		env.movePlayer(0);
 		env.informDisplay();
 	}

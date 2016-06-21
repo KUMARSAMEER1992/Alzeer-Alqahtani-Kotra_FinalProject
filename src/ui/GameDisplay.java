@@ -16,20 +16,55 @@ import environment.MapItem;
 import player.Player;
 
 /**
+ * This class Displays the Environment.
  * @author Sameer Kumar Kotra
  */
 public class GameDisplay
 {
+	/**
+	 * Empty String to be displayed when cell is empty.
+	 */
 	public final static String EMPTY = ".";
+
+	/**
+	 * JFrame to display main content.
+	 */
 	private JFrame frame;
+	/**
+	 * JFrame to display info panel.
+	 */
 	private JPanel infoPanel;
+	/**
+	 * JFrame to display Map Content.
+	 */
 	private JPanel mapPanel;
+	/**
+	 * JFrame to display the Cells in Environment.
+	 */
 	private JPanel mapArea;
+	/**
+	 * JLables to store Display details of each Cell.
+	 */
 	private JLabel[][] lables;
+	/**
+	 * JLables to store Player details of each Cell.
+	 */
 	private JLabel[] playerDetails;
+	/**
+	 * int to store the number of rows displayed in the Map.
+	 */
 	private int rows;
+	/**
+	 * int to store the number of columns displayed in the Map.
+	 */
 	private int cols;
+	/**
+	 * JFrame to display legend panel.
+	 */
 	private JPanel legendPanel;
+	/**
+	 * JFrame to display info Player Details.
+	 */
 	private JPanel playerInfoPanel;
 
 	/**
@@ -76,10 +111,11 @@ public class GameDisplay
 
 		buildInfoPanel();
 		buildMapPanel();
+		update();
 	}
 
 	/**
-	 * 
+	 * Builds the content of the Map Panel.
 	 */
 	private void buildMapPanel()
 	{
@@ -108,8 +144,16 @@ public class GameDisplay
 				mapArea.add(lables[i][j]);
 			}
 		}
+		lables[rows - 2][cols - 2].setOpaque(true);
+		lables[rows - 2][cols - 2].setBackground(Color.GREEN);
+
+		lables[1][1].setOpaque(true);
+		lables[1][1].setBackground(Color.RED);
 	}
 
+	/**
+	 * Builds the content of the Info Panel.
+	 */
 	private void buildInfoPanel()
 	{
 		infoPanel = new JPanel();
@@ -123,12 +167,10 @@ public class GameDisplay
 	}
 
 	/**
-	 * 
+	 * Builds the content of the Player Details Panel.
 	 */
 	private void builbPlayerDetails()
 	{
-		// TODO Auto-generated method stub
-
 		playerInfoPanel = new JPanel();
 		playerInfoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		infoPanel.add(playerInfoPanel, BorderLayout.CENTER);
@@ -151,17 +193,20 @@ public class GameDisplay
 	}
 
 	/**
-	 * 
+	 * Builds the content of the Legend Panel.
 	 */
 	private void buildLegendPanel()
 	{
+
 		legendPanel = new JPanel();
+		legendPanel.setAlignmentY(0.0f);
+		legendPanel.setAlignmentX(0.0f);
 		legendPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		infoPanel.add(legendPanel, BorderLayout.EAST);
-		legendPanel.setLayout(new GridLayout(15, 0, 0, 0));
+		legendPanel.setLayout(new GridLayout(18, 1, 0, 0));
 
 		JLabel lblNewLabel = new JLabel("Legend");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		legendPanel.add(lblNewLabel);
 
 		legendPanel.add(new JLabel(" P:player"));
@@ -173,16 +218,19 @@ public class GameDisplay
 		legendPanel.add(new JLabel(" M:Mace"));
 		legendPanel.add(new JLabel(" T:Attachment"));
 		legendPanel.add(new JLabel(" K:Key"));
+		legendPanel.add(new JLabel(" #:Wall"));
+		legendPanel.add(new JLabel(" |:Door"));
 		legendPanel.add(new JLabel(" A:NormalArmor"));
 		legendPanel.add(new JLabel(" C:AcidArmor"));
 		legendPanel.add(new JLabel(" O:PoisionArmor"));
+		legendPanel.add(new JLabel(" N:NormalCreature"));
 		legendPanel.add(new JLabel(" E:PoisionCreature"));
 		legendPanel.add(new JLabel(" D:AcidCreature"));
 
 	}
 
 	/**
-	 * 
+	 * Updates the display according to changes in the Environment.
 	 */
 	public void update()
 	{
@@ -198,10 +246,14 @@ public class GameDisplay
 		playerDetails[0].setText(" " + player.getCurrentLifePoints());
 		playerDetails[1].setText(" " + getdisplayString(player.getArmor()));
 		playerDetails[2].setText(" " + getdisplayString(player.getWeapon()));
-		// playerDetails[3].setText(player.getKeys()+"");
-
+		playerDetails[3].setText(player.getKey() + "");
 	}
 
+	/**
+	 * Gets the String to be displayed on the Map.
+	 * @param item : item in the Cell.
+	 * @return the String related to the item or returns empty if cell is null.
+	 */
 	private String getdisplayString(MapItem item)
 	{
 		if (item == null)

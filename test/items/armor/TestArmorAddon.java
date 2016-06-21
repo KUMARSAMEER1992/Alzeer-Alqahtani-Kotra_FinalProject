@@ -1,6 +1,3 @@
-/**
- * @author Sameer Kumar Kotra
- */
 package items.armor;
 
 import static org.junit.Assert.assertEquals;
@@ -12,10 +9,15 @@ import org.junit.Test;
 import exception.ArmorException;
 
 /**
+ * Test cases for ArmorAddon
  * @author Sameer Kumar Kotra
  */
 public class TestArmorAddon
 {
+	/**
+	 * test Initialization.
+	 * @throws ArmorException
+	 */
 	@Test(expected = ArmorException.class)
 	public void testInitilization() throws ArmorException
 	{
@@ -23,10 +25,13 @@ public class TestArmorAddon
 		ArmorAddon addon = new MockArmorAddon(armor, 5);
 		assertTrue(addon instanceof Armor);
 		assertEquals(armor, addon.armor);
-
 		ArmorAddon addon2 = new MockArmorAddon(addon, 5);
 	}
 
+	/**
+	 * test armor works correctly with th etime.
+	 * @throws ArmorException
+	 */
 	@Test
 	public void testCheckIsLive() throws ArmorException
 	{

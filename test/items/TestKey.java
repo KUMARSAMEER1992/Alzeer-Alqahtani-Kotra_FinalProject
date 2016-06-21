@@ -8,11 +8,15 @@ import org.junit.Test;
 import environment.MapItem;
 
 /**
+ * Test cases for Key Class.
  * @author Sameer Kumar Kotra
  */
 public class TestKey
 {
 
+	/**
+	 * test Initialization of key Class.
+	 */
 	@Test
 	public void testInitialization()
 	{

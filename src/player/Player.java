@@ -1,11 +1,11 @@
 package player;
 
 import environment.StringConstants;
-import items.Key;
 import items.armor.Armor;
 import lifeform.Damage;
 import lifeform.LifeForm;
 import weapon.Weapon;
+
 /**
  * Player class consists methods related to Player. Player is a LifeForm.
  * @author Dalal Alzeer
@@ -17,7 +17,7 @@ public class Player extends LifeForm
 	private Armor armor;
 	private Damage damage;
 	private int keyNum;
-	
+
 	/**
 	 * Create an instance of player with given values.
 	 * @param name
@@ -29,6 +29,7 @@ public class Player extends LifeForm
 		super(name, points, Strength);
 		keyNum = 0;
 	}
+
 	/**
 	 * Singleton method.
 	 * @return Player instance
@@ -36,10 +37,11 @@ public class Player extends LifeForm
 	public static Player getPlayer()
 	{
 		if (player == null)
-			player = new Player("bob",100, 10);
+			player = new Player("bob", 100, 10);
 
 		return player;
 	}
+
 	/**
 	 * @return the character that displayed in the map
 	 */
@@ -48,6 +50,7 @@ public class Player extends LifeForm
 	{
 		return 'P';
 	}
+
 	/**
 	 * @return the type of the item.
 	 */
@@ -56,6 +59,7 @@ public class Player extends LifeForm
 	{
 		return StringConstants.PLAYER;
 	}
+
 	/**
 	 * Reduces the damage from current life points.
 	 */
@@ -74,13 +78,15 @@ public class Player extends LifeForm
 				currentLifePoints = 0;
 		}
 	}
+
 	/**
 	 * reset instance after each test
 	 */
-	public static void resetInstance()
+	static void resetInstance()
 	{
 		player = null;
 	}
+
 	/**
 	 * calculate player Damage
 	 */
@@ -98,8 +104,9 @@ public class Player extends LifeForm
 			return new Damage(StringConstants.PLAYER, weapon.getBaseDamage());
 		}
 	}
+
 	/**
-	 * pickup a weapon 
+	 * pickup a weapon
 	 * @param weapon
 	 */
 	public void pickUp(Weapon weapon)
@@ -109,6 +116,7 @@ public class Player extends LifeForm
 			this.weapon = weapon;
 		}
 	}
+
 	/**
 	 * drop the weapon
 	 * @return
@@ -119,6 +127,7 @@ public class Player extends LifeForm
 		this.weapon = null;
 		return temp;
 	}
+
 	/**
 	 * to increase player life points
 	 * @param lf
@@ -128,6 +137,7 @@ public class Player extends LifeForm
 		if (currentLifePoints > 0)
 			currentLifePoints = currentLifePoints + lf;
 	}
+
 	/**
 	 * @return player's weapon
 	 */
@@ -135,6 +145,7 @@ public class Player extends LifeForm
 	{
 		return weapon;
 	}
+
 	/**
 	 * increase number of keys with player
 	 * @param keys
@@ -143,6 +154,7 @@ public class Player extends LifeForm
 	{
 		keyNum += keys;
 	}
+
 	/**
 	 * decrease number of keys with player
 	 */
@@ -156,6 +168,7 @@ public class Player extends LifeForm
 		else
 			return false;
 	}
+
 	/**
 	 * set armor for player
 	 * @param r
@@ -164,13 +177,15 @@ public class Player extends LifeForm
 	{
 		armor = r;
 	}
+
 	/**
-	 * @return player's armor 
+	 * @return player's armor
 	 */
 	public Armor getArmor()
 	{
 		return armor;
 	}
+
 	/**
 	 * @return keyNum
 	 */

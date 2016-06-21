@@ -8,11 +8,15 @@ import org.junit.Test;
 import environment.MapItem;
 
 /**
+ * Test cases for the Wall class.
  * @author Sameer Kumar Kotra
  */
 public class TestWall
 {
 
+	/**
+	 * test the Wall class as wall.
+	 */
 	@Test
 	public void testASWall()
 	{
@@ -22,6 +26,9 @@ public class TestWall
 		assertFalse(wall.isOpen());
 	}
 
+	/**
+	 * test wall class as Door.
+	 */
 	@Test
 	public void testASDoor()
 	{

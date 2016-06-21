@@ -9,10 +9,10 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import player.Player;
 import environment.Environment;
 import environment.TestEnvironment;
-
+import player.Player;
+import player.TestPlayer;
 
 /**
  * The test cases for the TurnNorth class.
@@ -29,10 +29,10 @@ public class TestTurnSouth
 		Environment env = Environment.getWorldInstance();
 		Command turnSouth = new TurnSouth(player);
 		// LifeForm turn to south
-        env.addMapItem(5, 5, player);
-        turnSouth.execute();
-		assertEquals(player,env.getMapItem(6,5));
-		Player.resetInstance();
+		env.addMapItem(5, 5, player);
+		turnSouth.execute();
+		assertEquals(player, env.getMapItem(6, 5));
+		TestPlayer.resetPlayer();
 		TestEnvironment.resetEnvvironment();
 	}
 }

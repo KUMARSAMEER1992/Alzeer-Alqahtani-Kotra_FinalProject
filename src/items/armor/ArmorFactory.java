@@ -5,16 +5,17 @@ import exception.ArmorException;
 import items.potion.PotionDetails;
 
 /**
- * TODO
+ * Creates the Armor.
  * @author Sameer Kumar Kotra
  */
 public class ArmorFactory
 {
 
 	/**
-	 * @param armor
-	 * @param details
-	 * @return
+	 * Builds the Armor from the given details.
+	 * @param armor : Player armor if present.
+	 * @param details : Potion details to determine th eArmor type.
+	 * @return the Armor created.
 	 */
 	public static Armor buildArmor(Armor armor, PotionDetails details)
 	{

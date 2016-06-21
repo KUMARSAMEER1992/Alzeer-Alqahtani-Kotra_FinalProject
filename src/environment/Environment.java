@@ -23,11 +23,11 @@ public class Environment
 	/**
 	 * final int to store no of rows of the Environment.
 	 */
-	public final static int ROWS = 40;
+	public final static int ROWS = 30;
 	/**
 	 * final int to store no of columns of the environment.
 	 */
-	public final static int COLS = 100;
+	public final static int COLS = 50;
 
 	/**
 	 * Environment to store instance.
@@ -39,7 +39,9 @@ public class Environment
 	 */
 	private Cell[][] cells;
 
-	// TODO
+	/**
+	 * GameDispaly to hold display instance.
+	 */
 	private GameDisplay display;
 
 	/**
@@ -137,7 +139,10 @@ public class Environment
 		}
 	}
 
-	// TODO
+	/**
+	 * moves the Player in the direction specified.
+	 * @param direction: the direction in which player to be moved.
+	 */
 	public void movePlayer(int direction)
 	{
 		LifeForm player = Player.getPlayer();
@@ -161,7 +166,7 @@ public class Environment
 					{
 						updatePlayerWeapon(x, y, temp, y);
 					}
-					if (checkItem(temp, y))
+					else if (checkItem(temp, y))
 					{
 						swapLocation(x, y, temp, y);
 					}
@@ -183,7 +188,7 @@ public class Environment
 					{
 						updatePlayerWeapon(x, y, x, temp);
 					}
-					if (checkItem(x, temp))
+					else if (checkItem(x, temp))
 					{
 						swapLocation(x, y, x, temp);
 					}
@@ -205,7 +210,7 @@ public class Environment
 					{
 						updatePlayerWeapon(x, y, temp, y);
 					}
-					if (checkItem(temp, y))
+					else if (checkItem(temp, y))
 					{
 						swapLocation(x, y, temp, y);
 					}
@@ -227,7 +232,7 @@ public class Environment
 					{
 						updatePlayerWeapon(x, y, x, temp);
 					}
-					if (checkItem(x, temp))
+					else if (checkItem(x, temp))
 					{
 						swapLocation(x, y, x, temp);
 					}
@@ -239,11 +244,14 @@ public class Environment
 	}
 
 	/**
-	 * TODO
-	 * @param x
-	 * @param y
-	 * @param temp
-	 * @param y2
+	 * Picks the the weapon if no weapon is there with Player.
+	 * If player has a weapon it asks the player weather to exchange or not.If
+	 * yes exchanges the weapon and moves Player else the Player stays at same
+	 * location.
+	 * @param xOld : Old x coordinates of the player.
+	 * @param yOld : Old y coordinates of the player.
+	 * @param xNew : New y coordinates of the player.
+	 * @param yNew : New y coordinates of the player.
 	 */
 	private void updatePlayerWeapon(int xOld, int yOld, int xNew, int yNew)
 	{
@@ -252,6 +260,7 @@ public class Environment
 		{
 			Weapon weapon = (Weapon) cells[xNew][yNew].removeMapItem();
 			player.pickUp(weapon);
+			swapLocation(xOld, yOld, xNew, yNew);
 		}
 		else
 		{
@@ -268,9 +277,10 @@ public class Environment
 	}
 
 	/**
-	 * @param row
-	 * @param col
-	 * @return
+	 * checks weather the item at that location is a weapon or not.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
+	 * @return true if it is a weapon else returns false.
 	 */
 	private boolean isWeapon(int row, int col)
 	{
@@ -282,9 +292,10 @@ public class Environment
 	}
 
 	/**
-	 * @param row
-	 * @param col
-	 * @return
+	 * Determines the item at the cell and performs the respective action.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
+	 * @return true if operation success else returns false.
 	 */
 	private boolean checkItem(int row, int col)
 	{
@@ -315,8 +326,8 @@ public class Environment
 	}
 
 	/**
-	 * TODO
-	 * @param details
+	 * Reads the PortionDetails and updates the player accordingly.
+	 * @param details : Portion details contains the details of the portion.
 	 */
 	private void updatePlayerPortion(PotionDetails details)
 	{
@@ -333,9 +344,9 @@ public class Environment
 	}
 
 	/**
-	 * TODO
-	 * @param row
-	 * @param col
+	 * Checks for the Creatures in 4 directions and attacks if present.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
 	 */
 	private void checkAttackCondition(int row, int col)
 	{
@@ -361,9 +372,10 @@ public class Environment
 	}
 
 	/**
-	 * @param row
-	 * @param col
-	 * @return
+	 * Checks the item present the location is Creature or not.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
+	 * @return true if it is a Creature else returns false.
 	 */
 	private boolean isCreature(int row, int col)
 	{
@@ -375,8 +387,10 @@ public class Environment
 	}
 
 	/**
-	 * @param row
-	 * @param col
+	 * Player attacks the Creature the attack continues until either player or
+	 * the creature is dead.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
 	 */
 	private void attack(int row, int col)
 	{
@@ -387,11 +401,20 @@ public class Environment
 			player.attack(creature);
 			creature.attack(player);
 		}
+		if (player.getCurrentLifePoints() == 0)
+		{
+			JOptionPane.showMessageDialog(null, "Player Dead Game Complete");
+			removeMapItem(player.getLocationX(), player.getLocationY());
+		}
+		if (creature.getCurrentLifePoints() == 0)
+		{
+			removeMapItem(row, col);
+		}
 	}
 
 	/**
-	 * @param player
-	 * @param creature
+	 * Checks weather the player or the Creature in attack dead.
+	 * @param creature : Creature to check
 	 * @return
 	 */
 	private boolean isLive(LifeForm creature)
@@ -405,14 +428,14 @@ public class Environment
 	}
 
 	/**
-	 * TODO
-	 * @param x
-	 * @param temp
-	 * @return
+	 * Checks weather the Cell is empty or not.
+	 * @param row : x coordinate of the location.
+	 * @param col : y coordinate of the location.
+	 * @return true if empty else return false.
 	 */
-	private boolean isEmpty(int x, int temp)
+	private boolean isEmpty(int row, int col)
 	{
-		if (cells[x][temp].getMapItem() == null)
+		if (cells[row][col].getMapItem() == null)
 			return true;
 		else
 			return false;
@@ -444,9 +467,16 @@ public class Environment
 	{
 		MapItem player = cells[xOld][yOld].removeMapItem();
 		addMapItem(xNew, yNew, player);
+		if (xNew == ROWS - 2 && yNew == COLS - 2)
+		{
+			JOptionPane.showMessageDialog(null, "Game Complete");
+			System.exit(0);
+		}
 	}
 
-	// TODO
+	/**
+	 * Updates display about that Environment has changed.
+	 */
 	public void informDisplay()
 	{
 		if (display != null)
@@ -454,4 +484,14 @@ public class Environment
 			display.update();
 		}
 	}
+
+	/**
+	 * Sets the Display object to Environment.
+	 * @param display : Display to be added.
+	 */
+	public void setDisplay(GameDisplay display)
+	{
+		this.display = display;
+	}
+
 }

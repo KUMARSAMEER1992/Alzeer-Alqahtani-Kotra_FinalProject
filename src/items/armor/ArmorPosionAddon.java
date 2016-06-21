@@ -51,7 +51,7 @@ public class ArmorPosionAddon extends ArmorAddon
 	@Override
 	public char getChar()
 	{
-		return 'C';
+		return 'O';
 	}
 
 }

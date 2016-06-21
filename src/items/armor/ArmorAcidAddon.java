@@ -6,14 +6,14 @@ import lifeform.Damage;
 
 /**
  * AcidAddon for Armor.
- * AcidArmor is an ArmorAddon.
+ * ArmorAcidAddon is an ArmorAddon.
  * @author Sameer Kumar Kotra
  */
 public class ArmorAcidAddon extends ArmorAddon
 {
 
 	/**
-	 * Creates an AcidAddon with give armor.
+	 * Creates an ArmorAcidAddon with give armor.
 	 * Has max Rounds 10.
 	 * @param armor : Armor to which add on to be added.
 	 * @throws ArmorException if we try to add ArmorAddon to a ArmorAddon.
@@ -47,7 +47,7 @@ public class ArmorAcidAddon extends ArmorAddon
 	 */
 	public char getChar()
 	{
-		return 'B';
+		return 'C';
 	}
 
 }

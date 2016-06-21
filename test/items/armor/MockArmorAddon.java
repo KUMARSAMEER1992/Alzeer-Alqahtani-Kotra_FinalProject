@@ -1,6 +1,3 @@
-/**
- * @author Sameer Kumar Kotra
- */
 package items.armor;
 
 import exception.ArmorException;

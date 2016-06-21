@@ -22,15 +22,15 @@ public class TurnEast implements Command
 	 */
 	public TurnEast(Player player)
 	{
-	this.player=player;
+		this.player = player;
 	}
 	/**
 	 * To change direction of Player to East.
 	 */
 	@Override
-	public void execute() 
+	public void execute()
 	{
-		Environment env=Environment.getWorldInstance();
+		Environment env = Environment.getWorldInstance();
 		env.movePlayer(1);
 		env.informDisplay();
 	}

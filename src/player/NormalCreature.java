@@ -34,7 +34,7 @@ public class NormalCreature extends Creature
 
 	public char getChar()
 	{
-		return 'C';
+		return 'N';
 	}
 
 	@Override
