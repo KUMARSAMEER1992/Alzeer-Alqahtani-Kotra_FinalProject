@@ -35,7 +35,7 @@ public class PoisonCreature extends Ability
 	@Override
 	public char getChar()
 	{
-		return 'P';
+		return 'E';
 	}
 	
 	/**
