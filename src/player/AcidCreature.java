@@ -36,7 +36,7 @@ public class AcidCreature extends Ability
 	@Override
 	public char getChar()
 	{
-		return 'A';
+		return 'D';
 	}
 	
 	/**

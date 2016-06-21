@@ -25,7 +25,7 @@ public class TestAcidCreature
 		assertTrue(acid instanceof MapItem);
 		assertEquals("spider",acid.getName());
 		assertEquals(50,acid.getCurrentLifePoints());
-		assertEquals('A',acid.getChar());
+		assertEquals('D',acid.getChar());
 	}
 	/**
 	 * Test attack for AcidCreature.

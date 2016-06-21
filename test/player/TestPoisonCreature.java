@@ -25,7 +25,7 @@ public class TestPoisonCreature
 		assertTrue(poison instanceof MapItem);
 		assertEquals("bug",poison.getName());
 		assertEquals(70,poison.getCurrentLifePoints());
-		assertEquals('P',poison.getChar());
+		assertEquals('E',poison.getChar());
 	}
 	/**
 	 * Test attack for PoisonCreature.
