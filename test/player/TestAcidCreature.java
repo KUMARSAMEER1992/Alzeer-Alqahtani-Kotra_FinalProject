@@ -39,7 +39,7 @@ public class TestAcidCreature
 		Ability acid2 = new AcidCreature(normal2);
 		assertTrue(acid1 instanceof MapItem);
 		acid1.attack(acid2);
-		assertEquals(35,acid2.getCurrentLifePoints());	
+		assertEquals(42,acid2.getCurrentLifePoints());	
 	}
 
 }

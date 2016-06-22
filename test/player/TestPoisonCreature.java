@@ -39,6 +39,6 @@ public class TestPoisonCreature
 		Ability poison2 = new PoisonCreature(normal2);
 		assertTrue(poison1 instanceof MapItem);
 		poison1.attack(poison2);
-		assertEquals(40,poison2.getCurrentLifePoints());	
+		assertEquals(43,poison2.getCurrentLifePoints());	
 	}
 }
