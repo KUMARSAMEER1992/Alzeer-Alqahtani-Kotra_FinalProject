@@ -21,6 +21,10 @@ public class TestInvokerBuilder extends TestCase
 		assertTrue(in.turnSouth instanceof TurnSouth);
 		assertTrue(in.turnEast instanceof TurnEast);
 		assertTrue(in.turnWest instanceof TurnWest);
-		
+		//Test each command is attached to correct receiver
+		assertTrue(in.turnNorth.getReceiver() instanceof player.Player);
+		assertTrue(in.turnSouth.getReceiver() instanceof player.Player);
+		assertTrue(in.turnEast.getReceiver() instanceof player.Player);
+		assertTrue(in.turnWest.getReceiver() instanceof player.Player);
 	}	
 }
