@@ -34,5 +34,11 @@ public class TurnEast implements Command
 		env.movePlayer(1);
 		env.informDisplay();
 	}
-
+	/**
+	 * To return the receiver
+	 */
+	public Player getReceiver()
+	{
+		return player; 
+	}
 }

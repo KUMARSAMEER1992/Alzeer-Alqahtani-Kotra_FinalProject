@@ -26,5 +26,11 @@ public class TurnWest implements Command
 		env.movePlayer(3);
 		env.informDisplay();
 	}
-
+	/**
+	 * To return the receiver
+	 */
+	public Player getReceiver()
+	{
+		return player; 
+	}
 }

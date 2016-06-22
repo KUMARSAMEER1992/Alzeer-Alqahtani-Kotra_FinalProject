@@ -34,5 +34,11 @@ public class TurnNorth implements Command
 		env.movePlayer(0);
 		env.informDisplay();
 	}
-
+	/**
+	 * To return the receiver
+	 */
+	public Player getReceiver()
+	{
+		return player; 
+	}
 }

@@ -34,5 +34,12 @@ public class TurnSouth implements Command
 		env.movePlayer(2);
 		env.informDisplay();
 	}
+	/**
+	 * To return the receiver
+	 */
+	public Player getReceiver()
+	{
+		return player; 
+	}
 
 }
