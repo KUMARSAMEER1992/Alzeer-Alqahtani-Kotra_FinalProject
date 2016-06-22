@@ -41,5 +41,18 @@ public class TestAcidCreature
 		acid1.attack(acid2);
 		assertEquals(42,acid2.getCurrentLifePoints());	
 	}
+	/**
+	 * Test attack for AcidCreature with Player.
+	 */
+	@Test
+	public void testAttackWithPlayer() 
+	{
+		Creature normal= new NormalCreature("Spider",30);
+		Ability acid = new AcidCreature(normal);
+		Player player = Player.getPlayer();
+		acid.attack(player);
+		assertEquals(92,player.getCurrentLifePoints());
+		TestPlayer.resetPlayer();
+	}
 
 }

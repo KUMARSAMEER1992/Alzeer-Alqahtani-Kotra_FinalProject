@@ -22,8 +22,8 @@ public class TestAbility
 		Creature normal= new NormalCreature("spider",30);
 		Ability ability = new MockAbility(normal);
 		assertTrue(ability instanceof MapItem);
-		assertEquals(30, ability.getCurrentLifePoints());
-		
+		assertEquals(30, ability.getCurrentLifePoints());	
+		assertEquals("spider",ability.getName());
 	}
 
 }

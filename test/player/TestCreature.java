@@ -22,6 +22,7 @@ public class TestCreature
 		Creature creature= new MockCreature("spider",30);
 		assertTrue(creature instanceof MapItem);
 		assertEquals(30, creature.getCurrentLifePoints());
+		assertEquals("spider",creature.getName());
 		assertEquals("CREATURE",creature.getItemType());
 	}
 

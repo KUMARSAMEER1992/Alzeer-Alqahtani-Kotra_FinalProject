@@ -32,12 +32,22 @@ public class TestNormalCreature
 	@Test
 	public void testAttack() 
 	{
-		Creature normal1= new NormalCreature("p",30);
-		Creature normal2= new NormalCreature("p",50);
+		Creature normal1= new NormalCreature("Spider",30);
+		Creature normal2= new NormalCreature("bug",50);
 		assertTrue(normal1 instanceof MapItem);
 		normal1.attack(normal2);
-		assertEquals(45,normal2.getCurrentLifePoints());
-		
+		assertEquals(45,normal2.getCurrentLifePoints());	
 	}
-
+	/**
+	 * Test attack for NormalCreature with Player.
+	 */
+	@Test
+	public void testAttackWithPlayer() 
+	{
+		Creature normal= new NormalCreature("Spider",30);
+		Player player = Player.getPlayer();
+		normal.attack(player);
+		assertEquals(95,player.getCurrentLifePoints());
+		TestPlayer.resetPlayer();
+	}
 }

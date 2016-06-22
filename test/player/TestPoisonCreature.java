@@ -41,4 +41,17 @@ public class TestPoisonCreature
 		poison1.attack(poison2);
 		assertEquals(43,poison2.getCurrentLifePoints());	
 	}
+	/**
+	 * Test attack for PoisonCreature with Player.
+	 */
+	@Test
+	public void testAttackWithPlayer() 
+	{
+		Creature normal= new NormalCreature("Spider",30);
+		Ability poison = new PoisonCreature(normal);
+		Player player = Player.getPlayer();
+		poison.attack(player);
+		assertEquals(93,player.getCurrentLifePoints());
+		TestPlayer.resetPlayer();
+	}
 }
