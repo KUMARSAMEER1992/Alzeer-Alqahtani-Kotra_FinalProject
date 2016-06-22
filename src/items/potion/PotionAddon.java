@@ -18,14 +18,19 @@ public abstract class PotionAddon implements Potion
 		this.potion=potion;
 	}
 	/**
+	 * @return Potion's Details
+	 */
+	public abstract PotionDetails getDetails();
+	/**
+	 * @return the character that displayed in the map
+	 */
+	public abstract char getChar();
+	/**
 	 * @return the type of the item.
 	 */
 	public String getItemType()
 	{
 		return StringConstants.POTION;
 	}
-	/**
-	 * @return the character that displayed in the map
-	 */
-	public abstract char getChar();
+	
 }

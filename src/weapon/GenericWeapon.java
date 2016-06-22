@@ -1,5 +1,6 @@
 package weapon;
 
+import lifeform.Damage;
 import environment.StringConstants;
 
 /**
@@ -29,6 +30,12 @@ public abstract class GenericWeapon implements Weapon
 	{
 		return this.baseDamage;
 	}
+	/**
+	 * Calculates the damage done by a weapon.
+	 * @return the damage.
+	 */
+	@Override
+	public abstract Damage calculateDamage();
 
 	/**
 	 * @return the Item Type

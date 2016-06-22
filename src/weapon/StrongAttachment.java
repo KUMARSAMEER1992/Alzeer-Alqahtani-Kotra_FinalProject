@@ -12,7 +12,7 @@ public class StrongAttachment extends Attachments
 	 * create StrongAttachment instance. It increases weapon damage by 15.
 	 * @param w
 	 */
-	StrongAttachment(Weapon w)
+	public StrongAttachment(Weapon w)
 	{
 		attachmentDamage = w.getBaseDamage() + 15;
 	}

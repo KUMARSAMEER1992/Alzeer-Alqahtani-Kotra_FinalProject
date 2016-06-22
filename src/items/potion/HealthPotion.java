@@ -28,6 +28,7 @@ public class HealthPotion implements Potion
 	/**
 	 * @return the character that displayed in the map
 	 */
+	@Override
 	public char getChar()
 	{
 		return 'H';
@@ -35,6 +36,7 @@ public class HealthPotion implements Potion
 	/**
 	 * @return the type of the item.
 	 */
+	@Override
 	public String getItemType()
 	{
 		return StringConstants.POTION;
