@@ -46,7 +46,7 @@ public class PoisonCreature extends Ability
 	{
 		Damage damage;
 		if (currentLifePoints > 0)
-			damage = new Damage(StringConstants.POISON, (creature.baseDamage * 2));
+			damage = new Damage(StringConstants.POISON, (creature.baseDamage + 2));
 		else
 			damage = new Damage(StringConstants.POISON, 0);
 		return damage;

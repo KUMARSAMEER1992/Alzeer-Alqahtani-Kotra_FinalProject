@@ -47,7 +47,7 @@ public class AcidCreature extends Ability
 	{
 		Damage damage;
 		if (currentLifePoints > 0)
-			damage = new Damage(StringConstants.ACID, (creature.baseDamage * 3));
+			damage = new Damage(StringConstants.ACID, (creature.baseDamage + 3));
 		else
 			damage = new Damage(StringConstants.ACID, 0);
 		return damage;
