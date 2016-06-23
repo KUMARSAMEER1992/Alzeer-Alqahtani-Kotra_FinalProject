@@ -41,7 +41,6 @@ public class TestAcidCreature
 		assertTrue(acid1 instanceof MapItem);
 		acid1.attack(acid2);
 		assertEquals(42,acid2.getCurrentLifePoints());	
-		TestPlayer.resetPlayer();
 		//test boarding case,when current life points 0 do not do attack
 		Creature normal3= new NormalCreature("Spider",0);
 		Creature normal4= new NormalCreature("bug",50);
@@ -64,10 +63,12 @@ public class TestAcidCreature
 	@Test
 	public void testAttackWithPlayer() 
 	{
+		TestPlayer.resetPlayer();
 		Creature normal= new NormalCreature("Spider",30);
 		Ability acid = new AcidCreature(normal);
 		Player player = Player.getPlayer();
 		acid.attack(player);
+		System.out.println(player.getCurrentLifePoints());
 		assertEquals(92,player.getCurrentLifePoints());
 		TestPlayer.resetPlayer();
 	}
