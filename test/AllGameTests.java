@@ -44,10 +44,6 @@ import weapon.TestWeakAttachment;
 /**
  * @author Sameer Kumar Kotra
  */
-
-/**
- * @author Sameer Kumar Kotra
- */
 @RunWith(Suite.class)
 @SuiteClasses(
 { TestCell.class, TestEnvironment.class, TestArmorAcidAddon.class, TestArmorAddon.class, TestArmorFactory.class,
