@@ -32,6 +32,9 @@ public class PlayGame
 	Invoker invoker;
 	GameDisplay display;
 
+	/**
+	 * creates instance of play game.
+	 */
 	public PlayGame()
 	{
 		environment = Environment.getWorldInstance();
@@ -42,12 +45,19 @@ public class PlayGame
 		environment.setDisplay(display);
 	}
 
+	/**
+	 * starting point of the execution.
+	 * @param args
+	 */
 	public static void main(String args[])
 	{
 		PlayGame play = new PlayGame();
 		play.play();
 	}
 
+	/**
+	 * creates the map for the play to play.
+	 */
 	private void play()
 	{
 		environment.addMapItem(1, 1, player);
@@ -61,7 +71,7 @@ public class PlayGame
 	}
 
 	/**
-	 * 
+	 * creates creatures and place them on the map.
 	 */
 	private void createCreatures()
 	{
@@ -74,29 +84,29 @@ public class PlayGame
 		temp = new NormalCreature("tets", 40);
 		environment.addMapItem(14, 3, temp);
 
-		temp = new NormalCreature("tets", 40);
+		temp = new NormalCreature("tets", 60);
 		temp = new PoisonCreature(temp);
 		environment.addMapItem(3, 31, temp);
 
-		temp = new NormalCreature("tets", 40);
+		temp = new NormalCreature("tets", 60);
 		temp = new PoisonCreature(temp);
 		environment.addMapItem(14, 42, temp);
 
-		temp = new NormalCreature("tets", 40);
+		temp = new NormalCreature("tets", 60);
 		temp = new AcidCreature(temp);
 		environment.addMapItem(28, 1, temp);
 
-		temp = new NormalCreature("tets", 40);
+		temp = new NormalCreature("tets", 60);
 		temp = new AcidCreature(temp);
 		environment.addMapItem(14, 40, temp);
 
-		temp = new NormalCreature("tets", 40);
+		temp = new NormalCreature("tets", 60);
 		temp = new AcidCreature(temp);
 		environment.addMapItem(5, 31, temp);
 	}
 
 	/**
-	 * 
+	 * creates weapons and place them on the map.
 	 */
 	private void createWeapons()
 	{
@@ -113,6 +123,9 @@ public class PlayGame
 
 	}
 
+	/**
+	 * creates portions and place them on the map.
+	 */
 	private void createPotions()
 	{
 		Potion temp = new HealthPotion();
@@ -121,13 +134,14 @@ public class PlayGame
 		Potion temp1 = new PoisonAddon(temp);
 		environment.addMapItem(4, 20, temp1);
 
-		// environment.addMapItem(2, 2, temp1);
 		temp1 = new AcidAddon(temp);
 		environment.addMapItem(11, 47, temp1);
 
-		// environment.addMapItem(5, 5, temp1);
 	}
 
+	/**
+	 * creates keys and place them on the map.
+	 */
 	private void createKeys()
 	{
 		Key temp = new Key(1);
@@ -141,6 +155,9 @@ public class PlayGame
 		environment.addMapItem(14, 41, temp);
 	}
 
+	/**
+	 * creates walls and doors and place them on the map.
+	 */
 	private void createWalls()
 	{
 		Wall temp;

@@ -269,6 +269,9 @@ public class TestEnvironment
 
 	/**
 	 * test move Player to a Cell with Weapon, but Player has a weapon.
+	 * the test prompts user asking to swap the weapon or not.
+	 * the test can pass in both scenarios when user clicks yes or no but not
+	 * cancel.
 	 */
 	@Test
 	public void testMoveToWeaponWithWepon()
