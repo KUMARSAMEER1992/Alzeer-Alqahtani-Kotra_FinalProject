@@ -7,6 +7,7 @@ import org.junit.Test;
 import player.Creature;
 import player.NormalCreature;
 import player.Player;
+import player.TestPlayer;
 /**
  * The test cases for Spears class.
  * @author Dalal Alzeer
@@ -28,6 +29,7 @@ public class TestSpears
 		p.pickUp(spear);
 		p.attack(normal);
 		assertEquals(23,normal.getCurrentLifePoints());
+		TestPlayer.resetPlayer();
 	}
 	/**
 	 * test calculateDamage

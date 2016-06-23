@@ -7,6 +7,7 @@ import org.junit.Test;
 import player.Creature;
 import player.NormalCreature;
 import player.Player;
+import player.TestPlayer;
 /**
  * The test cases for Maces class.
  * @author Dalal Alzeer
@@ -28,6 +29,7 @@ public class TestMaces
 		p.pickUp(mace);
 		p.attack(normal);
 		assertEquals(25,normal.getCurrentLifePoints());
+		TestPlayer.resetPlayer();
 	}
 	/**
 	 * test calculateDamage

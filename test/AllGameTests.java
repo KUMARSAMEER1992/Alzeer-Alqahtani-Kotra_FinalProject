@@ -39,6 +39,7 @@ import weapon.TestGenericWeapon;
 import weapon.TestMaces;
 import weapon.TestSpears;
 import weapon.TestStrongAttachment;
+import weapon.TestSwords;
 import weapon.TestWeakAttachment;
 
 /**
@@ -53,7 +54,7 @@ import weapon.TestWeakAttachment;
 		TestNormalCreature.class, TestPlayer.class, TestPoisonCreature.class, TestSimpleTimer.class, TestInvoker.class,
 		TestInvokerBuilder.class, TestTurnEast.class, TestTurnNorth.class, TestTurnSouth.class, TestTurnWest.class,
 		TestGameDisplayInfo.class, TestGameDisplayLegend.class, TestGameDisplayMap.class, TestAttachments.class,
-		TestGenericWeapon.class, TestMaces.class, TestSpears.class, TestStrongAttachment.class,
+		TestGenericWeapon.class, TestMaces.class, TestSpears.class,TestSwords.class, TestStrongAttachment.class,
 		TestWeakAttachment.class })
 public class AllGameTests
 {
