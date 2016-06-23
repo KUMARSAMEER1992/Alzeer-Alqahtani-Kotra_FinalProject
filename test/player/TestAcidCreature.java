@@ -27,8 +27,9 @@ public class TestAcidCreature
 		assertEquals(50,acid.getCurrentLifePoints());
 		assertEquals('D',acid.getChar());
 	}
+
 	/**
-	 * Test attack for AcidCreature.
+	 * Test attack with another AcidCreature.
 	 */
 	@Test
 	public void testAttack() 
@@ -40,7 +41,23 @@ public class TestAcidCreature
 		assertTrue(acid1 instanceof MapItem);
 		acid1.attack(acid2);
 		assertEquals(42,acid2.getCurrentLifePoints());	
+		TestPlayer.resetPlayer();
+		//test boarding case,when current life points 0 do not do attack
+		Creature normal3= new NormalCreature("Spider",0);
+		Creature normal4= new NormalCreature("bug",50);
+		Ability acid3 = new AcidCreature(normal3);
+		Ability acid4 = new AcidCreature(normal4);
+		acid3.attack(acid4);
+		assertEquals(50,acid4.getCurrentLifePoints());
+		//test boarding case,when creature dead 
+		Creature normal5= new NormalCreature("Spider",20);
+		Creature normal6= new NormalCreature("bug",2);
+		Ability acid5 = new AcidCreature(normal5);
+		Ability acid6 = new AcidCreature(normal6);
+		acid5.attack(acid6);
+		assertEquals(0,acid6.getCurrentLifePoints());
 	}
+	
 	/**
 	 * Test attack for AcidCreature with Player.
 	 */

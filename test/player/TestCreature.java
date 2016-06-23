@@ -25,5 +25,5 @@ public class TestCreature
 		assertEquals("spider",creature.getName());
 		assertEquals("CREATURE",creature.getItemType());
 	}
-
+	
 }

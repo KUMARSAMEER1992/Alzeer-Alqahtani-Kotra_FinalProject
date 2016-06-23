@@ -28,7 +28,7 @@ public class TestPoisonCreature
 		assertEquals('E',poison.getChar());
 	}
 	/**
-	 * Test attack for PoisonCreature.
+	 * Test attack with another PoisonCreature.
 	 */
 	@Test
 	public void testAttack() 
@@ -40,6 +40,20 @@ public class TestPoisonCreature
 		assertTrue(poison1 instanceof MapItem);
 		poison1.attack(poison2);
 		assertEquals(43,poison2.getCurrentLifePoints());	
+		//test boarding case,when current life points 0 do not do attack
+		Creature normal3= new NormalCreature("Spider",0);
+		Creature normal4= new NormalCreature("bug",50);
+		Ability poison3 = new PoisonCreature(normal3);
+		Ability poison4 = new PoisonCreature(normal4);
+		poison3.attack(poison4);
+		assertEquals(50,poison4.getCurrentLifePoints());
+		//test boarding case,when creature dead 
+		Creature normal5= new NormalCreature("Spider",20);
+		Creature normal6= new NormalCreature("bug",2);
+		Ability poison5 = new PoisonCreature(normal5);
+		Ability poison6 = new PoisonCreature(normal6);
+		poison5.attack(poison6);
+		assertEquals(0,poison6.getCurrentLifePoints());
 	}
 	/**
 	 * Test attack for PoisonCreature with Player.

@@ -27,7 +27,7 @@ public class TestNormalCreature
 		assertEquals('N',normal.getChar());
 	}
 	/**
-	 * Test attack for NormalCreature.
+	 * Test attack with another NormalCreature.
 	 */
 	@Test
 	public void testAttack() 
@@ -37,6 +37,17 @@ public class TestNormalCreature
 		assertTrue(normal1 instanceof MapItem);
 		normal1.attack(normal2);
 		assertEquals(45,normal2.getCurrentLifePoints());	
+		TestPlayer.resetPlayer();
+		//test boarding case,when current life points 0 do not do attack
+		Creature normal3= new NormalCreature("Spider",0);
+		Creature normal4= new NormalCreature("bug",50);
+		normal3.attack(normal4);
+		assertEquals(50,normal4.getCurrentLifePoints());
+		//test boarding case,when creature dead 
+		Creature normal5= new NormalCreature("Spider",20);
+		Creature normal6= new NormalCreature("bug",2);
+		normal5.attack(normal6);
+		assertEquals(0,normal6.getCurrentLifePoints());
 	}
 	/**
 	 * Test attack for NormalCreature with Player.
