@@ -1,12 +1,28 @@
 package environment;
 
+import items.Key;
 import items.Wall;
+import items.potion.AcidAddon;
+import items.potion.HealthPotion;
+import items.potion.PoisonAddon;
+import items.potion.Potion;
+import player.AcidCreature;
+import player.Creature;
+import player.NormalCreature;
 import player.Player;
+import player.PoisonCreature;
 import ui.GameDisplay;
 import ui.command.Invoker;
 import ui.command.InvokerBuilder;
+import weapon.Maces;
+import weapon.Spears;
+import weapon.StrongAttachment;
+import weapon.Swords;
+import weapon.WeakAttachment;
+import weapon.Weapon;
 
 /**
+ * This class allows the user to play the game.
  * @author Sameer Kumar Kotra
  */
 public class PlayGame
@@ -22,6 +38,7 @@ public class PlayGame
 		player = Player.getPlayer();
 		invoker = InvokerBuilder.build();
 		display = new GameDisplay();
+		display.setStartAndEnd();
 		environment.setDisplay(display);
 	}
 
@@ -35,8 +52,93 @@ public class PlayGame
 	{
 		environment.addMapItem(1, 1, player);
 		createWalls();
+		createKeys();
+		createPotions();
+		createWeapons();
+		createCreatures();
 		player.increaseKey(10);
 		environment.informDisplay();
+	}
+
+	/**
+	 * 
+	 */
+	private void createCreatures()
+	{
+		Creature temp = new NormalCreature("tets", 40);
+		environment.addMapItem(8, 14, temp);
+
+		temp = new NormalCreature("tets", 40);
+		environment.addMapItem(15, 41, temp);
+
+		temp = new NormalCreature("tets", 40);
+		environment.addMapItem(14, 3, temp);
+
+		temp = new NormalCreature("tets", 40);
+		temp = new PoisonCreature(temp);
+		environment.addMapItem(3, 31, temp);
+
+		temp = new NormalCreature("tets", 40);
+		temp = new PoisonCreature(temp);
+		environment.addMapItem(14, 42, temp);
+
+		temp = new NormalCreature("tets", 40);
+		temp = new AcidCreature(temp);
+		environment.addMapItem(28, 1, temp);
+
+		temp = new NormalCreature("tets", 40);
+		temp = new AcidCreature(temp);
+		environment.addMapItem(14, 40, temp);
+
+		temp = new NormalCreature("tets", 40);
+		temp = new AcidCreature(temp);
+		environment.addMapItem(5, 31, temp);
+	}
+
+	/**
+	 * 
+	 */
+	private void createWeapons()
+	{
+		Weapon temp = new Swords();
+		environment.addMapItem(5, 20, temp);
+
+		temp = new Spears();
+		temp = new WeakAttachment(temp);
+		environment.addMapItem(6, 38, temp);
+
+		temp = new Maces();
+		temp = new StrongAttachment(temp);
+		environment.addMapItem(14, 2, temp);
+
+	}
+
+	private void createPotions()
+	{
+		Potion temp = new HealthPotion();
+		environment.addMapItem(14, 20, temp);
+
+		Potion temp1 = new PoisonAddon(temp);
+		environment.addMapItem(4, 20, temp1);
+
+		// environment.addMapItem(2, 2, temp1);
+		temp1 = new AcidAddon(temp);
+		environment.addMapItem(11, 47, temp1);
+
+		// environment.addMapItem(5, 5, temp1);
+	}
+
+	private void createKeys()
+	{
+		Key temp = new Key(1);
+		environment.addMapItem(8, 15, temp);
+		environment.addMapItem(18, 15, temp);
+		environment.addMapItem(23, 15, temp);
+		environment.addMapItem(20, 24, temp);
+		environment.addMapItem(10, 24, temp);
+		environment.addMapItem(4, 31, temp);
+		environment.addMapItem(8, 41, temp);
+		environment.addMapItem(14, 41, temp);
 	}
 
 	private void createWalls()

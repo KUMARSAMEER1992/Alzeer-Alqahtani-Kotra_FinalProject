@@ -31,6 +31,8 @@ public class TestArmorAcidAddon
 		Damage poisonDamage = new Damage("POISON", 20);
 		poisonDamage = addon.reduceDamage(poisonDamage);
 		assertEquals(15, poisonDamage.getDamagePoints());
+
+		assertEquals('C', addon.getChar());
 	}
 
 }

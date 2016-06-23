@@ -19,8 +19,7 @@ public class MockLifeForm extends LifeForm
 	@Override
 	public void takeHit(Damage damage)
 	{
-		// TODO Auto-generated method stub
-
+		currentLifePoints -= damage.getDamagePoints();
 	}
 
 	@Override
@@ -44,8 +43,8 @@ public class MockLifeForm extends LifeForm
 	@Override
 	public Damage calculateDamage()
 	{
-		// TODO Auto-generated method stub
-		return null;
+		Damage damage = new Damage("MockDamage", getAttachStrength());
+		return damage;
 	}
 
 }

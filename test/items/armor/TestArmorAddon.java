@@ -1,12 +1,13 @@
 package items.armor;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import environment.StringConstants;
 import exception.ArmorException;
+import player.Player;
 
 /**
  * Test cases for ArmorAddon
@@ -29,19 +30,36 @@ public class TestArmorAddon
 	}
 
 	/**
-	 * test armor works correctly with th etime.
+	 * test armor works correctly with the time.
 	 * @throws ArmorException
 	 */
 	@Test
 	public void testCheckIsLive() throws ArmorException
 	{
+		Player player = Player.getPlayer();
 		Armor armor = new NormalArmor(5);
 		ArmorAddon addon = new MockArmorAddon(armor, 2);
 
-		assertTrue(addon.isLive());
+		player.setArmor(addon);
+
+		assertEquals(2, addon.getMaxRounds());
+		assertEquals(addon, player.getArmor());
 		addon.updateTime(1);
-		assertTrue(addon.isLive());
+		assertEquals(addon, player.getArmor());
 		addon.updateTime(2);
-		assertFalse(addon.isLive());
+
+		assertEquals(armor, player.getArmor());
+	}
+
+	/**
+	 * test the MapItem interface methods.
+	 * @throws ArmorException
+	 */
+	@Test
+	public void testMapMethods() throws ArmorException
+	{
+		Armor armor = new NormalArmor(5);
+		ArmorAddon addon = new MockArmorAddon(armor, 2);
+		assertEquals(StringConstants.ARMOR, addon.getItemType());
 	}
 }

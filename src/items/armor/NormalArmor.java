@@ -1,5 +1,6 @@
 package items.armor;
 
+import environment.StringConstants;
 import lifeform.Damage;
 
 /**
@@ -37,7 +38,7 @@ public class NormalArmor implements Armor
 	@Override
 	public String getItemType()
 	{
-		return "ARMOR";
+		return StringConstants.ARMOR;
 	}
 
 	/**

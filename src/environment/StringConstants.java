@@ -16,4 +16,5 @@ public class StringConstants
 	public static final String NORMALCREATURE = "NORMALCREATURE";
 	public static final String PLAYER = "PLAYER";
 	public static final String WEAPON = "WEAPON";
+	public static final String ARMOR = "ARMOR";
 }

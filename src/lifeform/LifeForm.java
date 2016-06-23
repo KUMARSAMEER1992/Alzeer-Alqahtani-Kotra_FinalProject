@@ -147,7 +147,7 @@ public abstract class LifeForm implements MapItem
 	public void attack(LifeForm lifeForm2)
 	{
 		Damage damage = this.calculateDamage();
-		if (getCurrentLifePoints() > 0)
+		if (getCurrentLifePoints() > 0 && damage != null)
 		{
 			lifeForm2.takeHit(damage);
 		}

@@ -1,9 +1,10 @@
 package weapon;
+
 import lifeform.Damage;
+
 /**
- *  strong Attachment to all weapons.
+ * strong Attachment to all weapons.
  * @author Dalal Alzeer
- *
  */
 public class StrongAttachment extends Attachments
 {
@@ -16,6 +17,7 @@ public class StrongAttachment extends Attachments
 	{
 		attachmentDamage = w.getBaseDamage() + 15;
 	}
+
 	/**
 	 * Calculates the damage.
 	 * @return the damage caused by the weapon.
@@ -26,6 +28,7 @@ public class StrongAttachment extends Attachments
 		Damage damage = new Damage("WEAPON", attachmentDamage);
 		return damage;
 	}
+
 	/**
 	 * @return the character that displayed in the map
 	 */
@@ -34,11 +37,12 @@ public class StrongAttachment extends Attachments
 	{
 		return 'G';
 	}
+
 	/**
 	 * @return the attachment damage.
 	 */
 	@Override
-	public int getBaseDamage() 
+	public int getBaseDamage()
 	{
 		return attachmentDamage;
 	}

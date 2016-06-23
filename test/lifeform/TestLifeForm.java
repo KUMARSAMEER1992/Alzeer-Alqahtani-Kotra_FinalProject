@@ -54,4 +54,23 @@ public class TestLifeForm
 		assertEquals(-1, entity.getLocationY());
 	}
 
+	/**
+	 * test attack method.
+	 */
+	@Test
+	public void testAttck()
+	{
+		LifeForm entity = new MockLifeForm("Bob", 40, 10);
+		LifeForm entity1 = new MockLifeForm("Bob", 50, 5);
+
+		assertEquals(50, entity1.getCurrentLifePoints());
+		entity.attack(entity1);
+		assertEquals(40, entity1.getCurrentLifePoints());
+
+		entity = new MockLifeForm("Bob", 0, 10);
+		entity1 = new MockLifeForm("Bob", 50, 5);
+		assertEquals(50, entity1.getCurrentLifePoints());
+		entity.attack(entity1);
+		assertEquals(50, entity1.getCurrentLifePoints());
+	}
 }

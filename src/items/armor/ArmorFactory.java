@@ -1,7 +1,6 @@
 package items.armor;
 
 import environment.StringConstants;
-import exception.ArmorException;
 import items.potion.PotionDetails;
 
 /**
@@ -14,40 +13,36 @@ public class ArmorFactory
 	/**
 	 * Builds the Armor from the given details.
 	 * @param armor : Player armor if present.
-	 * @param details : Potion details to determine th eArmor type.
+	 * @param details : Potion details to determine the Armor type.
 	 * @return the Armor created.
 	 */
-	public static Armor buildArmor(Armor armor, PotionDetails details)
+	public static ArmorAddon buildArmor(Armor armor, PotionDetails details)
 	{
+		ArmorAddon temp = null;
 		if (armor == null)
 		{
-			armor = new NormalArmor(details.getHealthPoints());
+			armor = new NormalArmor(3);
 		}
 		else if (armor instanceof ArmorAddon)
 		{
 			armor = ((ArmorAddon) armor).armor;
 		}
-		if (details.getType().equals(StringConstants.ACID))
+		try
 		{
-			try
+			if (details != null && details.getType().equals(StringConstants.ACID))
 			{
-				armor = new ArmorAcidAddon(armor);
+				temp = new ArmorAcidAddon(armor);
 			}
-			catch (ArmorException e)
+			else if (details != null && details.getType().equals(StringConstants.POISON))
 			{
+				temp = new ArmorPosionAddon(armor);
 			}
 		}
-		else if (details.getType().equals(StringConstants.POISON))
+		catch (Exception e)
 		{
-			try
-			{
-				armor = new ArmorPosionAddon(armor);
-			}
-			catch (ArmorException e)
-			{
-			}
+			System.out.println(e);
 		}
-		return armor;
+		return temp;
 	}
 
 }

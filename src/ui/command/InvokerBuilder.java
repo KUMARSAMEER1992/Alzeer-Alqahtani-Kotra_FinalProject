@@ -3,10 +3,14 @@ package ui.command;
 import player.Player;
 
 /**
+ * This class creates a invoker.
  * @author Sameer Kumar Kotra
  */
 public class InvokerBuilder
 {
+	/**
+	 * @return the invoker build.
+	 */
 	public static Invoker build()
 	{
 		Player player = Player.getPlayer();

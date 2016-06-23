@@ -1,6 +1,9 @@
 package items.armor;
 
+import environment.Environment;
+import environment.StringConstants;
 import exception.ArmorException;
+import player.Player;
 import time.TimeObserver;
 
 /**
@@ -46,24 +49,38 @@ public abstract class ArmorAddon implements Armor, TimeObserver
 	@Override
 	public void updateTime(int time)
 	{
+		Environment environment = Environment.getWorldInstance();
 		maxRounds--;
+		if (maxRounds <= 0)
+		{
+			Player player = Player.getPlayer();
+			environment.removeTimerObserver(this);
+			// environment.getTimer().removeTimeObserver(this);
+			Armor temp = player.getArmor();
+			if (temp instanceof ArmorAddon)
+			{
+				temp = ((ArmorAddon) temp).armor;
+				player.setArmor(temp);
+			}
+		}
+		environment.informDisplay();
 	}
 
 	/**
-	 * Returns the Armor state.
-	 * @return true if maxRounds not completed, else false.
+	 * @return the type of the item.
 	 */
-	public boolean isLive()
-	{
-		if (maxRounds > 0)
-			return true;
-		else
-			return false;
-	}
-
 	@Override
 	public String getItemType()
 	{
-		return "ARMOR";
+		return StringConstants.ARMOR;
 	}
+
+	/**
+	 * @return the max rounds remaining for Armor to be live.
+	 */
+	public int getMaxRounds()
+	{
+		return maxRounds;
+	}
+
 }

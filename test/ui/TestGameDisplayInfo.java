@@ -30,7 +30,8 @@ public class TestGameDisplayInfo
 	public void test() throws ArmorException
 	{
 		String[] tests = new String[]
-		{ "Player LifePoints : 50", "Player Armor : ACID Armor", "Player Weapon : Sword", "Palye keys : 2" };
+		{ "Player LifePoints : 100", "Player Armor : ACID Armor", "Player Weapon : Sword", "Palye keys : 2",
+				"Rounds : 10" };
 
 		Armor armor = new NormalArmor(10);
 		armor = new ArmorAcidAddon(armor);

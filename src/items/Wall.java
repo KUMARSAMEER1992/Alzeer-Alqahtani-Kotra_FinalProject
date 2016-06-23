@@ -37,7 +37,7 @@ public class Wall implements MapItem
 	public char getChar()
 	{
 		if (isDoor())
-			return '|';
+			return '!';
 		else
 			return '#';
 	}

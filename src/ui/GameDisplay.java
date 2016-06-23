@@ -13,6 +13,8 @@ import javax.swing.border.LineBorder;
 
 import environment.Environment;
 import environment.MapItem;
+import items.armor.Armor;
+import items.armor.ArmorAddon;
 import player.Player;
 
 /**
@@ -82,8 +84,8 @@ public class GameDisplay
 	{
 		rows = Environment.ROWS;
 		cols = Environment.COLS;
-		playerDetails = new JLabel[4];
-		for (int i = 0; i < 4; i++)
+		playerDetails = new JLabel[5];
+		for (int i = 0; i < 5; i++)
 		{
 			playerDetails[i] = new JLabel(EMPTY);
 		}
@@ -144,11 +146,7 @@ public class GameDisplay
 				mapArea.add(lables[i][j]);
 			}
 		}
-		lables[rows - 2][cols - 2].setOpaque(true);
-		lables[rows - 2][cols - 2].setBackground(Color.GREEN);
 
-		lables[1][1].setOpaque(true);
-		lables[1][1].setBackground(Color.RED);
 	}
 
 	/**
@@ -174,7 +172,7 @@ public class GameDisplay
 		playerInfoPanel = new JPanel();
 		playerInfoPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		infoPanel.add(playerInfoPanel, BorderLayout.CENTER);
-		playerInfoPanel.setLayout(new GridLayout(9, 0, 0, 0));
+		playerInfoPanel.setLayout(new GridLayout(11, 1, 0, 0));
 		JLabel lblNewLabel = new JLabel("Info");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 15));
 		playerInfoPanel.add(lblNewLabel);
@@ -190,6 +188,9 @@ public class GameDisplay
 
 		playerInfoPanel.add(new JLabel(" Keys "));
 		playerInfoPanel.add(playerDetails[3]);
+
+		playerInfoPanel.add(new JLabel(" Round "));
+		playerInfoPanel.add(playerDetails[4]);
 	}
 
 	/**
@@ -203,23 +204,24 @@ public class GameDisplay
 		legendPanel.setAlignmentX(0.0f);
 		legendPanel.setBorder(new LineBorder(new Color(0, 0, 0)));
 		infoPanel.add(legendPanel, BorderLayout.EAST);
-		legendPanel.setLayout(new GridLayout(18, 1, 0, 0));
+		legendPanel.setLayout(new GridLayout(19, 1, 0, 0));
 
 		JLabel lblNewLabel = new JLabel("Legend");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 17));
 		legendPanel.add(lblNewLabel);
 
 		legendPanel.add(new JLabel(" P:player"));
-		legendPanel.add(new JLabel(" I:PoisonAddon"));
+		legendPanel.add(new JLabel(" I:PoisonPotion"));
 		legendPanel.add(new JLabel(" H:HealthPotion"));
-		legendPanel.add(new JLabel(" J:AcidAddon"));
+		legendPanel.add(new JLabel(" J:AcidPotion"));
 		legendPanel.add(new JLabel(" S:Sword"));
 		legendPanel.add(new JLabel(" R:Spear"));
 		legendPanel.add(new JLabel(" M:Mace"));
-		legendPanel.add(new JLabel(" T:Attachment"));
+		legendPanel.add(new JLabel(" W:weakAttachment"));
+		legendPanel.add(new JLabel(" G:strongAttachment"));
 		legendPanel.add(new JLabel(" K:Key"));
 		legendPanel.add(new JLabel(" #:Wall"));
-		legendPanel.add(new JLabel(" |:Door"));
+		legendPanel.add(new JLabel(" !:Door"));
 		legendPanel.add(new JLabel(" A:NormalArmor"));
 		legendPanel.add(new JLabel(" C:AcidArmor"));
 		legendPanel.add(new JLabel(" O:PoisionArmor"));
@@ -247,6 +249,16 @@ public class GameDisplay
 		playerDetails[1].setText(" " + getdisplayString(player.getArmor()));
 		playerDetails[2].setText(" " + getdisplayString(player.getWeapon()));
 		playerDetails[3].setText(player.getKey() + "");
+		Armor temp = player.getArmor();
+		if (temp != null && temp instanceof ArmorAddon)
+		{
+			int rounds = ((ArmorAddon) temp).getMaxRounds();
+			playerDetails[4].setText(rounds + "");
+		}
+		else
+		{
+			playerDetails[4].setText(EMPTY);
+		}
 	}
 
 	/**
@@ -262,4 +274,14 @@ public class GameDisplay
 			return "" + item.getChar();
 	}
 
+	/**
+	 * sets the start cell and end cell colors in the game.
+	 */
+	public void setStartAndEnd()
+	{
+		lables[rows - 2][cols - 2].setOpaque(true);
+		lables[rows - 2][cols - 2].setBackground(Color.GREEN);
+		lables[1][1].setOpaque(true);
+		lables[1][1].setBackground(Color.RED);
+	}
 }

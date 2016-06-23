@@ -6,6 +6,8 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
 import environment.MapItem;
+import environment.StringConstants;
+import exception.ArmorException;
 
 /**
  * Test cases for Key Class.
@@ -28,4 +30,15 @@ public class TestKey
 		assertEquals(0, key.getKeys());
 	}
 
+	/**
+	 * test the MapItem interface methods.
+	 * @throws ArmorException
+	 */
+	@Test
+	public void testMapMethods() throws ArmorException
+	{
+		Key key = new Key(1);
+		assertEquals(StringConstants.KEY, key.getItemType());
+		assertEquals('K', key.getChar());
+	}
 }

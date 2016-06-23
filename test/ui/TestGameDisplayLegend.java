@@ -21,9 +21,9 @@ public class TestGameDisplayLegend
 	{
 		GameDisplay display = new GameDisplay();
 		String[] lables = new String[]
-		{ "P:player", "H:HealthPotion,I:PoisonAddon,J:AcidAddon", " S:Sword,R:Spear,M:Mace,T:Attachment",
-				" K:Key,#:Wall,|:Door", " A:NormalArmor,C:AcidArmor,O:PoisionArmor",
-				"N:NormalCreature,E:PoisionCreature,D:AcidCreature" };
+		{ "P:player", "H:HealthPotion,I:PoisonPotion,J:AcidPotion",
+				" S:Sword,R:Spear,M:Mace,W:weakAttachment,G:strongAttachment", " K:Key,#:Wall,!:Door",
+				" A:NormalArmor,C:AcidArmor,O:PoisionArmor", "N:NormalCreature,E:PoisionCreature,D:AcidCreature" };
 
 		for (String s : lables)
 		{

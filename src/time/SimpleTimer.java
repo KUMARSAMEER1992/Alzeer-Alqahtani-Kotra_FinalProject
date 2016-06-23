@@ -1,6 +1,8 @@
 package time;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * This class consists members and functions related to SimpleTimer. SimpleTimer
@@ -18,20 +20,23 @@ public class SimpleTimer extends Thread implements Timer
 	/**
 	 * List of Observers.
 	 */
-	private ArrayList<TimeObserver> theObservers;
+	private List<TimeObserver> theObservers;
 
 	/**
 	 * int to store sleep time.
 	 */
 	private int sleepTime;
 
+	private boolean timeron;
+
 	/**
 	 * Create an instance of SimpleTimer.
 	 */
 	public SimpleTimer()
 	{
+		timeron = true;
 		round = 0;
-		theObservers = new ArrayList<TimeObserver>();
+		theObservers = new CopyOnWriteArrayList<TimeObserver>();
 	}
 
 	/**
@@ -106,7 +111,7 @@ public class SimpleTimer extends Thread implements Timer
 	@Override
 	public void run()
 	{
-		for (int i = 0; i < 50; i++)
+		while (timeron)
 		{
 			try
 			{
@@ -119,5 +124,11 @@ public class SimpleTimer extends Thread implements Timer
 				e.printStackTrace();
 			}
 		}
+	}
+
+	// TODO
+	public void stopTimer()
+	{
+		timeron = false;
 	}
 }

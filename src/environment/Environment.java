@@ -4,12 +4,13 @@ import javax.swing.JOptionPane;
 
 import items.Key;
 import items.Wall;
-import items.armor.Armor;
+import items.armor.ArmorAddon;
 import items.armor.ArmorFactory;
 import items.potion.Potion;
 import items.potion.PotionDetails;
 import lifeform.LifeForm;
 import player.Player;
+import time.SimpleTimer;
 import ui.GameDisplay;
 import weapon.Weapon;
 
@@ -45,6 +46,11 @@ public class Environment
 	private GameDisplay display;
 
 	/**
+	 * Simple timer to keep track of the time.
+	 */
+	private SimpleTimer timer;
+
+	/**
 	 * Create an instance of Environment which has the given number of rows and
 	 * Columns to store Cells.
 	 * Constructor is private to create single ton pattern.
@@ -52,6 +58,8 @@ public class Environment
 	private Environment()
 	{
 		cells = new Cell[ROWS][COLS];
+		timer = new SimpleTimer(1000);
+		timer.start();
 		for (int i = 0; i < ROWS; i++)
 		{
 			for (int j = 0; j < COLS; j++)
@@ -158,7 +166,6 @@ public class Environment
 				if (isEmpty(temp, y))
 				{
 					swapLocation(x, y, temp, y);
-					checkAttackCondition(temp, y);
 				}
 				else
 				{
@@ -170,6 +177,7 @@ public class Environment
 					{
 						swapLocation(x, y, temp, y);
 					}
+
 				}
 			}
 			break;
@@ -180,7 +188,6 @@ public class Environment
 				if (isEmpty(x, temp))
 				{
 					swapLocation(x, y, x, temp);
-					checkAttackCondition(x, temp);
 				}
 				else
 				{
@@ -202,7 +209,6 @@ public class Environment
 				if (isEmpty(temp, y))
 				{
 					swapLocation(x, y, temp, y);
-					checkAttackCondition(temp, y);
 				}
 				else
 				{
@@ -224,7 +230,6 @@ public class Environment
 				if (isEmpty(x, temp))
 				{
 					swapLocation(x, y, x, temp);
-					checkAttackCondition(x, temp);
 				}
 				else
 				{
@@ -240,7 +245,6 @@ public class Environment
 			}
 			break;
 		}
-
 	}
 
 	/**
@@ -318,7 +322,7 @@ public class Environment
 			}
 			return false;
 		case StringConstants.POTION:
-			PotionDetails details = ((Potion) cells[row][col].getMapItem()).getDetails();
+			PotionDetails details = ((Potion) cells[row][col].removeMapItem()).getDetails();
 			updatePlayerPortion(details);
 			return true;
 		}
@@ -338,7 +342,8 @@ public class Environment
 		}
 		else
 		{
-			Armor armor = ArmorFactory.buildArmor(player.getArmor(), details);
+			ArmorAddon armor = ArmorFactory.buildArmor(player.getArmor(), details);
+			timer.addTimeObserver(armor);
 			player.setArmor(armor);
 		}
 	}
@@ -405,6 +410,7 @@ public class Environment
 		{
 			JOptionPane.showMessageDialog(null, "Player Dead Game Complete");
 			removeMapItem(player.getLocationX(), player.getLocationY());
+			endGame();
 		}
 		if (creature.getCurrentLifePoints() == 0)
 		{
@@ -470,8 +476,26 @@ public class Environment
 		if (xNew == ROWS - 2 && yNew == COLS - 2)
 		{
 			JOptionPane.showMessageDialog(null, "Game Complete");
-			System.exit(0);
+			endGame();
 		}
+		checkAttackCondition(xNew, yNew);
+	}
+
+	/**
+	 * TODO
+	 */
+	private void endGame()
+	{
+		timer.stopTimer();
+		try
+		{
+			Thread.sleep(1500);
+		}
+		catch (InterruptedException e)
+		{
+			System.out.println(e);
+		}
+		System.exit(0);
 	}
 
 	/**
@@ -492,6 +516,15 @@ public class Environment
 	public void setDisplay(GameDisplay display)
 	{
 		this.display = display;
+	}
+
+	/**
+	 * removes the observer from the list.
+	 * @param armorAddon
+	 */
+	public void removeTimerObserver(ArmorAddon observer)
+	{
+		timer.removeTimeObserver(observer);
 	}
 
 }

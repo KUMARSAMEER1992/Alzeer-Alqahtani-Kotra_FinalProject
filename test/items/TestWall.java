@@ -1,11 +1,13 @@
 package items;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
 import environment.MapItem;
+import environment.StringConstants;
 
 /**
  * Test cases for the Wall class.
@@ -24,6 +26,10 @@ public class TestWall
 		assertTrue(wall instanceof MapItem);
 		assertFalse(wall.isDoor());
 		assertFalse(wall.isOpen());
+		wall.open();
+
+		assertEquals(StringConstants.WALL, wall.getItemType());
+		assertEquals('#', wall.getChar());
 	}
 
 	/**
@@ -39,5 +45,7 @@ public class TestWall
 		wall.open();
 
 		assertTrue(wall.isOpen());
+		assertEquals('!', wall.getChar());
 	}
+
 }

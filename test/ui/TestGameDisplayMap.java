@@ -42,8 +42,8 @@ public class TestGameDisplayMap
 		environment.addMapItem(6, 6, new Key(1));
 		environment.addMapItem(7, 7, new HealthPotion());
 		String[] tests = new String[]
-		{ "Player displayed at cell 2,2", "Normal Creature displayed at cell 3,3", "Wall displayed at 4,4",
-				"Door displayed at 5,5", "Key displayed at 6,6", "Health potion displayed at 7,7" };
+		{ "Player displayed at cell 3,3", "Normal Creature displayed at cell 4,4", "Wall displayed at 5,5",
+				"Door displayed at 6,6", "Key displayed at 7,7", "Health potion displayed at 8,8" };
 		GameDisplay display = new GameDisplay();
 		for (String s : tests)
 		{
