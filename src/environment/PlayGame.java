@@ -66,7 +66,7 @@ public class PlayGame
 		createPotions();
 		createWeapons();
 		createCreatures();
-		player.increaseKey(10);
+		// player.increaseKey(0);
 		environment.informDisplay();
 	}
 
